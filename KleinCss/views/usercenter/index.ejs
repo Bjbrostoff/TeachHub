@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title><%= title %></title>
+
+    <!--<link rel="stylesheet" href="/Inspinia/font-awesome/css/font-awesome.css">-->
+    <!--<link rel="stylesheet" href="/Inspinia/css/animate.css">-->
+    <!--<link rel="stylesheet" href="/Inspinia/css/style.css">-->
+    <link rel="stylesheet" href="/stylesheets/app/usercenter/style.css">
+    <link rel="stylesheet" href="/morrisjs/morris.css">
+    <link href='/fullcalendar/dist/fullcalendar.css' rel='stylesheet'/>
+    <link href='/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'/>
+    <link href="/iCheck/skins/all.css" rel="stylesheet">
+    <link href="/stylesheets/app/usercenter/timepicker.css" rel='stylesheet'>
+    <link href="/stylesheets/app/usercenter/summernote/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/app/usercenter/summernote/summernote.css">
+    <link rel="stylesheet" href="/stylesheets/app/usercenter/summernote/summernote-bs3.css">
+
+    <!-- Sweet Alert -->
+    <!--<link href="/Inspinia/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/summernote/summernote.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/dropzone/basic.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/dropzone/dropzone.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="/leaflet/dist/leaflet.css">
+    <!-- Data Tables -->
+    <!--<link href="/Inspinia/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">-->
+    <!--<link href="/Inspinia/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">-->
+
+    <% include ../includes/head/normal2.ejs %>
+
+</head>
+<body class="white-bg">
+<% include ../includes/header/nav/normal.ejs %>
+<div class="page-wrapper-content">
+    <div class="container percore">
+        <div class="page-wrapper-content white-bg">
+            <div class="row white-bg">
+                <div class="col-lg-2 col-md-2">
+                    <div class="box-border percore-left mt25">
+                        <div class="row mt25">
+                            <div class="col-sm-3"></div>
+                              <% if (typeof user.portrait == "undefined") { %>
+                               <div class="col-sm-6"><img class="img-circle img-responsive" width="100%" height="100%" src="../../img/a4.jpg" />
+                               </div>
+                              <%}else{%>
+                                <div class="col-sm-6"><img class="img-circle img-responsive" width="100%" height="100%" src="<%= user.portrait%>" />
+                                </div>
+                              <%}%>
+                            <div class="col-sm-3"></div>
+                        </div>
+                        <p><%= user.username %>，您好！</p>
+                        <div class="per-left-nav">
+                            <nav role="navigation" id="menu-sector"></nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="white-bg" id="content-sector">
+                        <div class="home-container">
+
+                        </div>
+                        <div class="mycourse-container">
+
+                        </div>
+                        <div class="mycert-container">
+
+                        </div>
+                        <div class="userinfo-container">
+
+                        </div>
+                        <div class="course-manage-container">
+
+                        </div>
+                        <div class="myfavorites-container">
+
+                        </div>
+                        <div class="myhomework-container">
+
+                        </div>
+                        <div class="sthomework-container">
+
+                        </div>
+                        <div class="myteachers-container">
+
+                        </div>
+                        <div class="mystudents-container">
+
+                        </div>
+                        <div class="mystudent-score">
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var username = '<%= user.username %>';
+    var usertype = '<%= user.usertype %>';
+    var localeName = '<%= localeName %>';
+    console.log('--------' + localeName);
+    function SetCookie(name, value) {
+
+        //设置名称为name,值为value的Cookie
+        var expdate = new Date();   //初始化时间
+        expdate.setTime(expdate.getTime() + 30 * 60 * 1000);   //时间
+        document.cookie = name + "=" + value + ";expires=" + expdate.toGMTString() + ";path=/";
+
+        //即document.cookie= name+"="+value+";path=/";   时间可以不要，但路径(path)必须要填写，因为JS的默认路径是当前页，如果不填，此cookie只在当前页面生效！~
+    }
+
+    SetCookie('username', '<%= user.username %>');
+    SetCookie('usertype', '<%= user.usertype %>');
+</script>
+
+<script src="/requirejs/require.js" data-main="/app/usercenter/ucmain.js"></script>
+
+
+</html>

@@ -1,0 +1,29 @@
+<div id="sthomework-findkbox-field" class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 25px;right: -15px;width:620px;min-height: 606px;border: #e7eaec 2px solid; background-color: white">
+
+    <div class="row" style="right: 0px;width:600px;height: 568px;">
+        <div class="ibox-title pull-left" style="position: absolute;top: 0px;left: -1px ;">
+            <h5><%= locale.MyHomework.SubmittedHomework %> --<%= fields.hwid.hwtitle %></h5>
+            <div class="ibox-tools " style="position: absolute;top: 7px;left: 580px">
+                <a class="close-link myhomework-findbox-close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content no-padding "
+             style="position: absolute;top: 40px;right: -1px ;width:620px;height:500px;border: #e7eaec 2px solid ; opacity: 0.5">
+            <div class="summernote ">
+                <div class="full-height">
+                    <div class="full-height-scroll white-bg border-left">
+
+                        <%= fields.hwcontent %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="btn btn-default myhomework-findbox-close" style="position: absolute;top: 596px;right: 300px"><%= locale.MyHomework.Close %></div>

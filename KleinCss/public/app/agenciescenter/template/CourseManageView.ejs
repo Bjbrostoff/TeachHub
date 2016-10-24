@@ -1,0 +1,138 @@
+<div class="row leftmargin animated fadeInRight">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>课程维护</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#home">主页</a>
+                        </li>
+                        <li class="active">
+                            <strong>课程维护</strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="project-list">
+                    <div class="row tab-content">
+                        <div class="toolbar">
+                            <ul class="nav nav-tabs">
+                                <span class="pull-right small text-muted"></span>
+                                <li class="course-manage-nav-tab active" data-bind="act"><a data-toggle="tab" href="#course-manage-mycourse-acting"><i class="fa fa-user"></i> 课程管理</a></li>
+                                <li class="course-manage-nav-tab" data-bind="pub"><a data-toggle="tab" href="#course-manage-mycourse-publish"><i class="fa fa-briefcase"></i> 授权管理</a></li>
+                                <li class="course-manage-nav-tab" data-bind="sellout"><a data-toggle="tab" href="#course-manage-mycourse-sellout"><i class="fa fa-briefcase"></i> 已下架</a></li>
+                                <li class="course-manage-nav-tab" data-bind="new"><a data-toggle="tab" href="#course-manage-mycourse-create"><i class="fa fa-briefcase"></i> 未公开</a></li>
+                                <!--<li class="course-manage-nav-tab" data-bind="all"><a data-toggle="tab" href="#course-manage-mycourse-all"><i class="fa fa-briefcase"></i> 所有课程</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row tab-content">
+                        <div class="tab-pane active" id="course-manage-mycourse-acting">
+                            <div class="panel-body">
+                                <div class="row" id="course-manage-act-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="course-manage-mycourse-publish">
+                            <div class="panel-body">
+                                <div class="row" id="course-manage-pub-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="course-manage-mycourse-sellout">
+                            <div class="panel-body">
+                                <div class="row" id="course-manage-sellout-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="course-manage-mycourse-create">
+                            <div class="panel-body">
+                                <div class="row" id="course-manage-new-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="tab-pane" id="course-manage-mycourse-all">-->
+                            <!--<div class="panel-body">-->
+                                <!--<div class="row" id="course-manage-all-tab">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div id="course-manage-chart">
+                        </div>
+
+                    </div>
+                    <div id="course-manage-chart-legend">
+
+                            <% for (var i= 0; i < chartData.data.length; i++) { %>
+                               <% if ( i%2==0){ %>
+                                   <% var item1 = chartData.data[i]; %>
+                                   <% var item1c = chartData.colors[i]; %>
+                                   <% var item2, item2c; %>
+                                    <% if (i+1 < chartData.data.length){ %>
+                                    <%    item2 = chartData.data[i+1]; %>
+                                    <%    item2c = chartData.colors[i+1]; %>
+                                    <% } %>
+                            <div class="panel-group">
+                                    <div class="row">
+                                        <div class="col-md-4 col-md-offset-2">
+                                            <span class="label" style="background-color:<%= item1c %>">
+
+                                            </span>
+                                            <span>&nbsp;
+                                                <%= item1.label %>
+                                            </span>
+                                            <strong><%= item1.value %></strong>
+                                        </div>
+                                        <% if (item2){ %>
+                                            <div class="col-md-6">
+                                                <span class="label" style="background-color:<%= item2c %>">
+
+                                                </span>
+                                                <span>&nbsp;
+                                                    <%= item2.label %>
+                                                </span>
+                                                <strong><%= item2.value %></strong>
+                                            </div>
+                                        <% } %>
+
+                                    </div>
+                            </div>
+
+                                <% }else{ %>
+
+                                <% } %>
+                            <% } %>
+
+
+                        <div class="panel-group">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibox">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div id="course-manage-generate-course" class="btn btn-primary">新建课程</div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

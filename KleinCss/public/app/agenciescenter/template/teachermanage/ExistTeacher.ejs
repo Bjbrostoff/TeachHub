@@ -1,0 +1,30 @@
+<div class="col-md-12 col-sm-12" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="col-md-2  col-sm-2 text-center"><h4><%=locale.TeacherManage.num%></h4></div>
+        <div class="col-md-2  col-sm-2 text-center"><h4><%=locale.TeacherManage.name%></h4></div>
+        <div class="col-md-2  col-sm-2 text-center"><h4><%=locale.TeacherManage.email%></h4></div>
+        <div class="col-md-3  col-sm-3 text-center"><h4><%=locale.TeacherManage.phone%></h4></div>
+        <div class="col-md-3  col-sm-3 text-center"><h4><%=locale.TeacherManage.operat%></h4></div>
+    </div>
+    <div style="width: 100%;border-bottom: solid 1px #999966;position: relative;top:0px;"></div>
+    </br>
+    <div class="ibox-content"></div>
+        <% for(var i = 0;i < data.data.length;i++){ %>
+        <div class="row">
+            <div class="col-md-2  col-sm-2 text-center"><%= i+1 %></div>
+            <div class="col-md-2  col-sm-2 text-center"><%= data.data[i].name %></div>
+            <div class="col-md-2  col-sm-2 text-center"><%= data.data[i].email %></div>
+            <div class="col-md-3  col-sm-3 text-center"><%= data.data[i].phone %></div>
+            <div class="col-md-3  col-sm-3 text-center">
+                <button class="teacher-remove-moreinfo btn btn-xs btn-primary"
+                        _idx=<%=data.data[i]._id%>><%=locale.TeacherManage.moreInfo%></button>
+               <button class="teacher-remove btn btn-xs btn-primary"
+                       _idx=<%=data.data[i]._id%>><%=locale.TeacherManage.remove%></button>
+            </div>
+        </div>
+    <div style="width: 100%;border-bottom: dashed 1px #999966;position: relative;top:8px;"></div>
+        </br>
+        <% } %>
+
+
+</div>

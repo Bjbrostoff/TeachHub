@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>信息认证</title>
+	<!--<link href="/Inspinia/css/bootstrap.min.css" rel="stylesheet">-->
+	<!--<link href="/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">-->
+	<!--<link href="/Inspinia/css/plugins/iCheck/custom.css" rel="stylesheet">-->
+	<!--<link href="/Inspinia/css/animate.css" rel="stylesheet">-->
+	<!--<link href="/Inspinia/css/style.css" rel="stylesheet">-->
+
+	<!--<link href="/Inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">-->
+	<style>
+		.btn-primary {
+			background-color: #1ab394;
+			border-color: #1ab394;
+			color: #FFFFFF;
+		}
+
+		.btn-primary:hover {
+			background-color: #18a689;
+			border-color: #18a689;
+			color: #FFFFFF;
+		}
+		.btn-primary:active,
+		.btn-primary:focus
+		{
+			background-color: #1ab394;
+			border-color: #1ab394;
+			color: #FFFFFF;
+		}
+	</style>
+</head>
+<body>
+<!--<% include ../includes/header/nav/demonormal.ejs %>-->
+
+<% include ../includes/header/nav/normal.ejs %>
+
+<% include ../includes/head/normal.ejs %>
+
+<div class="container">
+	<div class="row" style="height: 60px;">
+
+	</div>
+	<div class="row">
+		<div class="col-lg-2">
+
+		</div>
+		<div class="col-lg-8">
+			<svg height="80px" width="750px" viewBox="0 0 750 80">
+				<g>
+					<line class="axis-line" x1="20" y1="35" x2="680" y2="35"
+					      stroke="#ff0000">
+
+					</line>
+					<rect x="20" y="30" height="10" width="660" fill="#87ceeb">
+
+					</rect>
+				</g>
+				<g transform="translate(20,0)">
+					<circle r="30" cx="30" cy="35" fill="#337ab7">
+
+					</circle>
+					<text x="18" y="40" fill="white">
+						注册
+					</text>
+
+					<path d="M 100 15 L 120 35 L 100 55 L 220 55 L 240 35 L 220 15 Z" fill="#337ab7">
+
+					</path>
+					<text x="140" y="40" fill="white">
+						1.信息填写
+					</text>
+
+					<path d="M 280 15 L 300 35 L 280 55 L 400 55 L 420 35 L 400 15 Z" fill="#337ab7">
+
+					</path>
+					<text x="320" y="40" fill="yellow">
+						2.信息认证
+					</text>
+
+					<path d="M 460 15 L 480 35 L 460 55 L 580 55 L 600 35 L 580 15 Z" fill="#337ab7">
+
+					</path>
+					<text x="500" y="40" fill="white">
+						3.信息审核
+					</text>
+
+
+					<circle r="30" cx="680" cy="35" fill="#337ab7">
+
+					</circle>
+					<text x="665" y="40" fill="white">
+						完成
+					</text>
+				</g>
+			</svg>
+		</div>
+
+		<div class="col-lg-2">
+
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-lg-3">
+
+		</div>
+		<div class="col-lg-6">
+			<div class="form-horizontal">
+				<input type="hidden" name="userId" >
+				<div class="form-group">
+					<label class="col-sm-2 control-label">角色选择：</label>
+					<div class="col-sm-10">
+						<input  style="    margin: 0 10px 0 51px;"  checked="true" type="radio" name="usertype" value="1"/>
+						<span> 老师 </span>
+						<input style="    margin: 0 10px 0 51px;"  type="radio" name="usertype" value="2"/>
+						<span> 机构用户 </span>
+						<div id="erole" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+				<div id="teacher">
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">真实姓名：</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="name" value=""/>
+							<div id="ename" style="display: none;">
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" >证件类型：</label>
+						<div class="col-sm-10">
+							<select class="form-control"  name="credentype" >
+								<option value="">请选择</option>
+								<option value ="1">身份证</option>
+								<option value="2">签证</option>
+
+							</select>
+							<div id="ecredentype" style="display: none;">
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" >证件号码：</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="credencode" value=""/>
+							<div id="ecredencode" style="display: none;">
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<form id="frmUploadFile"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+							<label  class="col-sm-2 control-label">证件照片：</label>
+							<div class="col-sm-10">
+								<div class="input-group">
+									<input id="file" class="form-control"   type="file" name="file" />
+									<img style="width:200px;height: 200px;display: none;" src=""  id="showImg">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but" onclick="uploadFile('','crenden');" type="button" value="上传">上传</button>
+							<button class="btn btn-primary" id="del"  onclick="delImg('','crenden');"  type="button" style="display: none;" value="删除" >
+								删除
+							</button>
+
+
+							   </span>
+								</div>
+
+								<div id="ecredencode" style="display: none;">
+									<input type="hidden" name="credenImg" id="crenden">
+								</div>
+							</div>
+						</form>
+					</div>
+
+
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" >收款方式：</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="payway" />
+							<div id="epayway" style="display: none;">
+
+							</div>
+						</div>
+					</div>
+					<div style="text-align:center;" class="form-group">
+
+						<label id="more" onclick="moreExp();" style="cursor: pointer;">更多</label>
+						<label id="hide" style="cursor: pointer;display: none;">隐藏</label>
+						<hr  color="#FF0000" width="100%" size="1">
+					</div>
+					<div id="expTeacher" class="hidDiv" style="display: none;">
+
+						<div class="form-group">
+
+							<label class="col-sm-2 control-label"> 学位：</label>
+							<div class="col-sm-10">
+								<select class="form-control" name="level">
+									<option value="">请选择</option>
+									<option value="0">学士以下</option>
+									<option value ="1">学士</option>
+									<option value ="2">硕士</option>
+									<option value ="3">博士</option>
+								</select>
+							</div>
+
+						</div>
+						<div class="form-group">
+
+							<label class="col-sm-2 control-label" >学位证书号码：</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="code"/>
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<form id="frmUploadFile1"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+								<label class="col-sm-2 control-label" >学位证件照片：</label>
+								<div class="col-sm-10">
+									<div class="input-group">
+										<input id="file1" class="form-control"   type="file" name="file" />
+										<img style="width:200px;height: 200px;display: none;" src=""  id="showImg1">
+							             <span class="input-group-btn">
+								    	<button class="btn btn-primary" id="but1" onclick="uploadFile('1','imgCert');" type="button" value="上传">上传</button>
+										<button class="btn btn-primary" id="del1"  onclick="delImg('1','imgCert');"  type="button" style="display: none;" value="删除" >
+											删除
+										</button>
+
+
+									   </span>
+									</div>
+
+
+									<input type="hidden" name="image" id="imgCert">
+								</div>
+
+							</form>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label" >荣誉资质说明：</label>
+							<div class="col-sm-10">
+								<div class="ibox-content">
+									<div class="row">
+										<div class="col-sm-6 b-r"><h3 class="m-t-none m-b">荣誉资质录入</h3>
+
+
+												<div class="form-group"><label>荣誉资质说明:</label> <textarea id="infoText" class="form-control"></textarea></div>
+												<div class="form-group">	<form id="frmUploadFile2"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+														<label >照片：</label>
+														<div >
+															<div class="input-group">
+																<input id="file2" class="form-control"   type="file" name="file" />
+																<img style="width:100px;height: 100px;display: none;" src=""  id="showImg2"/>
+							             <span class="input-group-btn">
+								    	<button class="btn btn-primary" id="but2" onclick="uploadFile('2','infoImg');" type="button" value="上传">上传</button>
+										<button class="btn btn-primary" id="del2"  onclick="delImg('2','infoImg');"  type="button" style="display: none;" value="删除" >
+											删除
+										</button>
+									   </span>
+															</div>
+															<input type="hidden" name="honorImg" id="infoImg">
+														</div>
+
+													</form>
+												</div>
+												<div>
+													<button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="addList" type="button"><strong>添加</strong></button>
+												</div>
+
+										</div>
+										<div id="honorList" class="col-sm-6"><h4>荣誉列表</h4>
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="form-group">
+
+							<label class="col-sm-2 control-label">工作经历：</label>
+							<div class="col-sm-10">
+								<textarea type="text" class="form-control" name="workexp"></textarea>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div id="org" style="display: none;">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" >收款方式：</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="payway" />
+							<div id="epayway" style="display: none;">
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="form-group text-center">
+					<button class="btn btn-primary" id="sub" type="button" name="submit" value="提交">提交</button>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+</body>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/verify.js"></script>
+<script src="/bootbox/bootbox.js" ></script>
+<script>
+
+	function uploadFile(i,tid){
+
+		if(i == undefined){
+			i = '';
+		}
+		var fileValue = $("#file"+i).val();
+		if(fileValue == ''){
+			bootbox.alert("请先选择要上传的文件");
+			return ;
+		}
+		var formData = new FormData($("#frmUploadFile"+i)[0]);
+
+		$.ajax({
+			url: '/users/fileUpload',
+			type: 'POST',
+			data: formData,
+			async: false,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(data){
+				if(200 === data.code) {
+
+					$("#showImg"+i).attr('src', data.msg.url);
+					$("#showImg"+i).show();
+					$("#file"+i).hide();
+					$("#but"+i).hide();
+					$("#del"+i).show();
+					$("#"+tid).val(data.msg.url);
+				} else {
+					bootbox.alert(data.msg);
+				}
+
+			},
+			error: function(){
+				$("#spanMessage").html("与服务器通信发生错误");
+			}
+		});
+	}
+
+	function delImg(i,tid){
+		if(i == undefined){
+			i = '';
+		}
+		$("#"+tid).val('');
+		$("#showImg"+i).attr('src', '');
+		$("#showImg"+i).hide();
+		$("#file"+i).val('');
+		$("#file"+i).show();
+		$("#but"+i).show();
+		$("#del"+i).hide();
+	}
+
+	function moreExp(){
+		$("#expTeacher").show();
+		$("#more").hide();
+		$("#more").unbind("click");
+		$("#hide").show();
+		$("#hide").bind("click",hidExp);
+	}
+	function hidExp(){
+		$("#expTeacher").hide();
+		$("#hide").hide();
+		$("#more").show();
+		$("#more").bind("click");
+		$("#more").show();
+		$("#hide").unbind("click",hidExp);
+	}
+
+	//教师表单认证，并返回相应的json数据
+	function TeacherCheck(){
+		var name = $("[name='name']").val();//真实姓名
+		var credentype = $("[name='credentype']").val();//证件类型
+		var credencode = $("[name='credencode']").val();//证件号码
+		var credenImg = $("[name='credenImg']").val();//证件照片
+		var payway = $("[name='payway']").val();//付款方式
+		var data = {};
+
+		if(name == ''){
+			bootbox.alert("真实姓名不能为空！");
+			return false;
+		}
+		data.name = name;
+		if(credentype ==''){
+			bootbox.alert("证件类型不能为空！");
+			return false;
+		}
+		data.credentype = credentype;
+		if(credencode == ''){
+			bootbox.alert("证件号码不能为空！");
+			return false;
+		}
+		data.credencode = credencode;
+		if(credenImg == ''){
+			bootbox.alert("证件照片不能为空！");
+			return false;
+		}
+		data.credenImg = credenImg;
+		if(payway == ''){
+			bootbox.alert("付款方式不能为空！");
+			return false;
+		}
+		data.payway = payway;
+		//可选项
+
+		var level = $("[name='level']").val();
+		var image = $("[name='image']").val();
+		var code = $("[name='code']").val();
+		if( !((level !='' && image !=''  && code !='') ||(level =='' && image ==''  && code ==''))){
+			bootbox.alert("请输入完整的学历认证信息！");
+			return false;
+		}
+		if(level !='' && image !=''  && code !='') {
+			var acadecerti = {};
+			acadecerti.level = level;
+			acadecerti.image = image;
+			acadecerti.code = code;
+			data.acadecerti = JSON.stringify(acadecerti);
+		}
+		var info = $("[name='info']").val();
+		var honorImg = $("[name='honorImg']").val();
+		if( !((info !='' && honorImg !='') ||(info =='' && honorImg =='' ))){
+			bootbox.alert("请输入完整的荣誉认证信息！");
+			return false;
+		}
+		if(info !='' && honorImg !=''){
+			var servexerti = {};
+			servexerti.info = info;
+			servexerti.image = honorImg;
+			data.servexerti = JSON.stringify(servexerti);
+		}
+
+		var workexp = $("[name='workexp']").val();
+		if(workexp !=''){
+			data.workexp = workexp;
+		}
+		return data;
+	}
+
+
+
+
+	//机构认证
+	function  orderCheck(){
+
+	}
+
+	function closeImg(that){
+		$(that).parent().remove();
+	}
+
+	(function () {
+
+	/*	$(".hhhimg").hover(
+				function(){
+					$(this).prev().css("display","block");
+				},
+				function(){
+					$(this).prev().css("display","none");
+				}
+		)*/
+		$(".closeIcon").click(function(){
+			$(this).parent().remove();
+		});
+		$("#addList").click(function(){
+			var info = $("#infoText").val();
+			var honorImg = $("#infoImg").val();
+			if( !((info !='' && honorImg !='') ||(info =='' && honorImg =='' ))){
+				bootbox.alert("请输入完整的荣誉认证信息！");
+				return false;
+			}
+			if(info !='' && honorImg !=''){
+				var servexerti = {};
+				servexerti.info = info;
+				servexerti.image = honorImg;
+			}
+			var model = '	<div style="margin-bottom: 3px;" class="col-sm-5"><a onclick="closeImg(this)"  class="close-link closeIcon" style="position: absolute; left: 53px;"> <i class="fa fa-times"></i> </a>'
+			+'<img title="'+info+'" class="hhhimg" style="width:50px;height:50px;" src="'+honorImg+'">'
+			+'</div>';
+			$("#honorList").append(model);
+		});
+
+		$(":radio[name='usertype']").click(function(){
+			var userType = $(this).val();
+
+			if(userType == 1){
+
+				$("#teacher").show();
+				$("#org").hide();
+			}else{
+
+				$("#org").show();
+				$("#teacher").hide();
+			}
+			$(".hidDiv").hide();
+		});
+
+		$("#sub").click(function(){
+			var userRole = $(":radio:checked").val();
+			var data ;
+			if(userRole == '1'){
+				data = TeacherCheck();
+				console.log(data);
+				if(typeof data !='object' &&!data){
+					return;
+				}
+				data.userrole = userRole;
+				$.ajax({
+					url: '/users/authenticate',
+					type: 'POST',
+					dataType:"json",
+					data: data,
+					success: function(data1){
+						console.log(data1);
+						if(200 === data1.code) {
+
+							bootbox.confirm({
+								buttons: {
+									confirm: {
+										label: '确认',
+										className: 'btn-myStyle'
+									},
+									cancel: {
+										label: '取消',
+										className: 'btn-default'
+									}
+								},
+								message: '提交成功，请耐心等待审核，是否进入用户中心完善资料？',
+								callback: function(result) {
+									if(result){
+										//改成进入用户中心界面
+										window.location.href='/users/center';
+									}else{
+										window.location.href= '/';
+									}
+								}
+							});
+
+
+						} else {
+							alert("上传失败");
+						}
+
+					},
+					error: function(){
+						$("#spanMessage").html("与服务器通信发生错误");
+					}
+				});
+			}
+		})
+
+
+
+
+	})();
+</script>
+</html>

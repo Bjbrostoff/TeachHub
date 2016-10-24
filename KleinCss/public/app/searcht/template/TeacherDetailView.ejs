@@ -1,0 +1,109 @@
+<div class="ibox col-sm-3 float-e-margins white-bg animated fadeInRight"
+     style="position: fixed;top: 60px;right: 0px; height: 740px; border-left: #e7eaec thick solid;border-bottom: #e7eaec thick solid;">
+    <div>
+        <div class="ibox-title">
+            <h5><%= teacherdetail.title %></h5>
+            <div class="ibox-tools">
+                <a class="close-link teacher-detail-close">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="tab-content">
+                <div id="contact-1" class="tab-pane active">
+                    <div class="row m-b-lg">
+                        <div class="col-lg-4 text-center">
+                            <h2><%= teacher.name %></h2>
+
+                            <div class="m-b-sm">
+                                <img alt="头像" class="img-circle" src="<%= teacher.portrait %>"
+                                     style="width: 62px">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <strong>
+                                <%= teacherdetail.introduction %>
+                            </strong>
+                            <p>
+                                <%= teacher.optioninfo.info.value %>
+                            </p>
+                            <button id="profile-button" type="button" class="btn btn-primary btn-sm btn-block"><i
+                                        class="fa fa-home"></i> <%= teacherdetail.homepage %>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="teacher-detail-scroll">
+                        <div class="full-height-scroll">
+
+                            <strong><%= teacherdetail.profiledetail %></strong>
+
+                            <ul class="list-group clear-list">
+                                <li class="list-group-item fist-item">
+                                    <%= teacherdetail.profilesex %>&nbsp;:&nbsp;<%= teacher.sex %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profileage %>&nbsp;:&nbsp;<%= teacher.age %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profilenationality %>&nbsp;:&nbsp;<%= teacher.nationality %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profilecity %>:&nbsp;<%= teacher.city %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profilenationality %>:&nbsp;<%= teacher.optioninfo.mothertongue.value %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profilealmamater %>:&nbsp;<%= (teacher.optioninfo.almaMater)?teacher.optioninfo.almaMater.value:"" %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profilecollegedegree %>:&nbsp;<%= (teacher.optioninfo.collegeDegree)?teacher.optioninfo.collegeDegree.value:"" %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profilecurrentagency %>:&nbsp;<%= teacher.agencyname %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profileteachingexperience %>:&nbsp;<%= teacher.workexp %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profilelanguage %>:&nbsp;<%= teacher.optioninfo.language.value %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profileteachingexperience %>:&nbsp;<%= teacher.optioninfo.skilledcourse.value %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= teacherdetail.profilestarlevel %>:&nbsp;<%= teacher.starlevel %>
+                                </li>
+
+                            </ul>
+                            <strong><%= teacherdetail.personaldeclaration %></strong>
+                            <p>
+                                <%= teacher.optioninfo.info.value %>
+                            </p>
+                            <hr/>
+                            <strong><%= teacherdetail.workhistory %></strong>
+                            <div id="vertical-timeline" class="vertical-container dark-timeline">
+                                <% teacher.workhistory.forEach(function(workhistory){ %>
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon gray-bg">
+                                        <i class="fa fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="vertical-timeline-content">
+                                        <p><%= workhistory.description %></p>
+                                        <span class="vertical-date small text-muted"><%= workhistory.dates %></span><br/>
+                                        <span class="vertical-date small text-muted"><%= workhistory.location %></span><br/>
+                                        <span class="vertical-date small text-muted"><%= workhistory.organization %></span><br/>
+                                        <span class="vertical-date small text-muted"><%= workhistory.job %></span><br/>
+                                    </div>
+                                </div>
+
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

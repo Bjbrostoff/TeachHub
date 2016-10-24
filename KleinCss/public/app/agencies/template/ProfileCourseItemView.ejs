@@ -1,0 +1,33 @@
+<li data-id="9">
+    <div class="box-left l">
+        <a href="#" title="<%= course.name %>" target="_blank">
+            <div class="course-list-img">
+                <img src="<%= course.image %>" width="200" height="123" alt="<%= course.name %>">
+            </div>
+        </a>
+    </div>
+    <div class="box-right">
+        <h3 class="box-hd">
+            <span><%= course.name %></span>
+        </h3>
+        <div class="study-points">
+            <span class="span-left span-common"><%= profilecourseitem.teachway %>:<%= course.method %></span>
+            <span class="span-right span-common"><%= profilecourseitem.teachmode %>:<%= course.mode %></span>
+            <span class="span-mid span-common"><%= profilecourseitem.agerange %>:<%= course.range.min %>~<%= course.range.max %>岁</span>
+            <span class="span-right span-common"><%= profilecourseitem.payway %>:<%= course.billing %></span>
+        </div>
+        <div class="study-points">
+            <span class="span-left span-common "><%= profilecourseitem.introduction %>:<%= course.introduction %></span>
+        </div>
+        <div class="user-button">
+            <div class="row">
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-sm btn-block searchc-course-signed-up" corseid="<%= course.courseid %>"><i class="fa fa-pencil-square"></i> <%= profilecourseitem.signedup %></button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-sm btn-block searchc-course-fav-mark" corseid="<%= course.courseid %>"><i class="fa fa-heart"></i> <%= profilecourseitem.addtofavorites %></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

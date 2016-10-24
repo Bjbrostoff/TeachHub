@@ -1,0 +1,58 @@
+<div class="ibox-content row">
+    <%console.log(status)%>
+<%if(status == '1'){%>
+        <div id="audit-precert-btn-audit" class="btn btn-primary audit-precert-btn-audit"><%=local.auditCert.startCheck%></div>
+        <div class="btn btn-primary audit-cert-btn-detail"><%=local.auditCert.detail%></div>
+    <%}else if(status == '2'){%>
+        <div id="audit-cert-btn-audit" class="btn btn-primary audit-cert-btn-audit"><%=local.auditCert.startCheck%></div>
+        <div class="btn btn-primary audit-cert-btn-detail"><%=local.auditCert.detail%></div>
+    <%}else{%>
+    <div class="btn btn-primary audit-cert-btn-detail"><%=local.auditCert.detail%></div>
+    <%}%>
+
+
+</div>
+<div class="ibox-content forum-container">
+    <% _.each(data, function(item){ %>
+    <div class="forum-item audit-course-forum-item" dataid="<%= item.id %>" >
+        <div class="row">
+
+            <div class="col-md-10">
+                <div class="forum-icon">
+                    <input class="audit-cert-wait-check" type="checkbox" code="<%= item.id %>">
+                </div>
+                <a class="forum-item-title">
+                    <% if(item.type == '1'){%>
+                    <%=local.auditCert.teacher%>
+                    <%}else if(item.type =='4'){%>
+                    <%=local.auditCert.agency%>
+                    <%}%>
+                </a>
+                <div class="forum-sub-title">
+
+                        <%=item.userid.name == undefined ?item.userid.email:item.userid.name %>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="btn btn-xs btn-primary">
+                    <%if(status == '1'){%>
+                    <%=local.auditCert.wait%>
+                    <%}else if(status == '2'){%>
+                    <%=local.auditCert.checking%>
+                    <%}else{%>
+                          <%if(item.status == '2'){%>
+                    <%=local.auditCert.checkpass%>
+                            <%}else{%>
+                    <%=local.auditCert.checkNoPass%>
+                            <%}%>
+                    <%}%>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <% }) %>
+
+</div>

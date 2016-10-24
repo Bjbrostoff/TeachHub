@@ -1,0 +1,43 @@
+<div class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 26px;right: 0px;width:400px;min-height: 700px;border-left: #e7eaec 2px solid;background-color: #FFFFFF;z-index: 9">
+    <div class="ibox-title">
+
+        <div class="col-sm-9 col-sm-offset-1">
+            <h5><%= local %></h5>
+        </div>
+        <div class="col-sm-1 col-sm-offset-1">
+
+            <a class="close-link">
+                <span class="glyphicon glyphicon-remove" style="margin-top: 10px" aria-hidden="true"></span>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="ibox-content">
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-sm-11 col-sm-offset-1">
+                   <div class="col-sm-11 col-sm-offset-1">
+                    <img src=<%=data.info.image%>>
+                   </div>
+                    <div class="col-sm-11 col-sm-offset-1">
+                    <br/>
+                    <br/>
+                    <%for(var i=0;i<5;i++){%>
+                    <div class="row"><%=fieldPre[i]%>：<%=data.info[fieldNext[i]]%></div>
+                    <%}%>
+                    <div class="row"><%=fieldPre[5]%>：<%=data.info.method.name%></div>
+                    <div class="row"><%=fieldPre[6]%>：<%=data.info.mode.name%></div>
+                    <div class="row"><%=fieldPre[7]%>：<%=data.info.range.min%>-<%=data.info.range.max%></div>
+                    <br/>
+                    <div class="row"><%=fieldPre[8]%>：<%=data.data.address%></div>
+                    <div class="row"><%=fieldPre[9]%>：<%=data.data.tdate.substring(0,16)%>
+                    </div>
+                        </div>
+                </div>
+            </div>
+        </form>
+        <br/>
+    </div>
+</div>

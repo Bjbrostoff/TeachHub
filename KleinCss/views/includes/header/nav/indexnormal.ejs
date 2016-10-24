@@ -1,0 +1,120 @@
+<% /* Navigation & Logo */ %>
+<!--<link rel="stylesheet" href="/stylesheets/mainmenu/mainmenu.css">-->
+
+<div class="navhead">
+    <div class="container">
+        <div class="navbar-brand"><a href="/"><img src="/img/logo.png" /></a></div>
+        <ul class="nav navbar-nav head-nav">
+            <% if (page == 'undefined') { %>
+            <li>
+                <a href="/"><%=__('indexnormal.index')%></a>
+            </li>
+            <li>
+                <a href="/"><%=__('indexnormal.courses')%></a>
+            </li>
+            <li>
+                <a href="/"><%=__('indexnormal.teachers')%></a>
+            </li>
+            <li>
+                <a href="/"><%=__('indexnormal.agencies')%></a>
+            </li>
+            <% }else { %>
+            <% if (page == "index") { %>
+            <li class="active">
+                <% } else { %>
+            <li>
+                <% } %>
+                <a href="/"><%=__('indexnormal.index')%></a>
+            </li>
+
+            <% if (page == "cources") { %>
+            <li class="active">
+                <% } else { %>
+            <li>
+                <% } %>
+
+                <a href="/courses"><%=__('indexnormal.courses')%></a>
+            </li>
+
+            <% if (page == "teachers") { %>
+            <li class="active">
+                <% } else { %>
+            <li>
+                <% } %>
+                <a href="/teachers"><%=__('indexnormal.teachers')%></a>
+            </li>
+            <% if (page == "agencies") { %>
+            <li class="active">
+                <% } else { %>
+            <li>
+                <% } %>
+                <a href="/agencies"><%=__('indexnormal.agencies')%></a>
+            </li>
+
+            <% } %>
+        </ul>
+        <div class="perentry-box pull-right">
+            <% if (typeof sessinfo == "undefined") { %>
+            <div class="entry-button" style="display:none;">
+                <li><a data-toggle="modal" data-target="#loginModal"><%=__('indexnormal.login')%></a></li>
+            </div>
+            <% }else{ %>
+            <% if (typeof user == 'undefined'){ %>
+            <div class="entry-button" style="display:none;">
+                <li><a data-toggle="modal" data-target="#loginModal"><%=__('indexnormal.login')%></a></li>
+            </div>
+            <% }else{ %>
+            <div class="per-button">
+                <div class="pull-left"><a href="personalcore.html">abc0@163.com</a></div>
+                <div class="dropdown pull-left">
+                    <button class="btn btn-primary dropdown-toggle btn-per" type="button"id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="/users/center"><%=__('indexnormal.usercenter')%></a></li>
+                        <a href="#"><%=__('indexnormal.about')%></a>
+                        <a href="/loginOut"><%=__('indexnormal.loginout')%></a>
+                    </ul>
+
+                </div>
+            </div>
+            <% } %>
+
+            <% } %>
+
+        </div>
+
+        <div style="max-width: 360px; padding-top: 20px;" class="input-group pull-right">
+            <input type="text" id="web_search_header" class="form-control input-sm" name="search" placeholder="<%=__('indexnormal.placeholder')%>" style="height: 33px;"/>
+            <div class="dropdown" style="display: block; position: absolute; height: 32px; padding: 2px; right: 52px; z-index: 3; font-size: 14px">
+                <button class="btn btn-default dropdown-toggle top-dropdown-btn" style="height: 29px;background-color: #9CC7AC; border-color: #FFFFFF; padding: 1px 5px;"
+                        type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=__('indexnormal.searchmenu.course')%>&nbsp;<span class="caret"></span></button>
+                <ul class="dropdown-menu" id="top-dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="top-dropdown-chosebtn top-dropdown-chosebtn-active" topsearchtag="courses"><%=__('indexnormal.searchmenu.course')%></a></li>
+                    <li><a class="top-dropdown-chosebtn" topsearchtag="teachers"><%=__('indexnormal.searchmenu.teacher')%></a></li>
+                    <li><a class="top-dropdown-chosebtn" topsearchtag="agencies"><%=__('indexnormal.searchmenu.agency')%></a></li>
+                </ul>
+            </div>
+            <div class="input-group-btn">
+                <button type="submit" style="background-color: #1ab394; border-color: #1ab394;
+        color: #FFFFFF; font-size: 14px; font-weight: 600;" class="btn btn-sm search-button top-search-btn">
+                    <i class="fa fa-search"></i>
+                    <%=__('search')%>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<% if (typeof login == 'undefined') { %>
+
+<% }else { %>
+<% if (login == 'login'){ %>
+<% include ../../dialog/login.ejs %>
+<% }else { %>
+
+<% } %>
+<% } %>

@@ -1,0 +1,72 @@
+<% var count = data.length; %>
+<!--<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <table id="sth-checked-field" class="footable table table-stripped toggle-arrow-tiny">
+                <thead>
+                <tr>
+                    <th><%= locale.StudentHomework.StudentName %></th>
+                    <th><%= locale.StudentHomework.HomeworkTitle %></th>
+                    <th><%= locale.StudentHomework.CourseTitle %></th>
+                    <th><%= locale.StudentHomework.Timeofcorrecting %></th>
+                    <th><%= locale.StudentHomework.Score %></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for(var i=0;i<count;i++){%>
+                <tr>
+
+                    <td><%= data[i].userid.name %></td>
+                    <td><%= data[i].hwid.hwtitle %></td>
+                    <td><%= data[i].courseid.name %></td>
+                    <td><%=(data[i].teamarkdate.slice(0,10)+' '+data[i].teamarkdate.slice(11,16)) %></td>
+                    <td><%=data[i].score %></td>
+                    <td class="project-actions">
+                        <button num="<%= i%>" class="sthw-checked-find-view-tab btn btn-xs btn-info" type="button"><i  class="fa fa-eye"></i> 查看</button>
+                    </td>
+                </tr>
+
+                <%}%>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <ul class="pagination pull-right"></ul>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="sameday-box" style="display:block;"><!--当日详情-->
+    <table class="table-box sameday-table">
+        <tr>
+            <td><%= locale.StudentHomework.StudentName %></td>
+            <td><%= locale.StudentHomework.HomeworkTitle %></td>
+            <td><%= locale.StudentHomework.CourseTitle %></td>
+            <td><%= locale.StudentHomework.Timeofcorrecting %></td>
+            <td><%= locale.StudentHomework.Score %></td>
+            <td></td>
+        </tr>
+        <%for(var i=0;i<count;i++){%>
+        <tr>
+
+            <td><%= data[i].userid.name %></td>
+            <td><%= data[i].hwid.hwtitle %></td>
+            <td><%= data[i].courseid.name %></td>
+            <td><%=(data[i].teamarkdate.slice(0,10)+' '+data[i].teamarkdate.slice(11,16)) %></td>
+            <td><%=data[i].score %></td>
+            <td class="project-actions">
+                <button num="<%= i%>" class="sthw-checked-find-view-tab btn btn-xs btn-info" style="background-color: #337ab7;color: #fff" type="button"> 查看</button>
+            </td>
+        </tr>
+
+        <%}%>
+
+    </table>
+
+</div>

@@ -1,0 +1,266 @@
+#符号说明
+# #:描述
+# $:字段
+# ->:数据demo
+
+#一 用户
+#1.用户 [users]
+#唯一标识 uuid
+$uuid
+#昵称
+$name
+#邮箱
+$email
+#手机
+$phone
+#密码 md5
+$password
+$age
+$sex
+#国籍
+$nationality
+#生日
+$birth
+#是否可用(是否被管理员禁用)， 1可用 0不可用
+$enable
+#用户类型 0普通 1老师 2机构 3审核员 4.管理员
+$usertype
+-> {type:0,declare:'普通用户'}
+#头像 (需要审核)
+$portrait
+#所在城市
+$city
+
+
+#2.用户扩展一 老师认证 [tcreds]
+#唯一标识 uuid
+$uuid
+#用户唯一标识
+$userid
+
+#---基础认证信息---
+#真实姓名
+$name
+#身份证件类型 （credentials）
+$credentype
+#身份证件号码
+$credencode
+#身份证件照片
+$credenimage
+#收款方式
+$payway
+
+###补充认证信息###
+#学历认证 (certificate) {学位, 证件照片, 证件号码}
+$acadecerti
+->
+{
+  level:0,  //0学士以下 1学士 2硕士 3博士 ...
+  image:'',
+  code:''
+}
+#资质认证 {荣誉资质说明, 证书照片}
+$servexerti
+->
+{
+  info:''
+  image:''
+}
+#工作历史认证
+$workexp
+
+#个人其他信息 json
+->[{fname:mothertongue, fdetail:母语,:fvalue:英语，pub:是否公开}, ......]
+
+#擅长学科
+$
+
+
+
+#3.用户扩展二 机构认证 待定 [acreds]
+
+
+#4.认证信息审核队列 [cremsgs]
+#唯一标识 uuid
+$identify
+#用户唯一标识
+$userid
+#审核类型 身份审核， 头像审核
+#审核内容 json {}
+#审核状态
+#提交日期
+#审核完成日期
+
+#二 课程
+#1.课程 [courses]
+#唯一标识 uuid
+$uuid
+#课程名称
+$name
+#简介
+$introduction
+#详情
+$info
+#大纲、目录
+$catalog
+#计费方式 json
+$billing
+->
+{
+  type:{
+    fvalue:1
+    fdetail:标准
+  },
+  info:{
+    total:10,
+    duration:60min
+
+  }
+}
+#单价//
+$price
+#授课方式 0教室授课，1上门授课，2网上远程授课
+$method
+
+#授课地点 (教室授课方式指定的地点 其他授课方式不需要)
+$classroom
+#授课模式 0一对一 1一对多
+$mode
+#面向群体年龄
+$range
+->{min:10, max:16}
+#缩略图 (资源路径)
+$thumbnail
+#图片 (资源路径)
+$image
+#课程评分 (接收程度。。。。)
+$score
+#课程点赞
+$comment
+#可用状态 (老师删除掉的课程状态不可用 0不可用 1可用)
+$enable
+
+#----审核信息----
+#创建日期
+$cdate
+#审核状态 0未审核 1等待审核 2审核中 3审核成功 4审核失败
+$checkstate
+#发布状态 0未发布 1已发布 2已下架
+$pubstate
+->
+{
+  type:0,
+  name:'未发布'
+}
+#进行状态 0未开课 1进行中 2已结束
+$actstate
+
+#2.课程关系
+#2.1老师与课程关系 [tcrels] teacher-course
+#老师id
+$teacherid
+#关系 （0拥有,1创建 ?待定）
+$relation
+->
+{
+  type:0,
+  name:'拥有'
+}
+#课程id
+$courceid
+
+#2.2学生与课程关系 [ucrels] user-course
+#学生id
+$userid
+#关系 (收藏 报名 上课 学完)
+$relation
+#课程id
+$courceid
+#老师ID
+$teacherid
+
+#状态
+$state
+#2.3机构与课程关系 [acrels] agency-course
+待定
+
+#3.老师学生关系 [turels] teacher-user
+#主体 主题唯一标识
+$subjectid
+#关系 0教学关系 1收藏关系
+$relation
+->
+{
+  type:0,
+  name:'教学关系'
+}
+#客体 客体唯一标识
+$objectid
+#状态 教学关系（0正在授课 1曾经授课）
+$state
+->
+{
+  type:0,
+  name:'正在授课'
+}
+
+#4.作业 [homeworks]
+#唯一标识 uuid
+$_id
+#老师id
+$teacherid
+#课程id
+$courseid
+#作业内容(具体pdf文档地址或者内容 homework content)
+$hwcontent
+#作业标题 (homework title)
+$hwtitle
+#可用性
+$enable //true:可用，false:不可用
+
+#5 作业学生关系 [hwrels] homework relation
+#唯一标识 uuid
+$_id
+#学生id
+$userid
+#作业id
+$hwid
+#学生上传的作业内容
+$hwcontent
+#作业状态 default :0 未提交，1 学生已提交作业，2 教师已审核作业
+$type
+#教师评分
+$score
+#可用性
+$enable //true:可用，false:不可用
+
+
+#6 消息队列 [msgs] message queue
+#消息唯一标识
+$uuid
+#消息对象id
+$objid
+#消息内容
+$content
+#创建时间
+$cdate
+ 
+
+#7 课程日历节点 [calnodes] calendar nodes
+#日历节点唯一标识 uuid
+$_id
+#授课时间 精确到小时
+$tdate
+#老师
+$teacherid
+#课程id
+$courseid
+#节点状态 (0未上课，1已上课)
+$state
+#上课学生 array
+-> students:[{stuid:ref,//学生id
+			status:Number //0：未来上课，1：已经来上课
+	}]
+students
+#上课地点
+$address

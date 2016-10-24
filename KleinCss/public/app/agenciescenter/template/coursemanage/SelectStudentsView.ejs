@@ -1,0 +1,52 @@
+<div class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 60px;right: 0px;width:600px;min-height: 1200px;border-left: #e7eaec thick solid;">
+    <div class="ibox-title">
+        <h5>选择学生</h5>
+        <div class="ibox-tools">
+            <a class="close-link course-manage-select-student-close">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="ibox-content forum-container">
+
+
+
+        <% if (data.length > 0) { %>
+        <div class="row" style="min-height: 400px;">
+            <% _.each(data, function(item){ %>
+            <div class="forum-item course-manage-select-student-item">
+                <div class="row">
+                    <div class="col-lg-1">
+                        <input class="course-manage-select-student-ckb" type="checkbox" dataid="<%= item.userid._id %>">
+                    </div>
+
+                    <div class="col-lg-2">
+                        <%= item.userid.name %>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-3">
+                    <div class="btn btn-primary course-manage-select-student-confirm">确定</div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="btn btn-primary course-manage-select-student-cancel">取消</div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+        <% }else { %>
+            <div>当前报名人数为0</div>
+        <% } %>
+
+    </div>
+
+
+</div>

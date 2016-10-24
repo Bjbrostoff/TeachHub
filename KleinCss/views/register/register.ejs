@@ -1,0 +1,387 @@
+<html>
+<head>
+    <title>注册</title>
+	<!--<link href="/Inspinia/css/bootstrap.min.css" rel="stylesheet">-->
+	<!--<link href="/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">-->
+	<!--<link href="/Inspinia/css/plugins/iCheck/custom.css" rel="stylesheet">-->
+	<!--<link href="/Inspinia/css/animate.css" rel="stylesheet">-->
+	<!--<link href="/Inspinia/css/style.css" rel="stylesheet">-->
+
+	<!--<link href="/Inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">-->
+
+    <style>
+        .btn-primary {
+            background-color: #1ab394;
+            border-color: #1ab394;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background-color: #18a689;
+            border-color: #18a689;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:active,
+        .btn-primary:focus {
+            background-color: #1ab394;
+            border-color: #1ab394;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body style="background-color: white;   ">
+<% include ../includes/header/nav/normal.ejs %>
+
+<% include ../includes/head/normal.ejs %>
+
+
+<div class="container">
+    <div class="row" style="height: 60px;">
+
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+
+        </div>
+        <div class="col-lg-8">
+            <svg height="80px" width="750px" viewBox="0 0 750 80">
+                <g>
+                    <line class="axis-line" x1="20" y1="35" x2="680" y2="35"
+                          stroke="#ff0000">
+
+                    </line>
+                    <rect x="20" y="30" height="10" width="660" fill="#87ceeb">
+
+                    </rect>
+                </g>
+                <g transform="translate(20,0)">
+                    <circle r="30" cx="30" cy="35" fill="#337ab7">
+
+                    </circle>
+                    <text x="18" y="40" fill="white">
+                       <%= __("registerinfo.title")%>
+                    </text>
+
+                    <path d="M 100 15 L 120 35 L 100 55 L 220 55 L 240 35 L 220 15 Z" fill="#337ab7">
+
+                    </path>
+                    <text x="140" y="40" fill="yellow">
+                        1.<%= __("registerinfo.infotx")%>
+                    </text>
+
+                    <path d="M 280 15 L 300 35 L 280 55 L 400 55 L 420 35 L 400 15 Z" fill="#337ab7">
+
+                    </path>
+                    <text x="320" y="40" fill="white">
+                        2.<%=__("registerinfo.inforz")%>
+                    </text>
+
+                    <path d="M 460 15 L 480 35 L 460 55 L 580 55 L 600 35 L 580 15 Z" fill="#337ab7">
+
+                    </path>
+                    <text x="500" y="40" fill="white">
+                        3. <%=__("registerinfo.infosh")%>
+                    </text>
+
+
+                    <circle r="30" cx="680" cy="35" fill="#337ab7">
+
+                    </circle>
+                    <text x="665" y="40" fill="white">
+                        <%=__("registerinfo.infofinish")%>
+                    </text>
+                </g>
+            </svg>
+        </div>
+
+        <div class="col-lg-2">
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+
+        </div>
+        <div class="col-lg-7">
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><%=__("registerinfo.email")%>：</label>
+					<div class="col-sm-9">
+                      <input class="form-control" type="text" name="email" value=""/>
+						<div id="emsg" style="display: none;">
+
+						</div>
+					</div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><%=__("registerinfo.code")%>：</label>
+	                <div class="col-sm-9">
+		                <div class="input-group">
+
+	                        <input class="form-control" type="text" name="vcCode" value=""/>
+			                   <span class="input-group-btn">
+				                <button id="hsbtn" class="btn btn-primary" type="button" value="获取验证码"><%=__("registerinfo.ver")%></button> </span>
+						</div>
+		                <div id="vmsg" style="display: none;">
+
+		                </div>
+	                </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="pwdinput"><%=__("registerinfo.password")%>：</label>
+	                <div class="col-sm-9">
+                        <input id="pwdinput" class="form-control" type="password" name="password1"/>
+					</div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" ><%=__("registerinfo.confirmpassword")%>：</label>
+	                <div class="col-sm-9">
+                        <input class="form-control" type="password" name="password2"/>
+		                <div id="pmsg2" style="display: none;">
+
+		                </div>
+					</div>
+
+                </div>
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" type="button" name="submit" value="注册"><%=__("registerinfo.title")%></button>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bootbox/bootbox.js" ></script>
+<script src="/javascripts/verify.js"></script>
+<script>
+    function verifyForm() {
+        var email = $('[name=email]').val();
+        var password = $('[name=password1]').val();
+        var password2 = $('[name=password2]').val();
+        var vcCode = $('[name=vcCode]').val();
+        if (!email) {
+            $("#emsg").html('<%=__("registerinfo.emailerror")%>');
+            $("#emsg").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#emsg").html('');
+            $("#emsg").css({
+                display: 'none'
+            });
+        }
+
+        if (!vcCode) {
+            $("#vmsg").html('<%=__("registerinfo.codeerror")%>');
+            $("#vmsg").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#vmsg").html('');
+            $("#vmsg").css({
+                display: 'none'
+            });
+        }
+
+        if (!password || !password2) {
+            $("#pmsg2").html('<%=__("registerinfo.passwordnull")%>');
+            $("#pmsg2").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#pmsg2").html('');
+            $("#pmsg2").css({
+                display: 'none'
+            });
+        }
+
+	    if (password.length < 6 || password.length > 13) {
+		    $("#pmsg2").html('<%=__("registerinfo.passworderror")%>');
+		    $("#pmsg2").css({
+			    color: 'red',
+			    display: 'block'
+		    });
+		    return false;
+	    } else {
+		    $("#pmsg2").html('');
+		    $("#pmsg2").css({
+			    display: 'none'
+		    });
+	    }
+
+        if (password && password2 && password != password2) {
+            $("#pmsg2").html('<%=__("registerinfo.passworddiff")%>');
+            $("#pmsg2").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#pmsg2").html('');
+            $("#pmsg2").css({
+                display: 'none'
+            });
+        }
+
+        if (email && !verifyEmail(email)) {
+            $("#emsg").html('<%=__("registerinfo.emailgserror")%>');
+            $("#emsg").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        }
+        else {
+            $("#emsg").html('');
+            $("#emsg").css({
+                display: 'none'
+            });
+        }
+
+
+        return true;
+    }
+    (function () {
+        $('[name=submit]').click(function () {
+            var email = $('[name=email]').val();
+            var password = $('[name=password1]').val();
+            var vcCode = $('[name=vcCode]').val();
+
+            if (!verifyForm()) return;
+            $.ajax({
+                type: 'post',
+                url: '/users/register',
+                data: {email: email, password: password, vcCode: vcCode},
+                success: function (data) {
+                    console.log(data);
+	                if(data.success == true){
+
+		                bootbox.confirm({
+			                buttons: {
+				                confirm: {
+					                label: '<%=__('button.confirm')%>',
+					                className: 'btn-myStyle'
+				                },
+				                cancel: {
+					                label:  '<%=__('button.cancel')%>',
+					                className: 'btn-default'
+				                }
+			                },
+			                message: '<%=__('registerinfo.message')%>',
+			                callback: function(result) {
+				                console.log(result);
+				                if(result){
+					                $.ajax({
+						                type: 'post',
+						                url: '/users/regToSession',
+						                data: {userId: data.uid,username:email},
+						                success:function(data){
+							                console.log(data);
+							                window.location.href='users/toBasicAuth';
+						                },error:function(data){
+
+						                }
+
+					                })
+				                }else{
+					                window.location.href= '/';
+				                }
+			                }
+		                });
+
+
+
+	                }else{
+                        bootbox.alert(data.message);
+	                }
+
+                }, error: function () {
+
+                }
+            })
+        })
+        var util = {
+            wait: 60,
+            hsTime: function (that) {
+                _this = this;
+                if (_this.wait == 0) {
+                    $('#hsbtn').removeAttr("disabled").html('<%=__("registerinfo.again")%>');
+                    _this.wait = 60;
+                } else {
+                    var _this = this;
+                    $(that).attr("disabled", true).html(  _this.wait + '<%=__("registerinfo.repeat")%>');
+                    _this.wait--;
+                    setTimeout(function () {
+                        _this.hsTime(that);
+                    }, 1000)
+                }
+            }
+        }
+        $("#hsbtn").click(function () {
+            var email = $('[name=email]').val();
+	        if (!email) {
+		        $("#emsg").html('<%=__("registerinfo.emailerror")%>');
+		        $("#emsg").css({
+			        color: 'red',
+			        display: 'block'
+		        });
+		        return false;
+	        } else {
+		        $("#emsg").html('');
+		        $("#emsg").css({
+			        display: 'none'
+		        });
+	        }
+	        if (email && !verifyEmail(email)) {
+		        $("#emsg").html('<%=__("registerinfo.emailgserror")%>');
+		        $("#emsg").css({
+			        color: 'red',
+			        display: 'block'
+		        });
+		        return false;
+	        }
+	        else {
+		        $("#emsg").html('');
+		        $("#emsg").css({
+			        display: 'none'
+		        });
+	        }
+            $.ajax({
+                type: 'post',
+                url: '/users/sendEmail',
+                data: {email: email},
+                success: function (data) {
+                }, error: function () {
+                }
+            })
+	        util.wait = 60;
+            util.hsTime('#hsbtn');
+        })
+    })();
+</script>
+</html>

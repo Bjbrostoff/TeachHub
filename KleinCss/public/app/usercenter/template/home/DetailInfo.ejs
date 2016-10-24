@@ -1,0 +1,84 @@
+<div class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 26px;right: 0px;width:400px;min-height: 700px;border-left: #e7eaec 2px solid;background-color: #FFFFFF;z-index: 9">
+    <div class="ibox-title">
+
+        <div class="ibox-tools">
+            <div class="row ">
+                <div class="col-sm-9 col-sm-offset-1">
+                    <h5><%= local.courseDetail %></h5>
+                </div>
+                <div class="col-sm-1 col-sm-offset-1">
+
+                    <a class="close-link">
+                        <span class="glyphicon glyphicon-remove" style="margin-top: 10px" aria-hidden="true"></span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="ibox-content">
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <center>
+                    <img src=<%= data.end.image %>>
+                        </center>
+                    <div class="col-sm-10 col-sm-offset-1">
+                    <br/>
+                    <br/>
+                    <% for(var i = 0;i < 5;i++){ %>
+                    <div class="row"><%= fieldPre[i] %>：<%= data.end[fieldNext[i]] %></div>
+                    <% } %>
+                    <div class="row"><%= fieldPre[5] %>：<%= data.end.method.name %></div>
+                    <div class="row"><%= fieldPre[6] %>：<%= data.end.mode.name %></div>
+                    <div class="row"><%= fieldPre[7] %>：<%= data.end.range.min %>-<%= data.end.range.max %></div>
+                    <br/>
+                    <div class="row"><%= fieldPre[8] %>：<%= data.data.address %></div>
+                    <div class="row"><%= fieldPre[9] %>：<%= data.data.tdate.substring(0, 16) %>
+                    </div>
+                   </div>
+                </div>
+            </div>
+        </form>
+        <br/>
+
+    </div>
+    <% var a = '';
+    if (data.part == 0) {
+        a = "hidden";
+    } %>
+    <div <%= a %>>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+        <div class="ibox-title">
+            <h5><%= local.attendStudent %></h5>
+        </div>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="form-horizontal">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <% for(var i = 0;i < data.info.length;i++){ %>
+
+                    <div class="row">
+                        <div class="col-sm-6"><%= data.info[i].name == undefined ? data.info[i].email : data.info[i].name %></div>
+                        <div class="col-sm-4">
+                            <% var a = ' '; %>
+                            <% if(data.data.students[i].status != 0){ %>
+                            <% a = "disabled='disabled'" %>
+                            <% } %>
+                            <button <%= a %> class="homeview-detailinfo-card btn btn-sm btn-primary pull-right m-t-n-xs"
+                                             _id=<%= data.info[i]._id %>><%= local.cards %></button>
+                        </div>
+                    </div>
+                    </br>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

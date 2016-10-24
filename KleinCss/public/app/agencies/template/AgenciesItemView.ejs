@@ -1,0 +1,23 @@
+
+
+<div class="col-lg-4">
+    <div class="contact-box agency-info-box">
+        <a >
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <img alt="image" class="img-rect m-t-xs img-responsive" src="<%= agency.image %>">
+                    <div class="m-t-xs font-bold"><%= agency.starlevel %></div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <h3><strong><%= agency.name %></strong></h3>
+                <p><i class="fa fa-map-marker"></i> <%= agency.city %></p>
+                <p><%= agencyitem.teachers %>:&nbsp;<%= agency.teachercount %></p>
+                <p><%= agencyitem.courses %>:&nbsp;<%= agency.coursecount %></p>
+                <address><abbr title="Phone"><%= agencyitem.telephone %>:&nbsp;</abbr><%= agency.phone %></address>
+
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </div>
+</div>

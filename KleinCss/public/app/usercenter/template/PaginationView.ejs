@@ -1,0 +1,22 @@
+<!--分页-->
+<div class="page-box clearfix" >
+    <ul class="pagination pull-left">
+        <li>
+            <a class="page-jump" page-num=<%= 0 %>  aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <% var count = totalPage - page >= 5 ? 5: totalPage - page;%>
+        <% for(var i = page; i < page + count;i++ ) {%>
+            <li><a class="page-jump" page-num=<%= i %> ><%=(i+1)%></a></li>
+        <% }%>
+        <li>
+            <a  class="page-jump" page-num=<%= totalPage - 1 %>  aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+    <p class="pull-left">共<%= totalPage %>页</p>
+    <div class="digit-page pull-left">到第<input id="page-text" type="text" />页</div>
+    <div class="digit-btn pull-left page-jump" page-num=<%= $('#page-text').val()  %>><button>确定</button></div>
+</div>

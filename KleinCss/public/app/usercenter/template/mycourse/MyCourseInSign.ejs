@@ -1,0 +1,40 @@
+<div class="row">
+    <div  class="col-sm-1"></div>
+    <div class="col-sm-11">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="project-list">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th><%= locale.MyCourse.No %></th>
+                                <th><%= locale.MyCourse.CourseName %></th>
+                                <th><%= locale.MyCourse.Teacher %></th>
+	                            <th style="text-align:center"><%= locale.MyCourse.Handle %></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <%var i = 0;%>
+                            <% _.each(datas, function(item){ %>
+                            <tr>
+                                <td ><%=++i%></td>
+                                <td class="project-title">
+                                  <span><%=item.courceid.name%></span>
+                                </td>
+                                <td class="project-completion">
+	                                <span>
+		                               <%=item.teacherid.name%>
+	                                </span>
+                                </td>
+                                <td style="text-align:center" class="project-actions">
+                                    <button  keyvalue="<%=item.id%>" class="btn btn-xs btn-info btn_course_in_sign" style="background-color: #337ab7;color: #fff" type="button"><i  class="fa fa-paste"></i> <%= locale.MyCourse.Cancel %></button>
+                                </td>
+                            </tr>
+							<%})%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+<div class="ibox-content row" style="margin-left: 20px">
+    <div class="btn btn-primary course-manage-course-detail" select="<%= selectlv %>"><%=local.CourseManage.courseList.detail%>
+    </div>
+
+    <% switch (selectlv){ case 0: %>
+            <div class="btn btn-primary course-manage-btn-pub" select="<%= selectlv %>"><%=local.CourseManage.courseList.release%></div>
+            <% if (usertype == 1){ %>
+            <div class="btn btn-primary course-manage-btn-edit" select="<%= selectlv %>"><%=local.CourseManage.courseList.modify%></div>
+            <div class="btn btn-primary course-manage-btn-push" select="<%= selectlv %>"><%=local.CourseManage.courseList.toCheck%></div>
+            <div class="btn btn-primary course-manage-btn-proxy" select="<%= selectlv %>"><%=local.CourseManage.courseList.toAgency%></div>
+            <%}%>
+        <% break; case 1: %>
+            <% if (usertype == 1){ %>
+            <div class="btn btn-primary course-manage-btn-prepare" select="<%= selectlv %>"><%=local.CourseManage.courseList.pstartcourse%></div>
+            <%}%>
+            <div class="btn btn-primary course-manage-btn-sellout" select="<%= selectlv %>"><%=local.CourseManage.courseList.offCourse%></div>
+        <% break; case 2: %>
+            <% if (usertype == 1){ %>
+            <div class="btn btn-primary course-manage-btn-begin" select="<%= selectlv %>"><%=local.CourseManage.courseList.start%></div>
+            <div class="btn btn-primary course-manage-btn-end" select="<%= selectlv %>"><%=local.CourseManage.courseList.end%></div>
+            <%}%>
+            <div class="btn btn-primary course-manage-btn-pub" select="<%= selectlv %>"><%=local.CourseManage.courseList.release%></div>
+            <div class="btn btn-primary course-manage-btn-sellout" select="<%= selectlv %>"><%=local.CourseManage.courseList.offCourse%></div>
+
+        <% break; case 3: %>
+            <div class="btn btn-primary course-manage-btn-pub" select="<%= selectlv %>"><%=local.CourseManage.courseList.release%></div>
+            <% if (usertype == 1){ %>
+            <div class="btn btn-primary course-manage-btn-edit" select="<%= selectlv %>"><%=local.CourseManage.courseList.modify%></div>
+            <div class="btn btn-primary course-manage-btn-proxy" select="<%= selectlv %>"><%=local.CourseManage.courseList.toAgency%></div>
+            <% } %>
+        <% break; case -1: %>
+        <% break; %>
+    <% } %>
+
+</div>
+</br>
+<div style="border-bottom: solid 1px #e7eaec;"></div>
+</br>
+<div class="ibox-content forum-container">
+    <% _.each(datas, function(item){ %>
+        <div class="forum-item course-manage-forum-item" style="padding-top:10px;padding-left: 10px;" dataid="<%= item.id %>" select="<%= selectlv %>">
+            <div class="row">
+
+                <% switch (selectlv){case 0 : %>
+                <div class="col-md-10">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="label label-xs label-primary" style="position: relative;top:8px;">
+                        <% if(item.isproxy){ %>
+                        <%=local.CourseManage.courseList.haveAuth%>:<%=item.agencyname%>
+                        <% }else{ %>
+                        <%= item.statelv.name %>
+                        <%}%>
+                    </div>
+                </div>
+
+                <% break; case 1 :%>
+                <div class="col-md-8">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="label label-xs label-primary" style="position: relative;top:8px;">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <%= item.signnum %><%=local.CourseManage.courseList.much%>
+                    </div>
+                </div>
+                <% break; case 2 :%>
+                <div class="col-md-6">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="label label-xs label-primary" style="position: relative;top:8px;">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div>
+                        <%= item.actnum %><%=local.CourseManage.courseList.attend%>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <%=local.CourseManage.courseList.count%><%= item.totalactnum %><%=local.CourseManage.courseList.attend%>
+                    </div>
+                </div>
+                <% break; case 3 :%>
+                <div class="col-md-10">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="label label-xs label-primary" style="position: relative;top:8px;">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+                <% break; case -1 :%>
+                <div class="col-md-10">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="label label-xs label-primary" style="position: relative;top:8px;">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+                <% } %>
+
+            </div>
+
+
+        </div>
+    <div style="border-bottom: dashed 1px #e7eaec;"></div>
+    <% }) %>
+
+</div>

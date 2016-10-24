@@ -1,0 +1,8 @@
+1.代码更新后，先把mongodb原有的users集合删除
+2.启动gulp, 然后注释掉app.js的filter部分
+3.访问 http://localhost:3000/mod/user/modteacheruser 造老师数据
+4.然后放开filter的注释,用户中心进入登录模式,分用户和角色
+5.老师用户帐号密码位abc[序号]@163.com 密码123456[序号] 序号为0-49, 例如abc0@163.com 1234560
+6.普通用户请各自在注册页面注册生成
+
+-- modify by 高志祥 @2016-17

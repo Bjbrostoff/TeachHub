@@ -1,0 +1,20 @@
+<% console.log(datas.length) %>
+<% _.each(datas, function(item){ %>
+    <div class="col-lg-4">
+        <div class="contact-box">
+
+                <div class="col-sm-4">
+                    <div class="text-center">
+                        <img alt="image" class="img-circle m-t-xs img-responsive" src="/Inspinia/img/a2.jpg">
+                        <div class="m-t-xs font-bold"><%= item.name %></div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <p><%= item.state %><p>
+                    <button type="btn">下架</button>
+                </div>
+                <div class="clearfix"></div>
+
+        </div>
+    </div>
+<% }) %>

@@ -1,0 +1,227 @@
+<div class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 26px;right: -10px;width:600px;min-height: 816px;border-left: #e7eaec 2px solid;background-color: #ffffff">
+    <div class="ibox-title">
+        <!--<h5><%=local.course%></h5>-->
+        <!--<div class="ibox-tools">-->
+            <!--<a class="close-link course-manage-generate-close">-->
+                <!--<i class="fa fa-times"></i>-->
+            <!--</a>-->
+        <!--</div>-->
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h5><%=local.course%></h5>
+            </div>
+            <div class="col-sm-1">
+                <div class="ibox-tools">
+                    <a class="close-link course-manage-generate-close">
+                        <span class="glyphicon glyphicon-remove" style="margin-top: 10px" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ibox-content">
+        <form id="course-manage-generate-form" class="form-horizontal" role="form"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.coursename%></label>
+                <div class="col-sm-9">
+                    <input class="form-control course-manage-generate-course" type="text" name="name" required>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.coursedesc%></label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="introduction"></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.moreInfo%></label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="info"></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.catalog%></label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="catalog"></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.pay%></label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" name="billing">
+                        <option value="0"><%=local.perclass%></option>
+                        <option value="1"><%=local.perhour%></option>
+                        <option value="2"><%=local.perlesson%></option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.price%></label>
+                <div class="col-sm-9">
+                    <input class="form-control course-manage-generate-course" name="price">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.method%></label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" name="method">
+                        <option value="0"><%=local.methodclass%></option>
+                        <option value="1"><%=local.methodhome%></option>
+                        <option value="2"><%=local.methoddis%></option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.mode%></label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" name="mode">
+                        <option value="0"><%=local.modea2a%></option>
+                        <option value="1"><%=local.modea2m%></option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.faceAge%></label>
+                <div class="col-sm-5">
+                    <input class="course-manage-generate-course" name="range-min" value="8">
+                </div>
+                <%=local.too%>
+                <div class="col-sm-5">
+                    <input class="course-manage-generate-course" name="range-max" value="20">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label">课程缩略图</label>-->
+                <!--<div class="col-sm-9">-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="hr-line-dashed"></div>-->
+
+
+
+            <div class="form-group">
+
+                <label class="col-sm-3 control-label"><%=local.photo%></label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input id="file5" class="form-control"   type="file" name="file" />
+                        <img style="width:200px;height: 200px;display: none;" src=""  id="showImg5">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but5" onclick="uploadFile('5','leadimage');" type="button" value=<%=local.upload%>><%=local.upload%></button>
+							<button class="btn btn-primary" id="del5"  onclick="delImg('5','leadimage');"  type="button" style="display: none;" value=<%=local.delete%>>
+                                <%=local.delete%>
+                            </button>
+
+
+							   </span>
+                    </div>
+
+                    <div id="ecredencode" style="display: none;">
+                        <input type="hidden" class="course-manage-generate-course" name="image" id="leadimage">
+                    </div>
+
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+
+        </form>
+
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-3">
+                <div class="btn btn-primary course-manage-generate-save"><%=local.newcourse%></div>
+            </div>
+            <div class="col-sm-3">
+                <div class="btn btn-default course-manage-generate-cancel"><%=local.cancel%></div>
+            </div>
+            <div class="col-sm-3">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/verify.js"></script>
+<script src="/bootbox/bootbox.js" ></script>
+<script>
+    var imageArr = new Array();
+    var imageArrxx = new Array();
+    function uploadFile(i,tid){
+
+        if(i == undefined){
+            i = '';
+        }
+        var fileValue = $("#file"+i).val();
+        if(fileValue == ''){
+            bootbox.alert('<%=local.choosePhoto%>');
+            return ;
+        }
+        var formData = new FormData($("#course-manage-generate-form")[0]);
+        console.log(formData);
+        $.ajax({
+            url: '/users/fileUpload',
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data){
+                if(200 === data.code) {
+
+                    $("#showImg"+i).attr('src', data.msg.url);
+                    $("#showImg"+i).show();
+                    $("#file"+i).hide();
+                    $("#but"+i).hide();
+                    $("#del"+i).show();
+                    $("#"+tid).val(data.msg.url);
+                } else {
+                    bootbox.alert(data.msg);
+                }
+
+            },
+            error: function(){
+                $("#spanMessage").html('<%=local.connectError%>');
+            }
+        });
+    }
+
+    function delImg(i,tid){
+        if(i == undefined){
+            i = '';
+        }
+        $("#"+tid).val('');
+        $("#showImg"+i).attr('src', '');
+        $("#showImg"+i).hide();
+        $("#file"+i).val('');
+        $("#file"+i).show();
+        $("#but"+i).show();
+        $("#del"+i).hide();
+    }
+</script>

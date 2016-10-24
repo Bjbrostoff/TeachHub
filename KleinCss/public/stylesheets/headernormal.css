@@ -1,0 +1,104 @@
+.search-section {
+    position: absolute;
+    left: 60%;
+    margin: 0.5em 0 0 -190px;
+    width: 380px;
+    height: 34px;
+    border: 1px solid #e4e4e4;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    z-index: 2000
+}
+
+.search-section .search-text {
+    width: 100%;
+    height: 32px;
+    padding: 9px 150px 9px 15px;
+    border: 0;
+    line-height: 18px;
+    color: #333;
+    background: #fff;
+    font-size: 12px;
+    text-align: left
+}
+
+.search-section .hot-words {
+    position: absolute;
+    top: 5px;
+    right: 48px;
+    font-size: 12px
+}
+
+.search-section .search-btn {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 40px;
+    height: 34px;
+    border: 1px solid #dfdfdf;
+    color: #6d6d6d;
+    background: url(../images/topsearch-icon.png) center center no-repeat;
+    cursor: pointer
+}
+
+.search-section .search-btn2,.search-section .search-btn:hover {
+    border: 1px solid #35b558;
+    background: #35b558 url(../images/topsearch-icon2.png) center center no-repeat!important
+}
+
+.search-section .keyword-list {
+    position: absolute;
+    left: -1px;
+    top: 37px;
+    z-index: 2100;
+    width: 380px;
+    padding: 15px 0;
+    border: 1px solid #e4e4e4;
+    border-top: none;
+    background: #FFF;
+    display: none
+}
+
+.search-section .keyword-list li {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #333;
+    display: block;
+    padding: 0 10px
+}
+
+.search-section .keyword-list li a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 38px;
+    color: #333
+}
+
+.search-section .keyword-list li:hover {
+    background: #f3f3f3;
+    cursor: pointer
+}
+
+.search-section .hot-words a {
+    display: inline-block;
+    padding: 1px 3px;
+    margin-left: 5px;
+}
+
+.search-section .hot-words a:hover {
+    color: #333;
+    background: #dfdfdf
+}
+
+.top-chose-btn{
+    color: gray;
+    background: #f3f3f3
+}
+
+.top-chose-btn-active{
+    color: #333;
+    background: #dfdfdf
+}

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/stylesheets/index.css">
+
+    <% include includes/head/normal.ejs %>
+
+</head>
+<body id="page-top">
+
+<% include includes/header/nav/normal.ejs %>
+
+<!-- 巨幕 -->
+<div>
+    <div class="ibox-content " style="display: inline-block;
+	height: 640px; width: 100%;">
+        <div class="carousel slide" id="carousel2">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel2" data-slide-to="0"></li>
+                <li class="active" data-target="#carousel2" data-slide-to="1"></li>
+                <li data-target="#carousel2" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item">
+                    <img src="img/colorado.jpg" alt="image" style="height:640px; width: 100%;">
+                    <div class="carousel-caption">
+                        <p>This is simple caption 1</p>
+                    </div>
+                </div>
+                <div class="item active">
+                    <img src="img/monte-vista.jpg" alt="image" style="height:640px; width: 100%;">
+                    <div class="carousel-caption">
+                        <p>This is simple caption 2</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/colorado-colors.jpg" alt="image" style="height:640px; width: 100%;">
+                    <div class="carousel-caption">
+                        <p>This is simple caption 3</p>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel2" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel2" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="container" style="position: relative;top:-200px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-block__buttons">
+                    <a href="/register"
+                       target="_blank" type="button" class="btn btn-lg btn-primary" style="background-color:#337ab7;"
+                       rel="popover"
+                       data-content="Your donation will be returned to you by Indiegogo if campaign doesn&#39;t succeed."
+                       data-original-title="Worry-free donation">&nbsp;&nbsp;<%=__('index.banner.registerone')%>
+                        &nbsp;&nbsp;</a>
+                    <% if (typeof sessinfo !== "undefined"){ %>
+                    <% if (sessinfo.user) { %>
+                    <a href="/users/center"
+                       class="btn btn-lg btn-download" style="margin-left: 6px">&nbsp;&nbsp;<%=__('index.banner.registertwo')%>&nbsp;&nbsp;</a>
+                    <% }else{ %>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal"
+                       class="btn btn-lg btn-download" style="margin-left: 6px">&nbsp;&nbsp;<%=__('index.banner.registerthree')%>&nbsp;&nbsp;</a>
+                    <% } %>
+
+                    <% }else{ %>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal"
+                       class="btn btn-lg btn-download" style="margin-left: 6px">&nbsp;&nbsp;<%=__('index.banner.registerthree')%>&nbsp;&nbsp;</a>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 平台特点介绍 -->
+<section id="features" class="container services" style="position: relative; top:-50px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <h2><%=__('index.platformfeature.firstfeaturetitle')%></h2>
+            <p><%=__('index.platformfeature.firstfeaturecontent')%></p>
+            <p><a class="navy-link" href="#" role="button"><%=__('index.platformfeature.Details')%> &raquo;</a></p>
+        </div>
+        <div class="col-sm-3">
+            <h2><%=__('index.platformfeature.secfeaturetitle')%></h2>
+            <p><%=__('index.platformfeature.secfeaturecontent')%></p>
+            <p><a class="navy-link" href="#" role="button"><%=__('index.platformfeature.Details')%> &raquo;</a></p>
+        </div>
+        <div class="col-sm-3">
+            <h2><%=__('index.platformfeature.thirdfeaturetitle')%></h2>
+            <p><%=__('index.platformfeature.thirdfeaturecontent')%></p>
+            <p><a class="navy-link" href="#" role="button"><%=__('index.platformfeature.Details')%> &raquo;</a></p>
+        </div>
+        <div class="col-sm-3">
+            <h2><%=__('index.platformfeature.fourthfeaturetitle')%></h2>
+            <p><%=__('index.platformfeature.fourthfeaturecontent')%></p>
+            <p><a class="navy-link" href="#" role="button"><%=__('index.platformfeature.Details')%> &raquo;</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- 学生和老师的模块介绍 -->
+<section class="container features">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1><%=__('index.platformintro.firstintrotitle')%><br/></h1>
+            <h2><span class="navy"><%=__('index.platformintro.firstintrocontent')%></span></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-center wow fadeInLeft">
+            <div>
+                <i class="fa fa-mobile features-icon"></i>
+                <h2><%=__('index.platformintro.secintrotitle')%></h2>
+                <p><%=__('index.platformintro.secintrocontent')%></p>
+            </div>
+            <div class="m-t-lg">
+                <i class="fa fa-bar-chart features-icon"></i>
+                <h2><%=__('index.platformintro.thirdintrotitle')%></h2>
+                <p><%=__('index.platformintro.thirdintrocontent')%></p>
+            </div>
+        </div>
+        <div class="col-md-6 text-center  wow zoomIn">
+            <img src="/Inspinia/img/landing/perspective.png" alt="dashboard" class="img-responsive">
+        </div>
+        <div class="col-md-3 text-center wow fadeInRight">
+            <div>
+                <i class="fa fa-envelope features-icon"></i>
+                <h2><%=__('index.platformintro.fourthintrotitle')%></h2>
+                <p><%=__('index.platformintro.fourthintrocontent')%></p>
+            </div>
+            <div class="m-t-lg">
+                <i class="fa fa-google features-icon"></i>
+                <h2><%=__('index.platformintro.fifthintrotitle')%></h2>
+                <p><%=__('index.platformintro.fifthintrocontent')%></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1><%=__('index.platformintro.sixthintrotitle')%></h1>
+            <h2><span class="navy"></span> <%=__('index.platformintro.sixthintrocontent')%></h2>
+        </div>
+    </div>
+    <div class="row features-block">
+        <div class="col-lg-6 features-text wow fadeInLeft">
+            <h2> <%=__('index.platformintro.seventhintrotitle')%></h2>
+            <p><%=__('index.platformintro.seventhintrocontent')%></p>
+            <a href="" class="btn btn-primary"><%=__('index.platformintro.morebtnname')%></a>
+        </div>
+        <div class="col-lg-6 text-right wow fadeInRight">
+            <img src="/Inspinia/img/landing/dashboard.png" alt="dashboard" class="img-responsive pull-right">
+        </div>
+    </div>
+</section>
+
+<!-- 精品课程 -->
+</br>
+<div class="section">
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="navy-line"></div>
+            <span><h2 style="float:left; display:inline-block;"><%=__('index.courses.title')%></h2></span>
+            <span style="float:right;"><h2><a href="/courses"><%=__('index.courses.morebtnname')%>>></a></h2></span>
+        </div>
+        <div class="row">
+            <% courses.forEach(function(course){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="ibox">
+                    <div class="ibox-content product-box">
+
+                        <div class="product-imitation-nopadding">
+                            <img src="<%= course.image %>" alt="课程图片" width="100%" height="100%">
+                        </div>
+                        <div class="product-desc">
+                                <span class="product-price">
+                                    $&nbsp;<%= course.price %>
+                                </span>
+                            <small class="text-muted">Category</small>
+
+                            <a class="product-name"> <%= course.name %></a>
+                            <div class="small m-t-xs">
+                                <ul>
+                                    <li class="portfolio-project-name"><%=__('index.courses.name')%>:<%= course.name %></li>
+                                    <li><%=__('index.courses.instructor')%>：<a class="teacher-name-btn" teacherid="<%= course.teacherid %>"><%= course.teachername %></a></li>
+                                    <li><%=__('index.courses.introduction')%>:<%= course.introduction %></li>
+                                </ul>
+                            </div>
+
+                            <div class="m-t text-righ">
+                                <a href="/courses#profile/<%=course.courseId%>" class="btn btn-xs btn-outline btn-primary course-info-box"><%=__('index.courses.morebtnname')%><i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<!-- 金牌老师 -->
+</br>
+<section id="team" class="gray-section team">
+    <div class="container">
+        <!--<div class="row m-b-lg">-->
+            <div class="col-lg-12">
+                <div class="navy-line"></div>
+                <span><h2 style="float:left; display:inline-block;"><%=__('index.teachers.title')%></h2></span>
+                <span style="float:right;"><h2><a href="/teachers"><%=__('index.courses.morebtnname')%>>></a></h2></span>
+            </div>
+        <!--</div>-->
+        <div class="row">
+            <% if (teachers.length <1 ){ %>
+
+            <% }else{ %>
+            <div class="col-sm-4 wow fadeInLeft teacher-item" dataid="<%= teachers[1].userinfo.uuid %>">
+                <div class="team-member">
+                    <img src="<%= teachers[1].userinfo.portrait %>" class="img-responsive img-circle img-small" alt="">
+                    <h4><span class="navy"><%= teachers[1].userinfo.name %></span></h4>
+                    <div class="small m-t-xs">
+                        <ul>
+                            <li><%=__('index.teachers.degree')%>&nbsp;&nbsp;:&nbsp;<%= teachers[1].custominfo.degree %></li>
+                            <li><%=__('index.teachers.nativelanguage')%>:&nbsp;<%= teachers[1].optioninfo.language.value %></li>
+                            <li><%=__('index.teachers.specialty')%>:&nbsp;<%= teachers[1].optioninfo.skilledcourse.value %></li>
+                        </ul>
+                    </div>
+                    <p><%= teachers[1].optioninfo.info.value %></p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 teacher-item" dataid="<%= teachers[0].userinfo.uuid %>">
+                <div class="team-member wow zoomIn">
+                    <img src="<%= teachers[0].userinfo.portrait %>" class="img-responsive img-circle" alt="">
+                    <h4><span class="navy"><%= teachers[0].userinfo.name %></span></h4>
+                    <div class="small m-t-xs">
+                        <ul>
+                            <li><%=__('index.teachers.degree')%>&nbsp;&nbsp;:&nbsp;<%= teachers[0].custominfo.degree %></li>
+                            <li><%=__('index.teachers.nativelanguage')%>:&nbsp;<%= teachers[0].optioninfo.language.value %></li>
+                            <li><%=__('index.teachers.specialty')%>:&nbsp;<%= teachers[0].optioninfo.skilledcourse.value %></li>
+                        </ul>
+                    </div>
+                    <p><%= teachers[0].optioninfo.info.value %></p>
+                </div>
+            </div>
+            <div class="col-sm-4 wow fadeInRight teacher-item" dataid="<%= teachers[2].userinfo.uuid %>">
+                <div class="team-member">
+                    <img src="<%= teachers[2].userinfo.portrait %>" class="img-responsive img-circle img-small" alt="">
+                    <h4><span class="navy"><%= teachers[2].userinfo.name %></span></h4>
+                    <div class="small m-t-xs">
+                        <ul>
+                            <li><%=__('index.teachers.degree')%>&nbsp;&nbsp;:&nbsp;<%= teachers[2].custominfo.degree %></li>
+                            <li><%=__('index.teachers.nativelanguage')%>:&nbsp;<%= teachers[2].optioninfo.language.value %></li>
+                            <li><%=__('index.teachers.specialty')%>:&nbsp;<%= teachers[2].optioninfo.skilledcourse.value %></li>
+                        </ul>
+                    </div>
+                    <p><%= teachers[2].optioninfo.info.value %></p>
+                </div>
+            </div>
+            <% } %>
+
+        </div>
+    </div>
+</section>
+
+<!-- 资深机构 -->
+<div class="section">
+    <div class="container">
+        <!--<div class="row m-b-lg">-->
+            <div class="col-lg-12">
+                <div class="navy-line"></div>
+                <span><h2 style="float:left; display:inline-block;"><%=__('index.agencies.title')%></h2></span>
+                <span style="float:right;"><h2><a href="/agencies"><%=__('index.courses.morebtnname')%>>></a></h2></span>
+            </div>
+        <!--</div>-->
+
+        <div class="row">
+            <!-- agency Plans Wrapper -->
+            <div class="agency-wrapper col-md-12">
+                <!-- agency Plan -->
+                <% agencies.forEach(function(agency){ %>
+                <div class="agency-plan demo-price">
+                    <!-- agency Plan Ribbon -->
+                    <div class="ribbon-wrapper">
+                        <div class="price-ribbon ribbon-red"><%=__('index.agencies.ribbonred')%></div>
+                    </div>
+                    <h2 class="agency-plan-title"><%= agency.name %></h2>
+                    <div class="team-member">
+                        <img src="<%= agency.image %>" class="img-responsive img-circle image-small" alt="">
+                    </div>
+
+                    <!-- agency Plan Features -->
+                    <ul class="agency-plan-features">
+                        <li><strong><%= agency.starlevel %></strong> </li>
+                        <li><strong><%= agency.coursecount %></strong> <%=__('index.agencies.coursecount')%></li>
+                        <li><strong><%= agency.teachercount %></strong> <%=__('index.agencies.teachercount')%></li>
+                        <li><strong><%=__('index.agencies.city')%>：</strong> <%= agency.city %></li>
+                        <li><strong><%=__('index.agencies.phone')%>：</strong> <%= agency.phone %></li>
+                    </ul>
+                    <a href="#" class="btn agency-item-btn" agencyid="<%= agency.uuid %>"><%=__('index.agencies.detailbtnname')%></a>
+                </div>
+                <% }) %>
+                <!-- End agency Plan -->
+                <!-- End agency Plans Wrapper -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include includes/footer/normal.ejs %>
+
+<% include includes/head/indexhead2.ejs %>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('body').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 80
+        });
+
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function (event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+        });
+    });
+
+    var cbpAnimatedHeader = (function () {
+        var docElem = document.documentElement,
+                header = document.querySelector('.navbar-default'),
+                didScroll = false,
+                changeHeaderOn = 200;
+
+        function init() {
+            window.addEventListener('scroll', function (event) {
+                if (!didScroll) {
+                    didScroll = true;
+                    setTimeout(scrollPage, 250);
+                }
+            }, false);
+        }
+
+        function scrollPage() {
+            var sy = scrollY();
+            if (sy >= changeHeaderOn) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+
+        init();
+
+    })();
+
+    // Activate WOW.js plugin for animation on scrol
+    new WOW().init();
+
+    var itemOverTimer
+    $("#js-family").on({
+        mouseleave: function () {
+            $("#js-family-mask").show().stop().animate({opacity: 0.6}, 200);
+            $("#js-family-text").show().stop().animate({opacity: 1}, 200);
+        },
+        mouseenter: function () {
+            $("#js-family-mask").stop().animate({opacity: 0}, 200, function () {
+                $("#js-family-mask").hide();
+            });
+            $("#js-family-text").stop().animate({opacity: 0}, 200, function () {
+                $("#js-family-text").hide();
+            });
+        }
+    }).on("mouseenter", ".js-family-item", function () {
+        var _this = this;
+        clearTimeout(itemOverTimer)
+        itemOverTimer = setTimeout(function () {
+            showItemInfo(_this);
+        }, 800);
+    }).on("mouseleave", ".js-family-item", function () {
+        clearTimeout(itemOverTimer)
+        $(this).find(".js-family-info").fadeOut("fast");
+    });
+
+    function showItemInfo(el) {
+        $(el).find(".js-family-info").fadeIn("fast");
+    }
+    ;
+
+    $('.demo-price').hover(function () {
+        $('.demo-price').removeClass('agency-plan-promote');
+
+        $(this).addClass('agency-plan-promote');
+    });
+
+    $('.progress-axis__point').mouseover(function () {
+        $('.progress-axis__point').removeClass('progress-axis__point--target');
+        $(this).addClass('progress-axis__point--target');
+        var idx = parseInt($(this).attr('cx'));
+        var x = -15 + idx - 150;
+        $('.progress-target').attr('transform', 'translate(' + x + ', -2)');
+        $('.progress-target__lineblock').attr('transform', '');
+        switch (idx) {
+            case 150:
+                $('.progress-target__text').text(__("index.banner.featureone"));
+                break;
+            case 300:
+                $('.progress-target__text').text(__("index.banner.featuretwo"));
+                break;
+            case 450:
+
+                $('.progress-target__text').text(__("index.banner.featurethree"));
+                break;
+            case 600:
+                $('.progress-target').attr('transform', 'translate(290, -2)');
+                $('.progress-target__lineblock').attr('transform', 'translate(593,0) scale(-1,1)');
+                $('.progress-target__text').text(__("index.banner.featurefour"));
+                break;
+        }
+
+
+    });
+
+    $('.teacher-item').click(function(){
+        var id = $(this).attr('dataid');
+        window.location.href = '/teachers#profile/'+id
+    })
+
+    $('.teacher-name-btn').click(function(){
+        var id = $(this).attr('teacherid');
+        window.location.href = '/teachers#profile/'+id
+    })
+
+    $('.agency-item-btn').click(function(){
+        var id = $(this).attr('agencyid');
+        window.location.href = '/agencies#profile/'+id
+    })
+
+
+    $('.top-dropdown-btn').dropdown()
+    $('.top-dropdown-chosebtn').click(function(){
+                var all = $('#top-dropdown-menu').find('.top-dropdown-chosebtn');
+                for (var i = 0; i < all.length; i++){
+                    $(all[i]).removeClass('top-dropdown-chosebtn-active');
+                }
+                $(this).addClass('top-dropdown-chosebtn-active');
+                $('.top-dropdown-btn').html( $(this).html()+'&nbsp;<span class="caret"></span>');
+            }
+    )
+
+    $('.top-search-btn').click(function(){
+        var type = $('.top-dropdown-chosebtn-active').attr('topsearchtag');
+        var text = $('#web_search_header').val();
+        console.log(text);
+        window.location.href = '/'+type+'#search/'+text
+    })
+
+
+</script>
+
+</body>
+</html>
+

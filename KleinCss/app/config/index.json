@@ -1,0 +1,149 @@
+{
+  "courses": [
+    {
+      "id": "000001",
+      "name": "零基础",
+      "img": "/images/course1.jpg",
+      "introduction": "带领你从零开始，一步一步走入英语世界",
+      "teacher": "张三",
+      "score": "9.8"
+    },
+    {
+      "code": "00002",
+      "name": "日常英语",
+      "img": "/images/course1.jpg",
+      "introduction": "教你怎样将将日常活动用英语表达出来",
+      "teacher": "张三",
+      "score": "9.8"
+    },
+    {
+      "code": "00003",
+      "name": "旅游英语",
+      "img": "/images/course1.jpg",
+      "introduction": "超实用出国旅游基本英语大全",
+      "teacher": "张三",
+      "score": "9.8"
+    },
+    {
+      "code": "00004",
+      "name": "职场英语",
+      "img": "/images/course1.jpg",
+      "introduction": "实力外教，真实母语环境，职场场景模拟",
+      "catalog": "一,目录一;二,目录二;.....",
+      "teacher": "张三",
+      "score": "9.8"
+    },
+    {
+      "code": "00005",
+      "name": "托福雅思",
+      "img": "/images/course1.jpg",
+      "introduction": "资深留学规划师为你解答托福与雅思",
+      "teacher": "张三",
+      "score": "9.8"
+    },
+    {
+      "code": "00006",
+      "name": "商务英语",
+      "img": "/images/course1.jpg",
+      "introduction": "向学员传授一种西方的企业管理理念",
+      "teacher": "张三",
+      "score": "9.8"
+    },
+    {
+      "id": "000007",
+      "name": "零基础",
+      "img": "/images/course1.jpg",
+      "introduction": "带领你从零开始，一步一步走入英语世界",
+      "teacher": "张三",
+      "score": "9.8"
+    },
+    {
+      "code": "00008",
+      "name": "日常英语",
+      "img": "/images/course1.jpg",
+      "introduction": "教你怎样将将日常活动用英语表达出来",
+      "teacher": "张三",
+      "score": "9.8"
+    }
+  ],
+
+  "teachers": [
+    {
+      "userinfo":{
+        "id": "id",
+        "name": "张三",
+        "nationality": "nationality",
+        "portrait": "#"
+      },
+      "custominfo":{
+        "graduated":"毕业学校",
+        "degree":"学位",
+        "servexerti":"荣誉资质",
+        "declaration":"来吧同学.来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学"
+      }
+    },
+    {
+      "userinfo":{
+        "id": "id",
+        "name": "张三",
+        "nationality": "nationality",
+        "portrait": "#"
+      },
+      "custominfo":{
+        "graduated":"毕业学校",
+        "degree":"学位",
+        "servexerti":"荣誉资质",
+        "declaration":"来吧同学.来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学"
+      }
+    },
+    {
+      "userinfo":{
+        "id": "id",
+        "name": "张三",
+        "nationality": "nationality",
+        "portrait": "#"
+      },
+      "custominfo":{
+        "graduated":"毕业学校",
+        "degree":"学位",
+        "servexerti":"荣誉资质",
+        "declaration":"来吧同学.来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学来吧同学"
+      }
+    }
+
+  ],
+  "agency": [
+    {
+      "code": "00001",
+      "name": "滨江区xx英语班",
+      "address": "滨江区浦沿街道太阳国际公寓",
+      "courses": "100",
+      "teachers": "20",
+      "students": "500"
+    },
+    {
+      "code": "00002",
+      "name": "滨江区xx少儿口语班",
+      "address": "滨江区浦沿街道临江花园",
+      "courses": "100",
+      "teachers": "20",
+      "students": "500"
+    },
+    {
+      "code": "00003",
+      "name": "滨江区xx成人口语班",
+      "address": "滨江区浦沿街道联庄一区CBD",
+      "courses": "100",
+      "teachers": "20",
+      "students": "500"
+    },
+    {
+      "code": "00004",
+      "name": "滨江区xx职场英语班",
+      "address": "滨江区浦沿街道联庄二区CBD",
+      "courses": "100",
+      "teachers": "20",
+      "students": "500"
+    }
+  ]
+}

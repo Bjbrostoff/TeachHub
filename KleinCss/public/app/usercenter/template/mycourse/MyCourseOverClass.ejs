@@ -1,0 +1,189 @@
+<div class="row">
+	<div  class="col-sm-1"></div>
+    <div class="col-sm-11">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="project-list">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th><%= locale.MyCourse.No %></th>
+                                <th><%= locale.MyCourse.CourseName %></th>
+                                <th><%= locale.MyCourse.Teacher %></th>
+                                <th><%= locale.MyCourse.Satisfaction %></th>
+	                            <th><%= locale.MyCourse.TeacherEvaluation %></th>
+	                            <th><%= locale.MyCourse.Complexity %></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <%var i = 0;%>
+                            <% _.each(datas, function(item){ %>
+                            <tr>
+                                <td ><%=++i%></td>
+                                <td class="project-title">
+                                  <span><%=item.courceid.name%></span>
+                                </td>
+                                <td class="project-completion">
+	                                <span>
+
+		                                  <%=item.teacherid.name%>
+	                                </span>
+                                </td>
+	                            <td>
+
+										<%switch(item.coursescore){
+											case 1:{
+										%>
+		                                 <span title=<%= locale.MyCourse.VeryPoor %>>
+			                               <%= locale.MyCourse.VeryPoor %>
+			                              </span>
+		                                <%
+		                                 break;
+		                                }
+			                                case 2:{
+		                                  %>
+		                            <span title=<%= locale.MyCourse.Poor %>>
+			                              <%= locale.MyCourse.Poor %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 3:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.Fair %>>
+			                                <%= locale.MyCourse.Fair %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 4:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.Good %>>
+			                                 <%= locale.MyCourse.Good %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 5:{
+			                            %>
+			                            <span title=<%= locale.MyCourse.Excellent %>>
+				                                <%= locale.MyCourse.Excellent %>
+				                              </span>
+			                            <%
+				                            break;
+			                            }
+		                            %>
+
+										<%	}%>
+	                            </td>
+
+	                            <td>
+		                            <%switch(item.teacherscore){
+		                            case 1:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.VeryPoor %>>
+			                                <%= locale.MyCourse.VeryPoor %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 2:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.Poor %>>
+			                                 <%= locale.MyCourse.Poor %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 3:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.Fair %>>
+			                                <%= locale.MyCourse.Fair %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 4:{
+		                            %>
+		                            <span title= <%= locale.MyCourse.Good %>>
+			                                  <%= locale.MyCourse.Good %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 5:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.Excellent %>>
+				                           <%= locale.MyCourse.Excellent %>
+				                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            %>
+
+		                            <%	}%>
+
+	                            </td>
+
+
+	                            <td>
+		                            <%switch(item.easyscore){
+		                            case 1:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.VeryDifficult %>>
+			                                <%= locale.MyCourse.VeryDifficult %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 2:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.Difficult %>>
+			                                 <%= locale.MyCourse.Difficult %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 3:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.Fair %>>
+			                                <%= locale.MyCourse.Fair %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 4:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.Easy %>>
+			                                 <%= locale.MyCourse.Easy %>
+			                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            case 5:{
+		                            %>
+		                            <span title=<%= locale.MyCourse.VeryEasy %>>
+				                           <%= locale.MyCourse.VeryEasy %>
+				                              </span>
+		                            <%
+			                            break;
+		                            }
+		                            %>
+
+		                            <%	}%>
+
+	                            </td>
+                                <td class="project-actions">
+                                    <button   keyvalue="<%=item._id%>"  id="mycourse_end_mark_course" class="btn btn-xs btn-info" style="background-color: #337ab7;color: #fff" type="button"><i  class="fa fa-paste"></i> <%= locale.MyCourse.Evaluation %></button>
+	                              </td>
+                            </tr>
+							<%})%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>

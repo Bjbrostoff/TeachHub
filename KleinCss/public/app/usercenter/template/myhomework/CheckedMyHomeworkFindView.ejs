@@ -1,0 +1,96 @@
+<!--<div id="sthomework-findkbox-field" class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 60px;right: 0px;width:600px;min-height: 600px;border: #e7eaec thick solid;">
+
+    <div class="row" style="height:530px">
+        <div class="col-lg-12">
+
+            <div class="ibox-title">
+                <h5><%= locale.MyHomework.CheckedHomework %>--<%=fields.hwid.hwtitle%></h5>
+                <div class="ibox-tools">
+                    <a class="close-link myhomework-checkedfindbox-close">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+
+	        <div class="ibox-content no-padding ">
+		        <div class="">
+			        <div class="full-height-scroll white-bg border-left">
+                        <%= locale.MyHomework.Timeofsubmission %>:<p><%=fields.commitdate%></p>
+			        </div>
+			        <div class="full-height-scroll white-bg border-left">
+                        <%= locale.MyHomework.Timeofcorrecting %>:<p><%=fields.teamarkdate%></p>
+			        </div>
+			        <div class="full-height-scroll white-bg border-left">
+                        <%= locale.MyHomework.Score %>:<p><%=fields.score%></p>
+			        </div>
+
+		        </div>
+	        </div>
+            <div class="ibox-content no-padding ">
+                    <div class="full-height">
+                        <div class="full-height-scroll white-bg border-left">
+	                        <%=fields.hwcontent%>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+        </div>
+        <div class="col-sm-2">
+            <div class="btn btn-default myhomework-checkedfindbox-close"><%= locale.MyHomework.Close %></div>
+        </div>
+        <div class="col-sm-5">
+        </div>
+    </div>
+</div>
+</div>-->
+
+
+
+<div id="sthomework-findkbox-field" class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 25px;right: -15px;width:600px;height: 606px;border: #e7eaec 2px solid; background-color: white">
+
+    <div class="row" style="height:530px">
+        <div class="col-lg-12">
+
+            <div class="ibox-title">
+                <h5><%= locale.MyHomework.CheckedHomework %>--<%=fields.hwid.hwtitle%></h5>
+                <div class="ibox-tools" style="position: absolute;top: 7px;left: 580px">
+                    <a class="close-link myhomework-checkedfindbox-close">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ibox-content no-padding ">
+                <div class="">
+                    <div class="full-height-scroll white-bg border-left">
+                        <%= locale.MyHomework.Timeofsubmission %>:<p><%=fields.commitdate%></p>
+                    </div>
+                    <div class="full-height-scroll white-bg border-left">
+                        <%= locale.MyHomework.Timeofcorrecting %>:<p><%=fields.teamarkdate%></p>
+                    </div>
+                    <div class="full-height-scroll white-bg border-left">
+                        <%= locale.MyHomework.Score %>:<p><%=fields.score%></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ibox-content no-padding ">
+                <div class="full-height">
+                    <div class="full-height-scroll white-bg border-left">
+                        <%=fields.hwcontent%>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="btn btn-default myhomework-checkedfindbox-close" style="position: absolute;top: 570px;right: 280px"><%= locale.MyHomework.Close %></div>
+
+</div>

@@ -1,0 +1,23 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <% _.each(teachers, function(teacher){ %>
+        <div class="col-lg-6">
+            <div class="contact-box">
+                <a href="#">
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <img alt="image" class="img-circle m-t-lg img-responsive" src="<%= teacher.portrait %>">
+                            <div class="m-t-xs font-bold"><%= teacher.name %></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <p> <%= info.cate %>:&nbsp;<%= info.value %></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+
+</div>

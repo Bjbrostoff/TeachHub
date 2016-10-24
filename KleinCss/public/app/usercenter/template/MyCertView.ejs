@@ -1,0 +1,604 @@
+<script src="/jquery/dist/jquery.min.js" xmlns="http://www.w3.org/1999/html"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/verify.js"></script>
+
+<!--<div style="margin-left: 0px; margin-bottom: 19px;" class="row wrapper border-bottom white-bg page-heading">-->
+	<!--<div class="col-sm-4">-->
+		<!--<h2><%= locale.MyCert.title%></h2>-->
+		<!--<ol class="breadcrumb">-->
+			<!--<li>-->
+				<!--<a href="#home"><%= locale.MyCert.home%></a>-->
+			<!--</li>-->
+			<!--<li class="active">-->
+				<!--<strong><%= locale.MyCert.title%></strong>-->
+			<!--</li>-->
+		<!--</ol>-->
+	<!--</div>-->
+<!--</div>-->
+
+
+<div class="row leftmargin animated fadeInRight page-content-home">
+	<div class="row wrapper leftmargin border-bottom white-bg page-heading mt25" style="border: solid 1px #e7eaec;min-height: 703px">
+<div class="col-lg-12 col-md-12">
+	<div class="wrapper wrapper-content" style="padding-top: 0px;">
+		<div class="row tab-content">
+			<ul class="sh-right-tab clearfix" style="padding-left: 0px;border-bottom: 1px solid #e7eaec;">
+				<span class="pull-right small text-muted"></span>
+				<li class="on" style="list-style-type:none;"> <a data-toggle="tab" href="#home-manage-mycourse-calendar">
+						<i class="per-ico-10"></i>
+						<span><%= locale.MyCert.title%></span>
+					</a>
+					<div class="tb-selected-indicator"></div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div class="col-lg-6 col-md-6">
+	</br></br>
+</div>
+
+<div class="row">
+	<div class="col-sm-11">
+	<div class="col-sm-1">
+
+	</div>
+	<div class="col-sm-10">
+		<div class="form-horizontal">
+			<input type="hidden" name="userId" >
+			<input type="hidden" id="mycert_id" name="_id" value="<%= mycert._id== undefined?'':mycert._id %>" >
+
+			<div class="form-group">
+				<label class="col-sm-2 col-sm-offset-1 control-label"><%= locale.MyCert.role%></label>
+				<div class="col-sm-9">
+					<%if(mycert.usertype == '0'){%>
+					<input  class="mycert_radio" style="    margin: 0 10px 0 51px;"  checked='checked' type="radio" name="usertype" value="1"/>
+					<span> <%= locale.MyCert.teacher%> </span>
+					<input class="mycert_radio" style="    margin: 0 10px 0 51px;"   type="radio" name="usertype" value="2"/>
+					<span> <%= locale.MyCert.agency%> </span>
+					<%}else if(mycert.usertype == '1'){%>
+					<input  class="mycert_radio" style="    margin: 0 10px 0 51px;"  checked='checked' disabled="disabled"    type="radio" name="usertype" value="1"/>
+					<span> <%= locale.MyCert.title%> </span>
+
+					<input class="mycert_radio" style="    margin: 0 10px 0 51px;"  disabled = 'disabled'  type="radio" name="usertype" value="2"/>
+					<span> <%= locale.MyCert.agency%> </span>
+					<%}else{%>
+					<input  class="mycert_radio" style="    margin: 0 10px 0 51px;"  disabled="disabled"    type="radio" name="usertype" value="1"/>
+					<span> <%= locale.MyCert.title%> </span>
+					<input class="mycert_radio" style="    margin: 0 10px 0 51px;" checked='checked' disabled = 'disabled'  type="radio" name="usertype" value="2"/>
+					<span> <%= locale.MyCert.agency%> </span>
+					<%}%>
+					<div id="erole" style="display: none;">
+
+					</div>
+				</div>
+			</div>
+
+
+			<div id="teacher" <%=mycert.usertype == '2'?"style='display:none;'":""%>>
+				<div class="form-group">
+					<label  class="col-sm-3 control-label"><%= locale.MyCert.RealName%></label>
+					<div class="col-sm-9">
+						<input class="form-control mycert_teacher" type="text" name="name" value="<%= mycert.name== undefined?'':mycert.name %>"/>
+						<div id="ename" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" ><%= locale.MyCert.CredenType%></label>
+					<div class="col-sm-9">
+						<select class="form-control mycert_teacher"  name="credentype" >
+							<option  value=""><%= locale.MyCert.chooseoptions%></option>
+							<option <%= mycert.credentype== '1'?"selected='selected'":"" %> value ="1"><%= locale.MyCert.ID%></option>
+							<option <%= mycert.credentype== '2'?"selected='selected'":"" %> value="2"><%= locale.MyCert.Visa%></option>
+
+						</select>
+						<div id="ecredentype" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" ><%= locale.MyCert.CredenCode%></label>
+					<div class="col-sm-9">
+						<input class="form-control mycert_teacher"  type="text" name="credencode" value="<%= mycert.credencode== undefined?'':mycert.credencode %>"/>
+						<div id="ecredencode" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<form id="frmUploadFile"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+						<label  class="col-sm-3 control-label"><%= locale.MyCert.CredenImage%></label>
+						<div class="col-sm-9">
+							<div class="input-group">
+								<% if(mycert.credenimage == undefined ){%>
+								<input id="file" class="form-control"   type="file" name="file" />
+								<img style="width:200px;height: 200px;display: none;" src=""  id="showImg">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but" onclick="uploadFile('','crenden');" type="button" value="上传"><%= locale.MyCert.upload%></button>
+							<button class="btn btn-primary" id="del"  onclick="delImg('','crenden');"  type="button" style="display: none;" value="删除" >
+								<%= locale.MyCert.delete%>
+							</button>
+							   </span>
+								<%}else{%>
+								<input id="file" style="display:none;" class="form-control"   type="file" name="file" />
+								<img style="width:200px;height: 200px;" src="<%=mycert.credenimage%>"  id="showImg">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but" onclick="uploadFile('','crenden');" style="display: none;" type="button" value="上传"><%= locale.MyCert.upload%></button>
+							<button class="btn btn-primary" id="del"  onclick="delImg('','crenden');"  type="button"  value="删除" >
+								<%= locale.MyCert.delete%>
+							</button>
+							   </span>
+								<%}%>
+							</div>
+
+							<div id="ecredencode" style="display: none;">
+								<input type="hidden" class="mycert_teacher" value="<%=mycert.credenimage == undefined?'':mycert.credenimage%>" name="credenImg" id="crenden">
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" ><%= locale.MyCert.PayWay%></label>
+					<div class="col-sm-9">
+						<input class="form-control mycert_teacher" value="<%=mycert.payway == undefined ?'':mycert.payway%>" type="text" name="payway" />
+						<div id="epayway" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+				<div style="text-align:center;" class="form-group">
+                     <div class="col-sm-2 col-sm-offset-6">
+					<label id="more"  style="cursor: pointer;"><%= locale.MyCert.more%></label>
+					<label id="hide" style="cursor: pointer;display: none;"><%= locale.MyCert.hide%></label>
+						 </div>
+					<hr  color="#FF0000" width="100%" size="1">
+
+				</div>
+				<div id="expTeacher" class="hidDiv" style="display: none;">
+
+					<div class="form-group">
+
+						<label class="col-sm-3 control-label"> <%= locale.MyCert.Educational%></label>
+						<div class="col-sm-9">
+							<select class="form-control mycert_teacher" name="level">
+								<%=mycert.payway == undefined ?'':mycert.payway%>
+								<% if(mycert.acadecerti == undefined){%>
+								<option value=""><%= locale.MyCert.chooseoptions%></option>
+								<option value="0"><%= locale.MyCert.bachelorbelow%></option>
+								<option value ="1"><%= locale.MyCert.bachelor%></option>
+								<option value ="2"><%= locale.MyCert.master%></option>
+								<option value ="3"><%= locale.MyCert.doctor%></option>
+								<%}else{%>
+								<option value=""><%= locale.MyCert.chooseoptions%></option>
+								<option <%= mycert.acadecerti.level== '0'?"selected='selected'":"" %>  value="0"><%= locale.MyCert.bachelorbelow%></option>
+								<option <%= mycert.acadecerti.level== '1'?"selected='selected'":"" %> value ="1"><%= locale.MyCert.bachelor%></option>
+								<option <%= mycert.acadecerti.level== '2'?"selected='selected'":"" %> value ="2"><%= locale.MyCert.master%></option>
+								<option <%= mycert.acadecerti.level== '3'?"selected='selected'":"" %> value ="3"><%= locale.MyCert.doctor%></option>
+								<%}%>
+							</select>
+						</div>
+
+					</div>
+					<div class="form-group">
+
+						<label class="col-sm-3 control-label" ><%= locale.MyCert.DegreeCode%></label>
+						<div class="col-sm-9">
+							<% if(mycert.acadecerti == undefined){%>
+							<input type="text" class="form-control mycert_teacher" name="code"/>
+							<%}else{%>
+							<input type="text"  value="<%=mycert.acadecerti.code%>" class="form-control mycert_teacher" name="code"/>
+							<%}%>
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<form id="frmUploadFile1"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+							<label class="col-sm-3 control-label" ><%= locale.MyCert.DegreePhoto%></label>
+							<div class="col-sm-9">
+
+								<% if(mycert.acadecerti == undefined || mycert.acadecerti.image == undefined ){%>
+								<div class="input-group">
+									<input id="file1" class="form-control"   type="file" name="file" />
+									<img style="width:200px;height: 200px;display: none;" src=""  id="showImg1">
+								             <span class="input-group-btn">
+									        <button class="btn btn-primary" id="but1" onclick="uploadFile('1','imgCert');" type="button" value="上传"><%= locale.MyCert.upload%></button>
+											<button class="btn btn-primary" id="del1"  onclick="delImg('1','imgCert');"  type="button" style="display: none;" value="删除" >
+												<%= locale.MyCert.delete%>
+											</button>
+										   </span>
+								</div>
+								<input type="hidden" class="mycert_teacher" name="image" id="imgCert">
+								<%}else{%>
+								<div class="input-group">
+									<input id="file1" class="form-control"  style="display: none;"  type="file" name="file" />
+									<img style="width:200px;height: 200px;" src="<%=mycert.acadecerti.image%>"  id="showImg1">
+									             <span class="input-group-btn">
+										        <button class="btn btn-primary" id="but1" onclick="uploadFile('1','imgCert');" style="display: none;"  type="button" value="上传"><%= locale.MyCert.upload%></button>
+												<button class="btn btn-primary" id="del1"  onclick="delImg('1','imgCert');"  type="button" value="删除" >
+													<%= locale.MyCert.delete%>
+												</button>
+											   </span>
+								</div>
+								<input type="hidden" class="mycert_teacher" value="<%=mycert.acadecerti.image%>" name="image" id="imgCert">
+								<%}%>
+
+
+
+							</div>
+
+						</form>
+					</div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label" ><%= locale.MyCert.HonorNote%></label>
+						<div class="col-sm-9">
+							<div class="ibox-content" style="border: 1px solid rgb(221, 207, 207)">
+								<div class="row">
+									<div class="col-sm-6 b-r">
+										<div style="text-align: center">
+										<h4 class="m-t-none m-b"><%= locale.MyCert.HonorInput%>
+										</h4>
+										</div>
+										<div class="col-sm-11 col-sm-offset-1">
+										<div class="form-group"><label><%= locale.MyCert.time%></label> <input  type="text" id="infoTimeTextxx" class="form-control"/></div>
+										<div class="form-group"><label><%= locale.MyCert.HonorNote%></label> <textarea id="infoTextxx" class="form-control"></textarea></div>
+										<div class="form-group">	<form id="frmUploadFile2"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+												<label ><%= locale.MyCert.photo%></label>
+												<div >
+													<div class="input-group">
+														<input id="file2" class="form-control"   type="file" name="file" />
+														<img style="width:100px;height: 100px;display: none;" src=""  id="showImg2"/>
+							             <span class="input-group-btn">
+								    	<button class="btn btn-primary" id="but2" onclick="uploadFile('2','honorImg');" type="button" value="上传"><%= locale.MyCert.upload%></button>
+										<button class="btn btn-primary" id="del2"  onclick="delImg('2','honorImg');"  type="button" style="display: none;" value="删除" >
+											<%= locale.MyCert.delete%>
+										</button>
+									   </span>
+													</div>
+													<input type="hidden" name="honorImg" id="honorImg">
+												</div>
+
+											</form>
+										</div>
+										<div>
+											<div class="col-sm-2 col-sm-offset-7">
+											<button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="addListxx" type="button"><strong><%= locale.MyCert.add%></strong></button>
+										    </div>
+										</div>
+										</div>
+									</div>
+									<div id="honorListxx" class="col-sm-6">
+										<div style="text-align: center">
+										<h4><%= locale.MyCert.HonorList%></h4>
+										</div>
+										<%  var countxx = 0; _.each(mycert.servexerti, function(x){%>
+										<div style="margin-bottom: 3px;" class="col-sm-5"><a count="<%=countxx%>"  class="closeIconxx close_linkxx " style="position: absolute; left: 53px;"> <i class="fa fa-times"></i> </a>
+											<img title="<%= locale.MyCert.time%><%=x.time%> <%= locale.MyCert.info%><%=x.info%>" class="hhhimg" style="width:50px;height:50px;" src="<%=x.image%>">
+										</div>
+										<%
+											countxx ++;
+										});%>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+
+						<label class="col-sm-3 control-label"><%= locale.MyCert.worksEx%></label>
+						<div class="col-sm-9">
+							<textarea type="text" class="form-control mycert_teacher"  name="workexp"><%=mycert.workexp == undefined ? '':mycert.workexp%></textarea>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div id="org" style='<%=(mycert.usertype == '0' ||mycert.usertype == '1')?"display:none":""%>' >
+				<div class="form-group">
+					<label class="col-sm-3 control-label" ><%= locale.MyCert.company%></label>
+					<div class="col-sm-9">
+						<input value="<%=mycert.name == undefined ?"" :mycert.name%>" class="form-control mycert_agency" type="text" name="compname" />
+						<div id="compname" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<form id="frmUploadFile4"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+						<%if(mycert.image == undefined){%>
+						<label  class="col-sm-3 control-label"><%= locale.MyCert.worksEx%></label>
+						<div class="col-sm-9">
+							<div class="input-group">
+								<input id="file4" class="form-control"   type="file" name="file" />
+								<img style="width:200px;height: 200px;display: none;" src=""  id="showImg4">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but4" onclick="uploadFile('4','yyimage');" type="button" value="上传"><%= locale.MyCert.upload%></button>
+							<button class="btn btn-primary" id="del4"  onclick="delImg('4','yyimage');"  type="button" style="display: none;" value="删除" >
+								<%= locale.MyCert.delete%>
+							</button>
+
+
+							   </span>
+							</div>
+
+							<div id="ecredencode" style="display: none;">
+								<input type="hidden" name="yyimage" class="mycert_agency" id="yyimage">
+							</div>
+						</div>
+						<%}else{%>
+						<label  class="col-sm-3 control-label"><%= locale.MyCert.BusinessLic%></label>
+						<div class="col-sm-9">
+							<div class="input-group">
+								<input id="file4" class="form-control"   style="display: none;"   type="file" name="file" />
+								<img style="width:200px;height: 200px;" src="<%=mycert.image%>"  id="showImg4">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but4" onclick="uploadFile('4','yyimage');" style="display: none;" type="button" value="上传"><%= locale.MyCert.upload%></button>
+							<button class="btn btn-primary" id="del4"  onclick="delImg('4','yyimage');"  type="button"  value="删除" >
+								<%= locale.MyCert.delete%>
+							</button>
+
+
+							   </span>
+							</div>
+
+							<div id="ecredencode" style="display: none;">
+								<input type="hidden" name="yyimage" class="mycert_agency" value="<%=mycert.image%>" id="yyimage">
+							</div>
+						</div>
+						<%}%>
+					</form>
+				</div>
+
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" ><%= locale.MyCert.leadname%></label>
+					<div class="col-sm-9">
+						<%if(mycert.legalinfo == undefined){%>
+						<input  class="form-control mycert_agency" type="text" name="leadname" />
+
+						<%}else{%>
+						<input value="<%=mycert.legalinfo.name%>" class="form-control mycert_agency" type="text" name="leadname" />
+
+						<%}%>
+						<div id="compname" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" ><%= locale.MyCert.leadcode%></label>
+					<div class="col-sm-9">
+						<%if(mycert.legalinfo == undefined){%>
+						<input  class="form-control mycert_agency" type="text" name="leadcode" />
+
+						<%}else{%>
+						<input value="<%=mycert.legalinfo.code%>" class="form-control mycert_agency" type="text" name="leadcode" />
+
+						<%}%>
+						<div id="compname" style="display: none;">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<form id="frmUploadFile5"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+						<label  class="col-sm-3 control-label"><%= locale.MyCert.leadimage%></label>
+						<div class="col-sm-9">
+
+							<%if(mycert.legalinfo == undefined){%>
+							<div class="input-group">
+								<input id="file5" class="form-control"   type="file" name="file" />
+								<img style="width:200px;height: 200px;display: none;" src=""  id="showImg5">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but5" onclick="uploadFile('5','leadimage');" type="button" value="上传"><%= locale.MyCert.upload%></button>
+							<button class="btn btn-primary" id="del5"  onclick="delImg('5','leadimage');"  type="button" style="display: none;" value="删除" >
+								<%= locale.MyCert.delete%>
+							</button>
+
+
+							   </span>
+							</div>
+
+							<div id="ecredencode" style="display: none;">
+								<input type="hidden" name="leadimage" class="mycert_agency" id="leadimage">
+							</div>
+
+							<%}else{%>
+							<div class="input-group">
+								<input id="file5" class="form-control"  style="display: none;"   type="file" name="file" />
+								<img style="width:200px;height: 200px;" src="<%=mycert.legalinfo.image%>"  id="showImg5">
+							   <span class="input-group-btn">
+								   	<button class="btn btn-primary" id="but5" onclick="uploadFile('5','leadimage');" style="display: none;" type="button" value="上传"><%= locale.MyCert.upload%></button>
+							<button class="btn btn-primary" id="del5"  onclick="delImg('5','leadimage');"  type="button"  value="删除" >
+								<%= locale.MyCert.delete%>
+							</button>
+
+
+							   </span>
+							</div>
+
+							<div id="ecredencode" style="display: none;">
+								<input type="hidden" value="<%=mycert.legalinfo.image%>" class="mycert_agency" name="leadimage" id="leadimage">
+							</div>
+
+							<%}%>
+
+						</div>
+					</form>
+				</div>
+
+
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" ><%= locale.MyCert.HonorNote%></label>
+					<div class="col-sm-9">
+						<div class="ibox-content" style="border: 1px solid rgb(221, 207, 207)">
+							<div class="row">
+								<div class="col-sm-6 b-r">
+									<div style="text-align: center">
+									<h4 class="m-t-none m-b"><%= locale.MyCert.HonorInput%>
+									</h4>
+									</div>
+
+									<div class="col-sm-11 col-sm-offset-1">
+									<div class="form-group"><label><%= locale.MyCert.time%></label> <input  type="text" id="infoTimeText" class="form-control"/></div>
+									<div class="form-group"><label><%= locale.MyCert.HonorNote%></label> <textarea id="infoText" class="form-control"></textarea></div>
+									<div class="form-group">
+										<form id="frmUploadFile6"  action="/users/fileUpload" enctype='multipart/form-data' method="post">
+											<label ><%= locale.MyCert.photo%></label>
+											<div >
+												<div class="input-group">
+													<input id="file6" class="form-control"   type="file" name="file" />
+													<img style="width:100px;height: 100px;display: none;" src=""  id="showImg6"/>
+							             <span class="input-group-btn">
+								    	<button class="btn btn-primary" id="but6" onclick="uploadFile('6','infoImg');" type="button" value="上传"><%= locale.MyCert.upload%></button>
+										<button class="btn btn-primary" id="del6"  onclick="delImg('6','infoImg');"  type="button" style="display: none;" value="删除" >
+											<%= locale.MyCert.delete%>
+										</button>
+									   </span>
+												</div>
+												<input type="hidden" name="honorImg" id="infoImg">
+											</div>
+
+										</form>
+									</div>
+									<div>
+										<div class="col-sm-2 col-sm-offset-7">
+									        	<button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="addList" type="button"><strong><%= locale.MyCert.add%></strong></button>
+									    </div>
+										</div>
+									</div>
+								</div>
+								<div id="honorList" class="col-sm-6"><h4><%= locale.MyCert.HonorList%></h4>
+
+									<%  var count = 0; _.each(mycert.servexerti, function(x){%>
+									<div style="margin-bottom: 3px;" class="col-sm-5"><a count="<%=count%>"  class="closeIcon close_link " style="position: absolute; left: 53px;"> <i class="fa fa-times"></i> </a>
+										<img title="<%= locale.MyCert.time%>:<%=x.time%> <%= locale.MyCert.info%>:<%=x.info%>" class="hhhimg" style="width:50px;height:50px;" src="<%=x.image%>">
+									</div>
+									<%
+										count ++;
+									});%>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="form-group text-center" style="text-align:center;">
+				<div class="col-sm-2 col-sm-offset-6">
+				<button class="btn btn-primary" id="mycertsub" type="button" name="submit" value="提交"><%= locale.MyCert.upload%></button>
+                </div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-1">
+
+	</div>
+	</div>
+</div>
+</div>
+</div>
+<script>
+
+	function uploadFile(i,tid){
+
+		if(i == undefined){
+			i = '';
+		}
+		var fileValue = $("#file"+i).val();
+		if(fileValue == ''){
+			bootbox.alert('<%=locale.MyCert.choose%>');
+			return ;
+		}
+		var formData = new FormData($("#frmUploadFile"+i)[0]);
+
+		$.ajax({
+			url: '/users/fileUpload',
+			type: 'POST',
+			data: formData,
+			async: false,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(data){
+				if(200 === data.code) {
+
+					$("#showImg"+i).attr('src', data.msg.url);
+					$("#showImg"+i).show();
+					$("#file"+i).hide();
+					$("#but"+i).hide();
+					$("#del"+i).show();
+					$("#"+tid).val(data.msg.url);
+				} else {
+					bootbox.alert(data.msg);
+				}
+
+			},
+			error: function(){
+				$("#spanMessage").html('<%=locale.MyCert.errorNet%>');
+			}
+		});
+	}
+
+	function delImg(i,tid){
+		if(i == undefined){
+			i = '';
+		}
+		$("#"+tid).val('');
+		$("#showImg"+i).attr('src', '');
+		$("#showImg"+i).hide();
+		$("#file"+i).val('');
+		$("#file"+i).show();
+		$("#but"+i).show();
+		$("#del"+i).hide();
+	}
+
+
+	(function () {
+
+
+
+		$(":radio[name='usertype']").click(function(){
+			var userType = $(this).val();
+
+			if(userType == 1){
+
+				$("#teacher").show();
+				$("#org").hide();
+			}else{
+
+				$("#org").show();
+				$("#teacher").hide();
+			}
+			$(".hidDiv").hide();
+		});
+
+
+
+
+
+
+	})();
+</script>

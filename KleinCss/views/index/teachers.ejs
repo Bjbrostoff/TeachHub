@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/leaflet/dist/leaflet.css">
+    <link href="/Inspinia/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+    <% include ../includes/head/normal2.ejs %>
+
+</head>
+<body>
+
+<% include ../includes/header/nav/normal.ejs %>
+<%include ../includes/dialog/login.ejs %>
+
+<div id="condition-view">
+
+</div>
+
+<div id="result-view">
+
+</div>
+
+<div id="profile-detail">
+
+</div>
+
+<!--老师课程展示-->
+<div class="container">
+    <div class="row">
+        <div id="profile-detail-info">
+
+        </div>
+
+        <div id="profile-course">
+
+        </div>
+    </div>
+</div>
+
+<div id="map-container" class="row">
+    <div id="map" class="col-lg-12" style="height: 350px;">
+
+    </div>
+</div>
+
+<% include ../includes/footer/normal.ejs %>
+
+
+</body>
+<script>
+
+    var user_login = false;
+    <% if (login){ %>
+    user_login = true;
+    <% } %>
+
+    var localeName = '<%= localeName %>';
+    $('.top-dropdown-btn').dropdown();
+    $('.top-dropdown-chosebtn').click(function(){
+                var all = $('#top-dropdown-menu').find('.top-dropdown-chosebtn');
+                for (var i = 0; i < all.length; i++){
+                    $(all[i]).removeClass('top-dropdown-chosebtn-active');
+                }
+                $(this).addClass('top-dropdown-chosebtn-active');
+                $('.top-dropdown-btn').html( $(this).html()+'&nbsp;<span class="caret"></span>');
+            }
+    )
+
+    $('.top-search-btn').click(function(){
+        var type = $('.top-dropdown-chosebtn-active').attr('topsearchtag');
+        var text = $('#web_search_header').val();
+        //console.log(text);
+        window.location.href = '/'+type+'#search/'+text
+    })
+</script>
+<script src="/requirejs/require.js" data-main="/app/searcht/searchtmain.js"></script>
+</html>

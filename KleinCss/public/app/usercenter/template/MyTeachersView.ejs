@@ -1,0 +1,135 @@
+<!--
+<div class="row leftmargin animated fadeInRight">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2><%= locale.MyTeachers.MyTeachers %></h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#home"><%= locale.MyTeachers.Home %></a>
+                        </li>
+                        <li class="active">
+                            <strong><%= locale.MyTeachers.MyTeachers %></strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row m-b-sm m-t-sm">
+                &lt;!&ndash;<div class="btn-group col-md-3">
+                    <button type="button" id="btn-refresh" class="btn btn-white btn-sm" ><i class="fa fa-refresh"></i> 刷新</button>
+                    <button type="button" id="btn-trash" class="btn btn-white btn-sm" ><i class="fa fa-trash"></i> 清空</button>
+                </div>&ndash;&gt;
+                <div class="col-md-12 pull-right">
+                    <div class="input-group">
+                        <input id="input-search" type="text"  class="input-sm form-control">
+                        <span class="input-group-btn">
+                            <button id="btn-search" type="button" class="btn btn-sm btn-primary"> <%= locale.MyTeachers.Search %></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="project-list">
+                    <div class="row tab-content">
+                        <div class="toolbar">
+                            <ul class="nav nav-tabs">
+                                <span class="pull-right small text-muted"></span>
+                                <li class="myteachers-nav-tab active" data-state="-1"><a data-toggle="tab" ><i class="fa fa-user"></i> <%= locale.MyTeachers.All %></a></li>
+                                <li class="myteachers-nav-tab" data-state="0"><a data-toggle="tab" ><i class="fa fa-user"></i> <%= locale.MyTeachers.Teaching %></a></li>
+                                <li class="myteachers-nav-tab" data-state="1"><a data-toggle="tab" ><i class="fa fa-briefcase"></i> <%= locale.MyTeachers.Taught %></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row tab-content">
+                        <div id="myteachers-list">
+                        </div>
+                     </div>
+                   </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox-content">
+                <div class="row">
+                <div id="myteachers-chart" style=" width: 300px;height: 300px;margin: auto;" >
+                    </div>
+                    </div>
+                <div class="row">
+                    <div id="myteachers-chart-desc">
+                    </div>
+                </div>
+            </div>
+            <div id="myteachers-detail-container">
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!--<div class="container percore">-->
+    <!--<div class="row">-->
+        <!--<div class="col-lg-10">-->
+            <!--<div class="box-border percore-right right-space mt25">-->
+                <!--<div class="sh-right-td">-->
+                    <!--<ul class="sh-right-tab clearfix">-->
+                        <!--<li style="list-style-type:none;" class="myteachers-nav-tab on" data-state="-1">-->
+                            <!--<a data-toggle="tab" > <%= locale.MyTeachers.All %></a>-->
+                            <!--<div class="tb-selected-indicator"></div>-->
+                        <!--</li>-->
+                        <!--<li style="list-style-type:none;" class="myteachers-nav-tab" data-state="0">-->
+                            <!--<a data-toggle="tab" > <%= locale.MyTeachers.Teaching %></a>-->
+                            <!--<div class="tb-selected-indicator"></div>-->
+                        <!--</li>-->
+                        <!--<li style="list-style-type:none;" class="myteachers-nav-tab" data-state="1">-->
+                            <!--<a data-toggle="tab" > <%= locale.MyTeachers.Taught %></a>-->
+                            <!--<div class="tb-selected-indicator"></div>-->
+                        <!--</li>-->
+
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="culumbox plr-20 row tab-content">-->
+                    <!--<div id="myteachers-list">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+<div class="row leftmargin animated fadeInRight page-content-home">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading mt25" style="border: solid 1px #e7eaec;min-height: 703px">
+        <div class="col-sm-12 col-md-12">
+            <div class="row tab-content">
+                <div class="sh-right-td">
+                    <ul class="sh-right-tab clearfix" style="padding-left: 0px;border-bottom: 1px solid #e7eaec;">
+                        <li style="list-style-type:none;" class="myteachers-nav-tab on" data-state="-1">
+                            <a data-toggle="tab" > &nbsp;&nbsp;<%= locale.MyTeachers.All %>&nbsp;&nbsp;</a>
+                            <div class="tb-selected-indicator"></div>
+                        </li>
+                        <li style="list-style-type:none;" class="myteachers-nav-tab" data-state="0">
+                            <a data-toggle="tab" > <%= locale.MyTeachers.Teaching %></a>
+                            <div class="tb-selected-indicator"></div>
+                        </li>
+                        <li style="list-style-type:none;" class="myteachers-nav-tab" data-state="1">
+                            <a data-toggle="tab" > <%= locale.MyTeachers.Taught %></a>
+                            <div class="tb-selected-indicator"></div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-11 col-md-11">
+            <div class="wrapper wrapper-content" style="padding-top: 0px;">
+                <div class="culumbox plr-20 row tab-content">
+                    <div id="myteachers-list">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

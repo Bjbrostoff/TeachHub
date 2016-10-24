@@ -1,0 +1,70 @@
+<% var count = data.length; %>
+
+<!--<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <table id="sth-unchecked-field" class="footable table table-stripped toggle-arrow-tiny">
+                <thead>
+                <tr>
+                    <th><%= locale.StudentHomework.StudentName %></th>
+                    <th><%= locale.StudentHomework.HomeworkTitle %></th>
+                    <th><%= locale.StudentHomework.CourseTitle %></th>
+                    <th><%= locale.StudentHomework.Timeofsubmission %></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (var i = 0;i < count;i++){ %>
+                <tr>
+                    <td><%= data[i].userid.name %></td>
+                    <td><%= data[i].hwid.hwtitle %></td>
+                    <td><%= data[i].courseid.name %></td>
+                    <td>
+                        <small><%=(data[i].commitdate.slice(0,10)+' '+data[i].commitdate.slice(11,16))%></small>
+                    </td>
+                    <td>
+                        <button id="homework-checkview"  _id="<%= data[i]._id%>" class="sth-check-pencil-tab btn btn-xs btn-primary" type="button"><i  class="fa fa-pencil"></i> <%= locale.StudentHomework.Correcting %></button>
+                    </td>
+                </tr>
+                <% }%>
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <ul class="pagination pull-right"></ul>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="sameday-box" style="display:block;"><!--当日详情-->
+    <table class="table-box sameday-table">
+        <tr>
+            <td><%= locale.StudentHomework.StudentName %></td>
+            <td><%= locale.StudentHomework.HomeworkTitle %></td>
+            <td><%= locale.StudentHomework.CourseTitle %></td>
+            <td><%= locale.StudentHomework.Timeofsubmission %></td>
+            <td></td>
+        </tr>
+        <% for (var i = 0;i < count;i++){ %>
+        <tr>
+            <td><%= data[i].userid.name %></td>
+            <td><%= data[i].hwid.hwtitle %></td>
+            <td><%= data[i].courseid.name %></td>
+            <td>
+                <small><%=(data[i].commitdate.slice(0,10)+' '+data[i].commitdate.slice(11,16))%></small>
+            </td>
+            <td>
+                <button id="homework-checkview"  _id="<%= data[i]._id%>" class="sth-check-pencil-tab btn btn-xs btn-primary" type="button"><i  class="fa fa-pencil"></i> <%= locale.StudentHomework.Correcting %></button>
+            </td>
+        </tr>
+        <% }%>
+
+    </table>
+
+</div>

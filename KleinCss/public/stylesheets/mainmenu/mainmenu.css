@@ -1,0 +1,70 @@
+/*--------------------------------------------------------------------------
++	Main Menu Style
+--------------------------------------------------------------------------*/
+.mainmenubanner.nav-bar
+{
+    min-width: 768px;
+}
+.mainmenubanner.container
+{
+    linear-gradient(270deg,#42b76c 10%,#207977 90%);
+    background-image: linear-gradient(270deg, rgb(66, 183, 108) 10%, rgb(32, 121, 119) 90%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: #3ba461;width: 100%;
+    font-size: 14px;
+    line-height: 20px;
+}
+.mainmenubanner li.logo-wrapper a {
+    border-right: 1px solid #E8E8E8;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.mainmenubanner-wrapper {
+    background-color: #FFF;
+    border-bottom: 4px solid #4f8db3;
+    z-index: 4;
+}
+.mainmenubanner {
+    width: 100%;
+    /* general ul style */
+    /* first level ul style */
+    /* sub-menu */
+}
+.mainmenubanner > ul,
+.mainmenubanner .mainmenu-submenu-inner {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.mainmenubanner > ul > li,
+.mainmenubanner .mainmenu-submenu-inner > li {
+    display: inline-block;
+    *display: inline;
+}
+.mainmenubanner > ul > li > a{
+    font-size: 1.2em;
+    padding: 1.2em 1.5em;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+.mainmenubanner > ul > li > a:hover,
+.mainmenubanner .mainmenubanner-submenu-inner > li > a:hover {
+    color: palegoldenrod;
+    text-decoration: none;
+}
+.mainmenubanner > ul > li.active > a,
+.mainmenubanner .mainmenubanner-submenu-inner > li.active > a {
+    color: yellow;
+}

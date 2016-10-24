@@ -1,0 +1,119 @@
+<!--<div class="row leftmargin animated fadeInRight">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2><%= locale.MyCourse.MyCourse %></h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#home"><%= locale.MyCourse.Home %></a>
+                        </li>
+                        <li class="active">
+                            <strong><%= locale.MyCourse.MyCourse %></strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="project-list">
+                    <div class="row tab-content">
+                        <div class="toolbar">
+                            <ul class="nav nav-tabs">
+                                <span class="pull-right small text-muted"></span>
+                                <li id="mycourseinclass" class="my-course-nav-tab active" data-bind="act"><a data-toggle="tab" href="#my-course-mycourse-acting"><i class="fa fa-user"></i> <%= locale.MyCourse.Teaching %></a></li>
+                                <li id="mycourseinsign" class="my-course-nav-tab" data-bind="pub"><a data-toggle="tab" href="#my-course-mycourse-signed"><i class="fa fa-briefcase"></i> <%= locale.MyCourse.Registered %></a></li>
+                                <li id="mycourseoverclass" class="my-course-nav-tab" data-bind="sellout"><a data-toggle="tab" href="#my-course-mycourse-end"><i class="fa fa-briefcase"></i> <%= locale.MyCourse.Taught %></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row tab-content">
+                        <div class="tab-pane active" id="my-course-mycourse-acting">
+                            <div class="panel-body">
+                                <div class="row" id="my_course_act_tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="my-course-mycourse-signed">
+                            <div class="panel-body">
+                                <div class="row" id="my_course_signed_tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="my-course-mycourse-end">
+                            <div class="panel-body">
+                                <div class="row" id="my_course_end_tab">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>-->
+
+
+<div class="row leftmargin animated fadeInRight page-content-home">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading mt25" style="border: solid 1px #e7eaec;min-height: 703px">
+        <div class="col-sm-12 col-md-12">
+            <div class="row tab-content">
+
+                <div class="sh-right-td">
+                    <ul class="sh-right-tab clearfix" style="padding-left: 0px;border-bottom: 1px solid #e7eaec;">
+                        <li id="mycourseinclass" class="my-course-nav-tab on" style="list-style-type:none;" data-bind="-1">
+                            <a data-toggle="tab" href="#my-course-mycourse-acting">
+                                <%= locale.MyCourse.Teaching %>
+                            </a>
+                            <div class="tb-selected-indicator"></div>
+                        </li>
+                        <li id="mycourseinsign" class="my-course-nav-tab" style="list-style-type:none;" data-bind="0">
+                            <a data-toggle="tab" href="#my-course-mycourse-signed">
+                                <%= locale.MyCourse.Registered %>
+                            </a>
+                            <div class="tb-selected-indicator"></div>
+                        </li>
+                        <li id="mycourseoverclass" class="my-course-nav-tab" style="list-style-type:none;" data-bind="1">
+                            <a data-toggle="tab" href="#my-course-mycourse-end">
+                                <%= locale.MyCourse.Taught %>
+                            </a>
+                            <div class="tb-selected-indicator"></div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-11 col-md-11">
+            <div class="wrapper wrapper-content" style="padding-top: 0px;">
+
+                <div class="row tab-content">
+                    <div class="tab-pane active" id="my-course-mycourse-acting">
+                        <div class="panel-body">
+                            <div class="row" id="my_course_act_tab">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="my-course-mycourse-signed">
+                        <div class="panel-body">
+                            <div class="row" id="my_course_signed_tab">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="my-course-mycourse-end">
+                        <div class="panel-body">
+                            <div class="row" id="my_course_end_tab">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

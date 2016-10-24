@@ -1,0 +1,32 @@
+<div class="ibox  white-bg animated fadeInRight"
+     style="position: absolute;top: 60px;right: 0px;width:400px;min-height: 1200px;border-left: #e7eaec thick solid;">
+    <div class="ibox-title">
+        <h5><%= locale.MyTeachers.HistoryClass %></h5>
+        <div class="ibox-tools">
+            <a class="close-link btn-close">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div id="vertical-timeline" class="vertical-container dark-timeline">
+        <% _.each(courses, function(course){ %>
+        <div class="vertical-timeline-block">
+            <div>
+                <div class="vertical-timeline-icon gray-bg">
+                    <i class="fa fa-book"></i>
+                </div>
+            </div>
+        <div class="vertical-timeline-content">
+            <strong class="row m-b-sm m-t-sm"><%= locale.MyTeachers.CourseState %>：<%= course['statelv']['name'] %></strong>
+            <% if(course['statelv']['type'] == 2){ %>
+            <small class="row m-b-sm m-t-sm"><%= locale.MyTeachers.Date %>：<i class="fa fa-clock-o">&nbsp;&nbsp;</i><%= course['cdate'].substring(0,10)%></small>
+            <% } %>
+            <small class="row m-b-sm m-t-sm"><%= locale.MyTeachers.Name %>：<%= course['name'] %></small>
+            <small class="row m-b-sm m-t-sm"><%= locale.MyTeachers.Intro %>：<%= course['introduction'] %></small>
+            <small class="row m-b-sm m-t-sm"><%= locale.MyTeachers.TeachMethod %>：<%= course['method']['name'] %>&nbsp;&nbsp;</small>
+            <small class="row m-b-sm m-t-sm"><%= locale.MyTeachers.TeachMode %>TeachMode：<%= course['mode']['name'] %></small>
+        </div>
+        </div>
+        <% }) %>
+    </div>
+</div>

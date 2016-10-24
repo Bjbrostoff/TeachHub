@@ -1,0 +1,82 @@
+<!--<div class="row">
+    <div class="col-lg-12">
+
+
+        <div class="ibox">
+            <div class="ibox-content">
+
+                <div class="project-list">
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th><%= locale.MyHomework.No %></th>
+                            <th><%= locale.MyHomework.Homeworktitle %></th>
+                            <th>进度</th>
+
+
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%var i = 0;%>
+                        <% _.each(datas, function(item){ %>
+                        <tr>
+                            <td ><%=++i%></td>
+                            <td class="project-title">
+                                <%= item.hwid.hwtitle%>
+                            </td>
+                            <td><a href="#"><progress value="48" max="100"></progress>48%</a></td>
+
+                            <td class="project-actions">
+                                <button modelid="<%=item.id%>"  class="mhw-edit-pencil-tab btn btn-xs btn-info" type="button"><i  class="fa fa-paste"></i> <%= item.hwid.Edit%></button>
+                            </td>
+                        </tr>
+                        <%})%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>-->
+
+
+<div class="sameday-box" style="display:block;"><!--当日详情-->
+    <table class="table-box sameday-table">
+        <tr>
+            <td><%= locale.MyHomework.No %></td>
+            <td><%= locale.MyHomework.Homeworktitle %></td>
+            <td>进度</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <%var i = 0;%>
+        <% _.each(datas, function(item){ %>
+
+        <tr>
+            <td ><%=++i%></td>
+            <td>
+                <%= item.hwid.hwtitle%>
+            </td>
+            <td><a href="#"><progress value="48" max="100"></progress>48%</a></td>
+
+            <!--<td class="project-actions">
+                <button modelid="<%=item.id%>"  class="mhw-edit-pencil-tab btn btn-xs btn-info" type="button"><i class="baricon"></i> <%= item.hwid.Edit%></button>
+            </td>-->
+            <td >
+                <button modelid="<%= item.id %>" class="mhw-edit-pencil-tab btn btn-xs btn-info" style="background-color: #337ab7;color: #fff" type="button">
+                    <%= locale.MyHomework.Edit %>
+                </button>
+                <!--<a modelid="<%=item.id%>" class="mhw-edit-pencil-tab" ><i class="baricon-ma"></i><%= locale.MyHomework.Edit%></a>-->
+            </td>
+        </tr>
+        <%})%>
+        <%
+        console.log("-------datas-----");
+        console.log(datas);
+         %>
+    </table>
+
+</div>

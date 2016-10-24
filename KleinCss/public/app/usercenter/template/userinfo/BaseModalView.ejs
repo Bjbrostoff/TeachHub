@@ -1,0 +1,35 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><%= locale.BaseInfo.Modifypassword %></h4>
+        </div>
+        <div class="modal-body">
+            <form id="baseinfo-codeConfirm-form" class="form-horizontal" role="form" >
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><%= locale.BaseInfo.Originalpassword %></label>
+                    <div class="col-sm-10">
+                        <input id="baseinfo-userform-oldpassword" type="password"  name="oldpassword" class="form-control required" placeholder="<%= locale.BaseInfo.inputoriginalpassword %>">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><%= locale.BaseInfo.Newpassword %></label>
+                    <div class="col-sm-10">
+                        <input id="baseinfo-userform-newpassword" type="password" name="newpassword" class="form-control required" placeholder="<%= locale.BaseInfo.inputnewpassword %>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><%= locale.BaseInfo.Confirmpassword %></label>
+                    <div class="col-sm-10">
+                        <input id="baseinfo-userform-confirmcode" type="password" name="confirmpassword" class="form-control required" placeholder="<%= locale.BaseInfo.confirmpassword %>">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><%= locale.BaseInfo.Close %></button>
+            <button id="baseinfo-codesave-btn" type="button" class="btn btn-primary"><%= locale.BaseInfo.Save %></button>
+        </div>
+    </div>
+</div>

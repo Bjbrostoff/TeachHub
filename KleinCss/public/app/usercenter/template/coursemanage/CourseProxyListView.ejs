@@ -1,0 +1,47 @@
+<div class="ibox-content row">
+    <div class="btn btn-primary course-manage-course-detail"><%=local.CourseManage.courseProxy.detail%></div>
+</div>
+<div class="ibox-content forum-container">
+    <% _.each(datas, function(item){ %>
+    <div class="forum-item course-manage-forum-item" dataid="<%= item.id %>">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="forum-icon">
+                    <i class="fa fa-shield"></i>
+                </div>
+                <a class="forum-item-title">
+                    <%= item.course.name %>
+                </a>
+                <p class="forum-item-title"><%=local.CourseManage.courseProxy.instructor%>：<%= item.teacher.name %></p>
+                <div class="forum-sub-title">
+                    <%= item.course.introduction %>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <span class="label label-xs label-primary">
+                    <%= item.status.name %>
+                </span>
+            </div>
+            <div class="col-md-2">
+                    <% switch(item.status.value){ case 1:%>
+                        <div class="btn btn-xs btn-outline btn-primary course-manage-proxy-operate"
+                             data-id="<%=item.id%>" data-proxy-status="2" >
+                            <span><%=local.CourseManage.courseProxy.pass%></span>
+                        </div>
+                        <div class="btn btn-xs btn-outline btn-primary course-manage-proxy-operate"
+                             data-id="<%=item.id%>" data-proxy-status="3">
+                            <span><%=local.CourseManage.courseProxy.noPass%></span>
+                        </div>
+                        <% break;%>
+                        <% case 2:%>
+                            <div class="btn btn-xs btn-outline btn-primary course-manage-proxy-operate"
+                                 data-id="<%=item.id%>" data-proxy-status="4">
+                                <span><%=local.CourseManage.courseProxy.remove%></span>
+                            </div>
+                         <% break;%>
+                    <%}%>
+            </div>
+        </div>
+    <% }) %>
+    </div>
+</div>

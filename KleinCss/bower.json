@@ -1,0 +1,42 @@
+{
+  "name": "ReBone",
+  "description": "",
+  "main": "",
+  "authors": [
+    "clock <zxgao_ray@qq.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.3",
+    "d3": "~3.5.11",
+    "requirejs": "~2.1.22",
+    "leaflet": "~0.7.7",
+    "bootstrap": "~3.3.6",
+    "text":"~2.0.14",
+    "bootbox":"",
+    "bootstrap-table": "~1.9.1",
+    "morrisjs":"~0.5.1",
+    "fullcalendar":"~2.5.0",
+    "jquery-validation":"~1.13.0",
+    "jquery-ui":"",
+    "bootstrap-datepicker":"",
+    "bootstrap-timepicker":"",
+    "jquery.slimscroll":"",
+    "summernote":"",
+    "iCheck":"",
+    "dropzone":"",
+    "sweetalert":"",
+    "requirejs-i18n":"",
+    "pdfmake":""
+
+  }
+}

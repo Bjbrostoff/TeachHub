@@ -1,0 +1,13 @@
+<div class="col-lg-3">
+    <div class="box-border sh-t-left mt25">
+        <div class="sh-left-title"><%= teacherdetail.workhistory %></div>
+        <% teacher.servexerti.forEach(function(servexerti){ %>
+        <div class="honor-list">
+            <p class="p-1"><%= servexerti.date %></p>
+            <p class="p-2"><%= servexerti.info %></p>
+            <div class="dot-bor"></div>
+        </div>
+        <% }) %>
+
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div id="sthomework-findkbox-field" class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 26px;right: -14px;width:500px;min-height: 701px;border-left: #e7eaec 2px solid;
+     background-color: #FFFFFF;z-index: 999">
+
+    <div class="row" style="height:530px">
+        <div class="col-lg-12">
+
+            <div class="ibox-title">
+                <div class="col-sm-11 col-sm-offset-1">
+                    <h5><%= locale.StudentManage.MoreInformation %></h5>
+                </div>
+                <div class="col-sm-12">
+                    <div style="width: 100%;border-bottom: solid 1px #e7eaec;"></div>
+                </div>
+                <div class="ibox-tools">
+                    <a class="close-link agenciesstumanage-findmoreview-close">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ibox-content no-padding ">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th><h5><%= locale.StudentManage.No %></h5></th>
+                        <th><h5><%= locale.StudentManage.CourseName %></h5></th>
+                        <th><h5><%= locale.StudentManage.TeacherName %></h5></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for(var j = 0;j < data.coursename.length;j++){ %>
+                    <tr>
+                        <td><%= j + 1 %></td>
+                        <td><a data-toggle="tab" href="#contact-1" class="client-link"><%= data.coursename[j] %></a>
+                        </td>
+                        <td><h5><%= data.teachername[j] %></h5></td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+        </div>
+        <div class="col-sm-2">
+            <div class="btn btn-default agenciesstumanage-findmoreview-close"><%= locale.StudentManage.Close %></div>
+        </div>
+        <div class="col-sm-5">
+        </div>
+    </div>
+</div>
+
+
+</div>

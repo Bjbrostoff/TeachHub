@@ -1,0 +1,191 @@
+<!--
+<div class="row leftmargin animated fadeInRight">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2><%= locale.MyFavorites.MyFavorites %></h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#home"><%= locale.MyFavorites.Home %></a>
+                        </li>
+                        <li class="active">
+                            <strong><%= locale.MyFavorites.MyFavorites %></strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row m-b-sm m-t-sm">
+                &lt;!&ndash;<div class="btn-group col-md-3">
+                    <button type="button" id="btn-refresh" class="btn btn-white btn-sm" ><i class="fa fa-refresh"></i> 刷新</button>
+                    <button type="button" id="btn-trash" class="btn btn-white btn-sm" ><i class="fa fa-trash"></i> 清空</button>
+                </div>&ndash;&gt;
+                <div class="col-md-12 pull-right">
+                    <div class="input-group">
+                        <input id="input-search" type="text"  class="input-sm form-control">
+                        <span class="input-group-btn">
+                            <button id="btn-search" type="button" class="btn btn-sm btn-primary"> <%= locale.MyFavorites.Search %></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="project-list">
+                    <div class="row tab-content">
+                        <div class="toolbar">
+                            <ul class="nav nav-tabs">
+                                <span class="pull-right small text-muted"></span>
+                                <% _.each(types, function(item){ %>
+                                <% if(item.active){ %>
+                                <li class="myfavorite-nav-tab active" data-type="<%= item['type'] %>"><a data-toggle="tab" href="<%= item['tab'] %>"><i class="fa fa-user"></i> <%= item['name'] %></a></li>
+                                <% }else{ %>
+                                <li class="myfavorite-nav-tab" data-type="<%= item['type'] %>"><a data-toggle="tab" href="<%= item['tab'] %>"><i class="fa fa-user"></i> <%= item['name'] %></a></li>
+                                <% } %>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row tab-content">
+                        <div class="tab-pane active" id="myfavorite-tab-course">
+                        </div>
+                        <div class="tab-pane" id="myfavorite-tab-teacher">
+                        </div>
+                        <div class="tab-pane" id="myfavorite-tab-agency">
+                        </div>
+                     </div>
+                   </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div id="myfavorite-chart">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="myfavorite-chart-desc">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!--<div class="container percore">-->
+    <!--<div class="row">-->
+        <!--<div class="col-lg-10">-->
+            <!--<div class="box-border percore-right right-space mt25">-->
+                <!--<div class="sh-right-td">-->
+                    <!--<ul class="sh-right-tab clearfix">-->
+                        <!--<% _.each(types, function(item){ %>-->
+                        <!--<% if(item.active){ %>-->
+                        <!--<li class="myfavorite-nav-tab on" style="list-style-type:none;" data-type="<%= item['type'] %>">-->
+                            <!--<a-->
+                                    <!--style="text-decoration: none;" data-toggle="tab" href="<%= item['tab'] %>"><i-->
+                                        <!--class="fa fa-user"></i> <%= item['name'] %></a>-->
+                            <!--<div class="tb-selected-indicator"></div>-->
+                        <!--</li>-->
+                        <!--<% }else{ %>-->
+                        <!--<li class="myfavorite-nav-tab" style="list-style-type:none;" data-type="<%= item['type'] %>">-->
+                            <!--<a style="text-decoration: none;" data-toggle="tab" href="<%= item['tab'] %>"><i-->
+                                        <!--class="fa fa-user"></i> <%= item['name'] %>-->
+                            <!--</a>-->
+                            <!--<div class="tb-selected-indicator"></div>-->
+                        <!--</li>-->
+                        <!--<% } %>-->
+                        <!--<% }) %>-->
+                    <!--</ul>-->
+                <!--</div>-->
+
+                <!--<div class="culumbox plr-20 row tab-content">-->
+                    <!--<div class="row mlr-brief tab-pane active" id="myfavorite-tab-course">-->
+                    <!--</div>-->
+                    <!--<div class="row mlr-brief tab-pane" id="myfavorite-tab-teacher">-->
+                    <!--</div>-->
+                    <!--<div class="row mlr-brief tab-pane" id="myfavorite-tab-agency">-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash;<div class="culumbox plr-20">-->
+
+                    <!--<div class="row mlr-brief">-->
+                        <!--<div class="col-sm-3">-->
+                            <!--<a href="#"><img width="100%" height="100%" src="img/20160314231940.png" /></a>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-6">-->
+                            <!--<div class="kc-p-top">-->
+                                <!--<span>线下授课</span>-->
+                                <!--<a href="#">日常英语001</a>-->
+                            <!--</div>-->
+                            <!--<p class="culum-p">从零开始从零开始从零开始从零开始从零开始从零开始</p>-->
+                            <!--<div class="study-pe">123人学习</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-3">-->
+                            <!--<span class="span-1 pull-left">￥1000/小时</span>-->
+                            <!--<a href="#" class="close-x pull-right">X</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                <!--</div>&ndash;&gt;-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;分页&ndash;&gt;-->
+<!--<div id="myfavorite-pagination">-->
+
+<!--</div>-->
+
+
+<div class="row leftmargin animated fadeInRight page-content-home">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading mt25" style="border: solid 1px #e7eaec;min-height: 703px">
+        <div class="col-sm-12 col-md-12">
+            <div class="row tab-content">
+
+                <div class="sh-right-td">
+                    <ul class="sh-right-tab clearfix" style="padding-left: 0px;border-bottom: 1px solid #e7eaec;">
+                        <% _.each(types, function(item){ %>
+                        <% if(item.active){ %>
+                        <li class="myfavorite-nav-tab on" style="list-style-type:none;" data-type="<%= item['type'] %>">
+                            <a
+                                    style="text-decoration: none;" data-toggle="tab" href="<%= item['tab'] %>"><i
+                                        class="fa fa-user"></i> <%= item['name'] %></a>
+                            <div class="tb-selected-indicator"></div>
+                        </li>
+                        <% }else{ %>
+                        <li class="myfavorite-nav-tab" style="list-style-type:none;" data-type="<%= item['type'] %>">
+                            <a style="text-decoration: none;" data-toggle="tab" href="<%= item['tab'] %>"><i
+                                        class="fa fa-user"></i> <%= item['name'] %>
+                            </a>
+                            <div class="tb-selected-indicator"></div>
+                        </li>
+                        <% } %>
+                        <% }) %>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9">
+
+            <div class="wrapper wrapper-content" style="padding-top: 0px;">
+                <div class="culumbox plr-20 row tab-content">
+                    <div class="row mlr-brief tab-pane active" id="myfavorite-tab-course">
+                    </div>
+                    <div class="row mlr-brief tab-pane" id="myfavorite-tab-teacher">
+                    </div>
+                    <div class="row mlr-brief tab-pane" id="myfavorite-tab-agency">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myfavorite-pagination">
+
+</div>

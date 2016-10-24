@@ -1,0 +1,257 @@
+<!--<div class="row leftmargin animated fadeInRight">-->
+<!--<div class="row wrapper leftmargin border-bottom white-bg page-heading">-->
+<!--<div class="col-lg-8">-->
+<!--&lt;!&ndash;<div class="row wrapper border-bottom white-bg page-heading">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-sm-4">&ndash;&gt;-->
+<!--&lt;!&ndash;<h2><%= local.CourseManage.mainView.main %></h2>&ndash;&gt;-->
+<!--&lt;!&ndash;<ol class="breadcrumb">&ndash;&gt;-->
+<!--&lt;!&ndash;<li>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="#home"><%= local.CourseManage.mainView.home %></a>&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li class="active">&ndash;&gt;-->
+<!--&lt;!&ndash;<strong><%= local.CourseManage.mainView.main %></strong>&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ol>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<div class="wrapper wrapper-content">-->
+<!--<div class="project-list">-->
+<!--<div class="row tab-content">-->
+<!--<div class="toolbar">-->
+<!--<ul class="nav nav-tabs">-->
+<!--<span class="pull-right small text-muted"></span>-->
+<!--<% if(usertype == 2){ %>-->
+<!--<li class="course-manage-nav-tab active" data-bind="proxy"><a data-toggle="tab" href="#course-manage-mycourse-proxy"><i class="fa fa-tasks"></i> <%= local.CourseManage.mainView.authManage %></a></li>-->
+<!--<% } %>-->
+<!--<% if(usertype == 1){ %>-->
+<!--<li class="course-manage-nav-tab active" data-bind="act"><a data-toggle="tab" href="#course-manage-mycourse-acting"><i class="fa fa-user"></i> <%= local.CourseManage.mainView.acting %></a></li>-->
+<!--<% }else{ %>-->
+<!--<li class="course-manage-nav-tab " data-bind="act"><a data-toggle="tab" href="#course-manage-mycourse-acting"><i class="fa fa-user"></i> <%= local.CourseManage.mainView.acting %></a></li>-->
+<!--<% } %>-->
+<!--<li class="course-manage-nav-tab" data-bind="pub"><a data-toggle="tab" href="#course-manage-mycourse-publish"><i class="fa fa-briefcase"></i> <%= local.CourseManage.mainView.release %></a></li>-->
+<!--<li class="course-manage-nav-tab" data-bind="sellout"><a data-toggle="tab" href="#course-manage-mycourse-sellout"><i class="fa fa-briefcase"></i> <%= local.CourseManage.mainView.offshelf %></a></li>-->
+<!--<li class="course-manage-nav-tab" data-bind="new"><a data-toggle="tab" href="#course-manage-mycourse-create"><i class="fa fa-briefcase"></i> <%= local.CourseManage.mainView.undisclose %></a></li>-->
+<!--&lt;!&ndash;<li class="course-manage-nav-tab" data-bind="all"><a data-toggle="tab" href="#course-manage-mycourse-all"><i class="fa fa-briefcase"></i> 所有课程</a></li>&ndash;&gt;-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="row tab-content">-->
+<!--<% if(usertype == 1){ %>-->
+<!--<div class="tab-pane active" id="course-manage-mycourse-acting">-->
+<!--<% }else{ %>-->
+<!--<div class="tab-pane" id="course-manage-mycourse-acting">-->
+<!--<% } %>-->
+<!--<div class="panel-body">-->
+<!--<div class="row" id="course-manage-act-tab">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="tab-pane" id="course-manage-mycourse-publish">-->
+<!--<div class="panel-body">-->
+<!--<div class="row" id="course-manage-pub-tab">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="tab-pane" id="course-manage-mycourse-sellout">-->
+<!--<div class="panel-body">-->
+<!--<div class="row" id="course-manage-sellout-tab">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="tab-pane" id="course-manage-mycourse-create">-->
+<!--<div class="panel-body">-->
+<!--<div class="row" id="course-manage-new-tab">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<% if(usertype == 2){ %>-->
+<!--<div class="tab-pane active" id="course-manage-mycourse-proxy">-->
+<!--<% }else{ %>-->
+<!--<div class="tab-pane" id="course-manage-mycourse-proxy">-->
+<!--<% } %>-->
+<!--<div class="panel-body">-->
+<!--<div class="row" id="course-manage-proxy-tab">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;<div class="tab-pane" id="course-manage-mycourse-all">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="panel-body">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="row" id="course-manage-all-tab">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="col-lg-4">-->
+<!--<div class="ibox">-->
+<!--<div class="ibox-content">-->
+<!--<div class="row">-->
+<!--<div id="course-manage-chart">-->
+<!--</div>-->
+
+<!--</div>-->
+<!--<div id="course-manage-chart-legend">-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="ibox">-->
+<!--<div class="row">-->
+<!--<div class="col-sm-4"></div>-->
+<!--<div class="col-sm-4">-->
+<!--<% if(usertype == 1){ %>-->
+<!--<div id="course-manage-generate-course" class="btn btn-primary"><%= local.CourseManage.mainView.newcourse %></div>-->
+<!--<% } %>-->
+<!--</div>-->
+<!--<div class="col-sm-4"></div>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+<div class="row leftmargin animated fadeInRight page-content-home">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading mt25" style="border: solid 1px #e7eaec;min-height: 820px">
+        <div class="col-sm-12 col-md-12">
+            <div class="row tab-content">
+                <ul class="sh-right-tab clearfix " style="padding-left: 0px;border-bottom: 1px solid #e7eaec;">
+                    <span class="pull-right small text-muted"></span>
+                    <% if(usertype == 2){ %>
+                    <li style="list-style-type:none;" class="changeback course-manage-nav-tab on" data-bind="proxy">
+                        <a data-toggle="tab" href="#course-manage-mycourse-proxy">
+                            <i class="fa fa-tasks"></i>
+                            <%= local.CourseManage.mainView.authManage %>
+                        </a>
+                        <div class="tb-selected-indicator"></div>
+                    </li>
+                    <% } %>
+                    <% if(usertype == 1){ %>
+                    <li style="list-style-type:none;" class="changeback course-manage-nav-tab on" data-bind="act">
+                        <a data-toggle="tab" href="#course-manage-mycourse-acting">
+                            <i class="fa fa-user"></i>
+                            <%= local.CourseManage.mainView.acting %>
+                        </a>
+                        <div class="tb-selected-indicator"></div>
+                    </li>
+                    <% }else{ %>
+                    <li style="list-style-type:none;" class="changeback course-manage-nav-tab" data-bind="act">
+                        <a data-toggle="tab" href="#course-manage-mycourse-acting">
+                            <i class="fa fa-user"></i>
+                            <%= local.CourseManage.mainView.acting %>
+                        </a>
+                        <div class="tb-selected-indicator"></div>
+                    </li>
+                    <% } %>
+                    <li style="list-style-type:none;" class="changeback course-manage-nav-tab " data-bind="pub">
+                        <a data-toggle="tab" href="#course-manage-mycourse-publish">
+                            <i class="fa fa-briefcase"></i> <%= local.CourseManage.mainView.release %>
+                        </a>
+                        <div class="tb-selected-indicator"></div>
+                    </li>
+                    <li style="list-style-type:none;" class="changeback course-manage-nav-tab " data-bind="sellout">
+                        <a data-toggle="tab" href="#course-manage-mycourse-sellout"><i class="fa fa-briefcase">
+
+                            </i> <%= local.CourseManage.mainView.offshelf %></a>
+                        <div class="tb-selected-indicator"></div>
+                    </li>
+                    <li style="list-style-type:none;" class="changeback course-manage-nav-tab " data-bind="new">
+                        <a data-toggle="tab" href="#course-manage-mycourse-create">
+                            <i class="fa fa-briefcase"></i>
+                            <%= local.CourseManage.mainView.undisclose %>
+                        </a>
+                        <div class="tb-selected-indicator"></div>
+                    </li>
+                    <!--<li class="course-manage-nav-tab" data-bind="all"><a data-toggle="tab" href="#course-manage-mycourse-all"><i class="fa fa-briefcase"></i> 所有课程</a></li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8">
+
+            <div class="wrapper wrapper-content" style="padding-top: 0px;">
+
+                <div class="row tab-content" style="margin-left:1px">
+                    <% if(usertype == 1){ %>
+                    <div class="tab-pane active" id="course-manage-mycourse-acting">
+                        <% }else{ %>
+                        <div class="tab-pane" id="course-manage-mycourse-acting">
+                            <% } %>
+                            <div class="panel-body">
+                                <div class="" id="course-manage-act-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="course-manage-mycourse-publish">
+                            <div class="panel-body">
+                                <div class="" id="course-manage-pub-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="course-manage-mycourse-sellout">
+                            <div class="panel-body">
+                                <div class="" id="course-manage-sellout-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="course-manage-mycourse-create">
+                            <div class="panel-body">
+                                <div class="" id="course-manage-new-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <% if(usertype == 2){ %>
+                        <div class="tab-pane " id="course-manage-mycourse-proxy">
+                            <% }else{ %>
+                            <div class="tab-pane" id="course-manage-mycourse-proxy">
+                                <% } %>
+                                <div class="panel-body">
+                                    <div class="" id="course-manage-proxy-tab">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4" style="position: absolute;top:300px;right:0px;">
+                <div class="row">
+                    <div id="course-manage-chart">
+                    </div>
+                </div>
+                <div id=" course-manage-chart-legend" class="row">
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <% if(usertype == 1){ %>
+                        <div id="course-manage-generate-course"
+                             class="btn btn-primary"><%= local.CourseManage.mainView.newcourse %></div>
+                        <% } %>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+       <div id="course-manage-open-dialog"></div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(".changeback").click(function (e) {
+        $(this).parent().children().removeClass("on");
+        $(this).addClass("on");
+    });
+</script>

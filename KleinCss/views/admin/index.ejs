@@ -1,0 +1,65 @@
+<html>
+<head>
+    <% include ../includes/head/normal.ejs %>
+    <link rel="stylesheet" href="/Inspinia/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/Inspinia/css/animate.css">
+    <link rel="stylesheet" href="/Inspinia/css/style.css">
+    <link rel="stylesheet" href="/stylesheets/app/usercenter/style.css">
+    <link rel="stylesheet" href="/morrisjs/morris.css">
+    <link href='/fullcalendar/dist/fullcalendar.css' rel='stylesheet' />
+    <link href='/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link href="/iCheck/skins/all.css" rel="stylesheet">
+    <link href="/stylesheets/app/usercenter/timepicker.css" rel='stylesheet'>
+    <!-- Sweet Alert -->
+    <link href="/Inspinia/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="/Inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="/Inspinia/css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
+    <link href="/Inspinia/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/Inspinia/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <link href="/Inspinia/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+    <link href="/Inspinia/css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="/Inspinia/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="/Inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link rel="stylesheet" href="/leaflet/dist/leaflet.css">
+
+
+</head>
+<body>
+<% include ../includes/header/nav/normal.ejs %>
+<div class="page-wrapper-content">
+    <div class="page-nav-panel">
+        <nav class="navbar-default navbar-static-side samll-side" role="navigation" id="menu-sector">
+
+        </nav>
+    </div>
+    <div class="page-content-panel white-bg" id="content-sector">
+        <div class="home-container">
+
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    var username = '<%= user.username %>';
+    var usertype = '<%= user.usertype %>';
+    function SetCookie (name, value)
+
+    {
+
+        //设置名称为name,值为value的Cookie
+        var expdate = new Date();   //初始化时间
+        expdate.setTime(expdate.getTime() + 30 * 60 * 1000);   //时间
+        document.cookie = name+"="+value+";expires="+expdate.toGMTString()+";path=/";
+
+        //即document.cookie= name+"="+value+";path=/";   时间可以不要，但路径(path)必须要填写，因为JS的默认路径是当前页，如果不填，此cookie只在当前页面生效！~
+    }
+
+    SetCookie('username', '<%= user.username %>');
+    SetCookie('usertype', '<%= user.usertype %>');
+</script>
+<script src="/requirejs/require.js" data-main="/app/admin/main.js"></script>
+
+
+
+</html>

@@ -1,0 +1,50 @@
+<!--
+<div class="project-list">
+    <div class="ibox-content">
+        <% _.each(datas, function(ditem){ %>
+        <div class="feed-element">
+            <div class="col-md-2">
+            <a href="#" class="pull-left">
+                <i class="fa fa-book"></i>
+                <strong><%= ditem['course']['name'] %></strong> <br>
+                &lt;!&ndash;<img alt="image" class="img-circle" src="<%= ditem['imageUrl'] %>">&ndash;&gt;
+            </a>
+            </div>
+            <div class="media-body ">
+                <% if(ditem['course']['score'] > 0){ %>
+                <small class="pull-right text-black"><%= locale.MyFavorites.Score %>：<%= ditem['course']['score'] %></small>
+                <%}%>
+                <strong><%= locale.MyFavorites.Intro %>&nbsp;&nbsp;:<%= ditem['course']['introduction'] %></strong><br>
+                <div class="row m-b-sm m-t-sm">
+                    <small class="col-md-4 text-muted"><%= locale.MyFavorites.TeachMethod %>&nbsp;&nbsp;:<%= ditem['course']['method']['name'] %>&nbsp;&nbsp;</small>
+                    <small class="col-md-4"><%= locale.MyFavorites.TeachMode %>&nbsp;&nbsp;: <%= ditem['course']['mode']['name'] %></small>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up text-right"></i>  <%= ditem['course']['comment'] %></a>
+                    <a class="fav-item-del btn btn-xs btn-primary" data-id="<%= ditem['id'] %>" ><i class="fa fa-trash-o"></i><%= locale.MyFavorites.delete %></a>
+                    <a class="fav-item-more btn btn-xs btn-outline btn-primary pull-right" data-id="<%= ditem['id'] %>" ><%= locale.MyFavorites.more %><i class="fa fa-long-arrow-right"></i> </a>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>-->
+<% _.each(datas, function(ditem){ %>
+    <div class="row mlr-brief">
+        <div class="col-sm-4">
+            <a href="#"><img src="<%= ditem['course']['image']%>" /></a>
+        </div>
+        <div class="col-sm-5">
+            <div class="kc-p-top">
+                <span><%= ditem['course']['method']['name']%></span>
+                <a href="#"><%= ditem['course']['name']%></a>
+            </div>
+            <p class="culum-p"><%= ditem['course']['introduction']%></p>
+            <div class="study-pe"><%= ditem['course']['totalactnum']%>人学习</div>
+        </div>
+        <div class="col-sm-3">
+            <span class="span-1 pull-left">￥<%= ditem['course']['price']%>/小时</span>
+            <a class="fav-item-del close-x pull-right" data-id="<%= ditem['id'] %>" >X</a>
+        </div>
+    </div>
+<% }) %>

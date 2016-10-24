@@ -1,0 +1,83 @@
+<div class="ibox-content row">
+    <div class="btn btn-primary audit-course-btn-detail" select="<%= state %>"><%=local.auditCourse.detail%></div>
+    <% switch (state){ case 'wait': %>
+    <div class="btn btn-primary audit-course-btn-prepare" select="<%= state %>"><%=local.auditCourse.ready%></div>
+    <% break; case 'act': %>
+    <div class="btn btn-primary audit-course-btn-audit" select="<%= state %>"><%=local.auditCourse.check%></div>
+    <% break; case 'done': %>
+    <div class="btn btn-primary audit-course-btn-detail" select="<%= state %>"><%=local.auditCourse.detail%></div>
+    <% break; %>
+    <% } %>
+
+</div>
+<div class="ibox-content forum-container">
+    <% _.each(data, function(item){ %>
+    <div class="forum-item audit-course-forum-item" dataid="<%= item.id %>" select="<%= state %>">
+        <div class="row">
+
+            <% switch (state){case 'wait' : %>
+            <div class="col-md-10">
+                <div class="forum-icon">
+                    <input class="audit-course-wait-check" type="checkbox" code="<%= item.id %>">
+                </div>
+                <a class="forum-item-title">
+                    <%= item.course.name %>
+                </a>
+                <div class="forum-sub-title">
+                    <%= item.teacher.name %>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="btn btn-xs btn-primary">
+                    <%=local.auditCourse.check1%>
+                </div>
+            </div>
+
+            <% break; case 'act' :%>
+            <div class="col-md-10">
+                <div class="forum-icon">
+                    <i class="fa fa-shield"></i>
+                </div>
+                <a class="forum-item-title">
+                    <%= item.course.name %>
+                </a>
+                <div class="forum-sub-title">
+                    <%= item.teacher.name %>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="btn btn-xs btn-primary">
+                    <%=local.auditCourse.check2%>
+                </div>
+            </div>
+            <% break; case 'done' :%>
+            <div class="col-md-8">
+                <div class="forum-icon">
+                    <i class="fa fa-shield"></i>
+                </div>
+                <a class="forum-item-title">
+                    <%= item.course.name %>
+                </a>
+                <div class="forum-sub-title">
+                    <%= item.teacher.name %>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="btn btn-xs btn-primary">
+                    <%=local.auditCourse.check3%>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="btn btn-xs btn-primary">
+                    <%= (item.status=='2')?local.auditCourse.auditPass:local.auditCourse.auditNoPass %>
+                </div>
+            </div>
+            <% break;%>
+            <% } %>
+
+        </div>
+    </div>
+    <% }) %>
+
+</div>

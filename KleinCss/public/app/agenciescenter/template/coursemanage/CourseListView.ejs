@@ -1,0 +1,138 @@
+<div class="ibox-content row">
+    <div class="btn btn-primary course-manage-course-detail" select="<%= selectlv %>">详细</div>
+
+    <% switch (selectlv){ case 0: %>
+            <div class="btn btn-primary course-manage-btn-pub" select="<%= selectlv %>">发布</div>
+            <div class="btn btn-primary course-manage-btn-edit" select="<%= selectlv %>">修改</div>
+            <div class="btn btn-primary course-manage-btn-push" select="<%= selectlv %>">提交审核</div>
+        <% break; case 1: %>
+            <div class="btn btn-primary course-manage-btn-prepare" select="<%= selectlv %>">准备开课</div>
+            <div class="btn btn-primary course-manage-btn-sellout" select="<%= selectlv %>">下架</div>
+        <% break; case 2: %>
+            <div class="btn btn-primary course-manage-btn-begin" select="<%= selectlv %>">开课</div>
+            <div class="btn btn-primary course-manage-btn-end" select="<%= selectlv %>">结课</div>
+            <div class="btn btn-primary course-manage-btn-pub" select="<%= selectlv %>">发布</div>
+            <div class="btn btn-primary course-manage-btn-sellout" select="<%= selectlv %>">下架</div>
+
+        <% break; case 3: %>
+            <div class="btn btn-primary course-manage-btn-pub" select="<%= selectlv %>">发布</div>
+            <div class="btn btn-primary course-manage-btn-edit" select="<%= selectlv %>">修改</div>
+        <% break; case -1: %>
+        <% break; %>
+    <% } %>
+
+</div>
+<div class="ibox-content forum-container">
+    <% _.each(datas, function(item){ %>
+        <div class="forum-item course-manage-forum-item" dataid="<%= item.id %>" select="<%= selectlv %>">
+            <div class="row">
+
+                <% switch (selectlv){case 0 : %>
+                <div class="col-md-10">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="btn btn-xs btn-primary">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+
+                <% break; case 1 :%>
+                <div class="col-md-8">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="btn btn-xs btn-primary">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        <%= item.signnum %>人报名
+                    </div>
+                </div>
+                <% break; case 2 :%>
+                <div class="col-md-6">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="btn btn-xs btn-primary">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div>
+                        <%= item.actnum %>人参与
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div>
+                        累计<%= item.totalactnum %>人参与
+                    </div>
+                </div>
+                <% break; case 3 :%>
+                <div class="col-md-10">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="btn btn-xs btn-primary">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+                <% break; case -1 :%>
+                <div class="col-md-10">
+                    <div class="forum-icon">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <a class="forum-item-title">
+                        <%= item.name %>
+                    </a>
+                    <div class="forum-sub-title">
+                        <%= item.introduction %>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="btn btn-xs btn-primary">
+                        <%= item.statelv.name %>
+                    </div>
+                </div>
+                <% } %>
+
+            </div>
+        </div>
+    <% }) %>
+
+</div>

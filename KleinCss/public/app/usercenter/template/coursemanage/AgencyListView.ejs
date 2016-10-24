@@ -1,0 +1,39 @@
+<div class="ibox-content">
+
+    <div class="row">
+        <% var stars =local.CourseManage.stars %>
+        <% var len = agencies.data.length %>
+        <% for(var i = 0;i < len;i++){ %>
+        <% var agency = agencies.data[i] %>
+
+        <div class="col-lg-6">
+            <div class="contact-box agency-info-box ">
+                <a class="agency-info-item" href="../../agencies#profile/<%=agency._id%>" target="_blank">
+
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <img alt="image" class="img-rect m-t-xs img-responsive"
+                                 src="<%= agency.image ? agency.image : '/Inspinia/img/gallery/11s.jpg' %>">
+                            <div class="m-t-xs font-bold">
+                                <%= stars[agency.starlevel] %>
+                            </div>
+                            <% if(agencies.isIns[i].in == 1){ %>
+                                <p><span class="badge badge-primary">旗下</span></p>
+                            <% }%>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3><strong><%= agency.name %></strong></h3>
+                        <p><i class="fa fa-map-marker"></i> <%= agency.city %></p>
+                        <p><%=local.CourseManage.teachers%>:&nbsp;<%= agency.teachercount %></p>
+                        <p><%=local.CourseManage.courses%>:&nbsp;<%= agency.coursecount %></p>
+                        <address><abbr title="Phone"><%=local.CourseManage.phone%>:&nbsp;</abbr><%= agency.phone %></address>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+                <input type="radio" name="agencyRadios" data-agency-id="<%= agency._id %>"/>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>

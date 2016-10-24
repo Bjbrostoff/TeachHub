@@ -1,0 +1,22 @@
+<ul class="nav nav-tabs">
+    <% for (var i=0; i < types.length; i++){ %>
+        <% if (i == activeindex) {%>
+             <li class="fav-classify active" data-id="<%=types[i].type %>"><a data-toggle="tab"><i class="fa fa-user"></i> <%=types[i].name %></a></li>
+        <% }else {%>
+             <li class="fav-classify" data-id="<%=types[i].type %>"><a data-toggle="tab" ><i class="fa fa-briefcase"></i> <%=types[i].name %></a></li>
+        <% }%>
+    <% }%>
+</ul>
+
+<!--
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+        <% for (var i=0; i < types.length; i++){ %>
+            <% if (i == activeindex) {%>
+                 <button type="button" class="btn btn-default fav-classify active" data-id="<%=types[i].type %>" ><%=types[i].name %></button>
+            <% }else {%>
+                 <button type="button" class="btn btn-default fav-classify" data-id="<%=types[i].type %>" ><%=types[i].name %></button>
+            <% }%>
+        <% }%>
+    </div>
+</div>-->

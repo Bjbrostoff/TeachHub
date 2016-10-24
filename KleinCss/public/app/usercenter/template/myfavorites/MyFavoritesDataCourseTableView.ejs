@@ -1,0 +1,23 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+        <% for (var i = 0; i < columns.length; i++){ %>
+        <th><%= columns[i].falias %></th>
+        <% } %>
+        <th><%= locale.MyFavorites.operate %></th>
+        </thead>
+        <tbody>
+        <% _.each(datas, function(ditem){ %>
+        <tr class="fav-item" data-url="<%= ditem['url'] %>">
+            <% for (var i = 0; i < columns.length; i++){ %>
+            <td>
+                <%= ditem[columns[i].fname] %>
+            </td>
+            <% } %>
+            <td class="fav-del fa fa-trash-o" data-id="<%= ditem['id'] %>" >
+            </td>
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div>

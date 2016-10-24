@@ -1,0 +1,117 @@
+<style>
+    .modal-title{
+        text-align: center;
+    }
+    .vertical-alignment-helper {
+        display:table;
+        height: 100%;
+        width: 100%;
+        pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+    }
+    .vertical-align-center {
+        /* To center vertically */
+        display: table-cell;
+        vertical-align: middle;
+        pointer-events:none;
+    }
+    .modal-content {
+        /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+        width:inherit;
+        height:inherit;
+        /* To center horizontally */
+        margin: 0 auto;
+        pointer-events: all;
+    }
+    .modal-content.login-modal
+    {
+        width: 400px;
+    }
+</style>
+<script src="/jquery/dist/jquery.min.js"></script>
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="vertical-alignment-helper" role="document">
+        <div class="modal-dialog vertical-align-center">
+        <div class="modal-content login-modal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="title"><%=__('loginDialog.title')%></h4>
+            </div>
+            <div class="modal-body">
+                <form id="login-form" action="/users/loginIn" method="post">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label"><%=__('loginDialog.username')%></label>
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label"><%=__('loginDialog.password')%></label>
+                        <input type="password" class="form-control" id=password" name="password">
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input  id="loginBtn" type="button" class="btn btn-primary" value="<%=__('loginDialog.login')%>" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <a style="float: left;"  href="/users/forgetpwd"  ><small><%=__('loginDialog.forget')%></small></a>
+                <% /*
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                */ %>
+                <button id="registerBtn" class="btn btn-primary" ><%=__('loginDialog.register')%></button>
+            </div>
+        </div>
+            </div>
+    </div>
+</div>
+
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+<script src="/bootbox/bootbox.js" ></script>
+<script>
+    (function(){
+        $('#loginBtn').click(function(){
+            doLogion();
+        });
+        $('.form-control').bind('keypress',function(event){
+            if(event.keyCode == "13")
+            {
+                doLogion();
+            }
+        });
+        doLogion = function(){
+            var username = $('#username').val();
+            var password = $("#password").val();
+            if(username == ''){
+                bootbox.alert({message:"请输入用户名"});
+                return;
+            }
+            if(password == ''){
+                bootbox.alert("请输入密码");
+                return;
+            }
+            $.ajax({
+                type:'post',
+                url:'/users/loginIn',
+                data:$('#login-form').serialize(),
+                success:function(data){
+                    if(data.code == '200'){
+                        window.location.href = '/users/center';
+                    }else{
+                        bootbox.alert(data.msg);
+                    }
+
+                },error:function(){
+                    bootbox.alert("系统错误，请联系管理员");
+                }
+            })
+        }
+
+
+        $('#registerBtn').click(function(){
+            window.open('/register');
+        })
+
+
+    })();
+</script>

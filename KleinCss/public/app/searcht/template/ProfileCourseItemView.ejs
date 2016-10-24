@@ -1,0 +1,26 @@
+<div class="row course-brief mlr-brief">
+    <div class="col-sm-3">
+        <a href="#"><img width="100%" height="100%" src="<%= course.image %>" /></a>
+    </div>
+
+    <div class="col-sm-7">
+        <div class="brief-list">
+            <div class="brief-list-top">
+                <span><%= course.method %></span>
+                <a href="#"><%= course.name %></a>
+            </div>
+            <p><%= course.introduction %></p>
+            <p><%= profilecourseitem.teachmode %>:<%= course.mode %></p>
+            <p><%= profilecourseitem.agerange %>:<%= course.range.min %>~<%= course.range.max %>岁</p>
+            <p><%= profilecourseitem.payway %>:<%= course.billing %></p>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="price">
+            <p>￥100/小时</p>
+            <a href="#" class="searchc-course-signed-up" corseid="<%= course.courseid %>"><%= profilecourseitem.signedup %></a>
+        </div>
+    </div>
+
+</div>

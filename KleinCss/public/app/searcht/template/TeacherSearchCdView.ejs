@@ -1,0 +1,34 @@
+
+<!--筛选条件-->
+<div class="container">
+
+    <div class="search-terms">
+        <div class="totle-terms"><%= conditionview.searchtitle %><span class="span1">共<span class="span2">1024</span>位老师</span></div>
+
+        <div id="condition-item-list" class="mainpart-terms">
+
+        </div>
+
+    </div>
+
+    <div id ="sort-t-list" class="sorts-terms clearfix">
+        <p class="pull-left">排序方式：</p>
+        <div class="sorts-left pull-left">
+            <% if (login){ %>
+            <a href="#" class="sort-item active" sorttag = "distance"><%= conditionview.sorttagdistance %></a>
+            <a href="#" class="sort-item" sorttag = "score"><%= conditionview.sorttagscore %></a>
+            <% }else{ %>
+            <a href="#" class="sort-item active" sorttag = "score"><%= conditionview.sorttagscore %></a>
+            <% } %>
+            <a href="#" class="sort-item" sorttag = "likes"><%= conditionview.sorttaglikes %></a>
+        </div>
+        <div class="sorts-right pull-right">
+            <span class="pager-num">
+                <b id="searcht-nowpage"><%= nowpage%></b>/<em id="searcht-totalpage" class="pager-total"><%= totalpage%></em>
+            </span>
+            <a id="page-prev-btn" class="pager-action pager-prev"><</a>
+            <a id="page-next-btn" class="pager-action pager-next">></a>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,105 @@
+<!--<div>-->
+    <!--<%if(dateInfo.length==0){%>-->
+    <!--<div class="col-md-11 col-md-offset-1">-->
+        <!--<br><br>-->
+      <!--<%=local.Home.Today.arrange%>-->
+        <!--</div>-->
+    <!--<%}else{%>-->
+    <!--<% for(var i = 0;i < dateInfo.length;i++){ %>-->
+    <!--<div class="col-md-12">-->
+    <!--<div class="row">-->
+        <!--<br>-->
+        <!--<div class="col-md-11 col-md-offset-1">-->
+            <!--<strong><%= dateInfo[i].date %></strong>-->
+        <!--</div>-->
+        <!--<div class="col-md-12 ibox-content">-->
+            <!--<% for(var j = 0;j < dateInfo[i].info.length;j++){ %>-->
+            <!--<div class="row">-->
+                <!--<br>-->
+                <!--<div class="col-md-11 col-md-offset-2">-->
+                    <!--<%=local.Home.HomeRight.courseName%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= dateInfo[i].info[j].name %>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-3 col-md-offset-2">-->
+                    <!--<%=local.Home.PerfectInfo.student%>-->
+                <!--</div>-->
+                <!--<div class="col-md-5">-->
+                    <!--<% for(var g = 0;g < dateInfo[i].info[j].student.length;g++){ %>-->
+                    <!--<div class="row">-->
+                        <!--<%= dateInfo[i].info[j].student[g].stuid.name==undefined?dateInfo[i].info[j].student[g].stuid.email:dateInfo[i].info[j].student[g].stuid.name %>-->
+                    <!--</div>-->
+                    <!--<% } %>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<% } %>-->
+
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<% } %>-->
+    <!--<%}%>-->
+
+<!--</div>-->
+
+
+<div xmlns="http://www.w3.org/1999/html">
+
+    <%if(dateInfo.length==0){%>
+    <div class="col-md-11 col-md-offset-1">
+        <br><br>
+        <%=local.Home.Today.arrange%>
+    </div>
+    <%}else{%>
+
+
+    <div class="row">
+    <div class="col-sm-12">
+        <div class="col-md-2 col-sm-2">上课时间</div>
+        <div class="col-md-2 col-sm-2">课程名称</div>
+        <div class="col-md-2 col-sm-2">上课地点</div>
+        <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">上课学生</div>
+    </div>
+    </div>
+
+    <div style="margin-left: 20px;">
+    <div class="row">
+        <div style="width: 100%;border-bottom: solid 1px #999966"></div>
+        <% for(var i = 0;i < dateInfo.length;i++){ %>
+        <div class="col-md-12">
+            <div class="row">
+                <br>
+                <% for(var j = 0;j < dateInfo[i].info.length;j++){ %>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <%= dateInfo[i].date %>&nbsp;<%=dateInfo[i].info[j].cdata%>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                           <%= dateInfo[i].info[j].name %>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <%= dateInfo[i].info[j].address %>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                             <%for(var h=0;h<dateInfo[i].info[j].student.length;h++){%>
+                              <div class="col-md-3 col-sm-3">
+                                  <%if(dateInfo[i].info[j].student[h].stuid.name){%>
+                                  <%=dateInfo[i].info[j].student[h].stuid.name%>
+                                  <%}else {%>
+                                  <%=dateInfo[i].info[j].student[h].stuid.email%>
+                                  <%}%>
+                              </div>
+                            <%}%>
+                        </div>
+                    </div>
+                    <% } %>
+                <div style="width: 100%;border-bottom: dashed 1px #999966"></div>
+            </div>
+        </div>
+        <% } %>
+        <%}%>
+    </div>
+    </div>
+
+
+</div>

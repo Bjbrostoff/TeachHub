@@ -1,0 +1,22 @@
+.samll-side
+{
+    width: 160px;
+}
+
+.page-wrapper-content
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.page-content-panel
+{
+  margin-left: 160px;
+  position:inherit;
+  min-height: 1200px;
+}
+
+.row.leftmargin
+{
+    margin-left: 0px;
+}

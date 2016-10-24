@@ -1,0 +1,50 @@
+#说明
+# '#'号为描述
+# '$'号为命令行
+
+#项目环境(后端)
+#1.webstorm从git上clone为本地项目npm
+#2.打开webstorm命令行工具
+$ npm install
+#或者安装国内镜像cnpm
+$cnpm install
+
+#前端框架管理（已变化）
+#1.安装bower
+$ npm install -g bower
+#或者
+$ cnpm install -g bower
+#2.jquery bootstrap requirejs backbone
+$ bower install jquery
+$ bower install bootstrap
+$ bower install requirejs
+$ bower install backbone
+$ bower install leaflet
+
+#整理后的bower管理前端框架 由bower.json文件设置前端框架的依赖关系
+$ bower install
+
+
+#引用md5加密
+$ npm install md5
+#引用邮件发送
+$ npm install nodemailer
+
+#热启动环境安装
+#1.安装grunt grunt-concurrent grunt-nodemon grunt-contrib-watch
+$ npm install -g grunt
+$ npm install -g grunt-concurrent
+$ npm install -g grunt-nodemon
+$ npm install -g grunt-contrib-watch
+
+#热启动环境2 gulp方式 推荐
+# 注意需要管理员权限
+$ npm install gulp -g
+
+# 以下非必须,选择安装
+$ npm install gulp-nodemon -g
+$ npm install gulp-livereload -g
+
+
+#热启动
+$ grunt

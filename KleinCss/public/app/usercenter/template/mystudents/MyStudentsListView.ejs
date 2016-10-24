@@ -1,0 +1,51 @@
+<!--
+<div class="project-list">
+    <div class="ibox-content">
+        <% _.each(students, function(ditem){ %>
+        <div class="feed-element">
+            <a href="/teachers#profile/<%= ditem['student']['_id']%>" class="pull-left">
+                <img alt="image" class="img-circle" src="<%= ditem['student']['portrait']?ditem['student']['portrait']:'/Inspinia/img/a1.jpg' %>">
+            </a>
+            <div class="media-body ">
+                <div class="row m-b-sm m-t-sm">
+                    <strong class="col-md-3 "><%= ditem['student']['name'] %></strong>
+                <% if(ditem['state']['type'] == 1){ %>
+                    <small class="label label-primary"><%= ditem['state']['name'] %></small>
+                <% }else{ %>
+                     <small class="label label-success"><%= ditem['state']['name'] %></small>
+                <%}%>
+                </div>
+                <div class="row m-b-sm m-t-sm">
+                    <small class="col-md-3 text-muted"><%= locale.MyStudents.Nationality %>  :<%= ditem['student']['nationality'] %>&nbsp;&nbsp;</small>
+                    <strong  class="col-md-3"><%= locale.MyStudents.City %>: <%= ditem['student']['city'] %></strong>
+                </div>
+                <div class="row m-b-sm m-t-sm">
+                    <a class="col-md-3" href="mailto:#"><i class="fa fa-envelope"></i>:&nbsp;<%= ditem['student']['email'] %></a>
+                    <small class="col-md-3 text-muted"><i class="fa fa-phone"> </i>:&nbsp; <%= ditem['student']['phone'] %></small>
+                </div>
+               &lt;!&ndash; <div class="actions">
+                    <a class="col-md-3col-md-3 btn btn-xs btn-white"><i class="fa fa-thumbs-up text-right"></i>  <%= ditem['student']['likes'] %></a>
+                    <a class="mystudents-item-more btn btn-xs btn-outline btn-primary" data-id="<%= ditem['student']['_id'] %>" >学生资料<i class="fa fa-info-circle"></i> </a>
+                    <a class="mystudents-item-course btn btn-xs btn-outline btn-primary pull-right" data-id="<%= ditem['id'] %>" >上课历史<i class="fa fa-long-arrow-right"></i> </a>
+                </div>&ndash;&gt;
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>-->
+<% _.each(students, function(ditem){ %>
+<div class="row mlr-brief">
+    <div class="col-sm-2">
+        <a href="#"><img src="<%= ditem['student']['portrait']?ditem['student']['portrait']:'/Inspinia/img/a1.jpg' %>" /></a>
+    </div>
+    <div class="col-sm-5">
+        <div class="kc-p-top">
+            <span><%=  ditem['student']['name']%></span>
+            <span><%= ditem['student']['phone'] %></span>
+        </div>
+        <p class="culum-p"><%= locale.MyTeachers.Nationality %>  :<%= ditem['student']['nationality'] %></p>
+        <a class="culum-p" href="mailto:#"><i class="fa fa-envelope"></i>&nbsp;<%= ditem['student']['email'] %></a>
+
+    </div>
+</div>
+<% }) %>

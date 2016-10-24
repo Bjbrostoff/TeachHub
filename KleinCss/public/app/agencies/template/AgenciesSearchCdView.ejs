@@ -1,0 +1,40 @@
+<div id="wrapper">
+
+    <div class="teacher-content">
+        <div class="teacher-nav-box">
+            <div class="teacher-nav-hd">
+                <span><%= conditionview.searchtitle %></span>
+                <div class="input-group teacher-search pull-right">
+                    <input id="search-agency-input" type="text" class="form-control input-sm" name="search" placeholder="<%= conditionview.searchplaceholder %>">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-sm btn-primary search-button">
+                            <i class="fa fa-search"></i>
+                            <%= conditionview.searchbtnname %>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="teacher-tool-bar clearfix">
+            <div id ="sort-t-list" class="tool-left l">
+                <% if (login){ %>
+                <a class="sort-item active" sorttag = "distance"><%= conditionview.sorttagdistance %></a>
+                <a class="sort-item" sorttag = "starlevel"><%= conditionview.sorttagstarlevel %></a>
+                <% }else{ %>
+                <a class="sort-item active" sorttag = "starlevel"><%= conditionview.sorttagstarlevel %></a>
+                <% } %>
+            </div>
+            <div class="tool-right r">
+                <span class="tool-item tool-pager">
+                    <span class="pager-num">
+                        <b id="searcha-nowpage" class="pager-cur"><%= nowpage%></b>/<em id="searcha-totalpage" class="pager-total"><%= totalpage%></em>
+                    </span>
+                    <a id="page-prev-btn" class="pager-action pager-prev hide-text disabled"><%= conditionview.prevpage %></a>
+                    <a id="page-next-btn" class="pager-action pager-next hide-text disabled"><%= conditionview.nextpage %></a>
+
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<!--<li role="presentation">-->
+    <!--<a href="#<%= menu.url %>">-->
+        <!--<i class="<%=menu.icon%>"></i>-->
+        <!--<span><%= menu.name %></span>-->
+    <!--</a>-->
+<!--</li>-->
+
+
+<li id="clickChangeClass" role="presentation" style="list-style:none">
+    <a href="#<%= menu.url %>">
+        <i class="<%=menu.icon%>"></i>
+        <span><%= menu.name %></span>
+        <div class="line"></div>
+    </a>
+</li>
+
+<script>
+    $("li").click(function (e) {
+        $(this).parent().children().removeClass("on");
+        $(this).addClass("on");
+        // console.log($(this));
+    });
+</script>

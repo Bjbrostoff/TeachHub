@@ -1,0 +1,28 @@
+<div class="project-list">
+    <div class="ibox-content">
+        <% _.each(datas, function(ditem){ %>
+        <div class="feed-element">
+            <a href="/teachers#profile/<%= ditem['teacher']['_id']%>" class="pull-left">
+                <img alt="image" class="img-circle" src="<%= ditem['teacher']['portrait']?ditem['teacher']['portrait']:'/Inspinia/img/a1.jpg' %>">
+            </a>
+            <div class="media-body ">
+                <small class="pull-right text-black"><%= locale.MyFavorites.Score %>：<%= ditem['teacher']['score'] %></small>
+                <strong><%= ditem['teacher']['name'] %></strong>
+                <div class="row m-b-sm m-t-sm">
+                    <small class="col-md-3 text-muted"><%= locale.MyFavorites.Nationality %>  :<%= ditem['teacher']['nationality'] %>&nbsp;&nbsp;</small>
+                    <strong  class="col-md-3"><%= locale.MyFavorites.City %>: <%= ditem['teacher']['city'] %></strong>
+                </div>
+                <div class="row m-b-sm m-t-sm">
+                    <a class="col-md-3" href="mailto:#"><i class="fa fa-envelope"></i>:&nbsp;<%= ditem['teacher']['email'] %></a>
+                    <small class="col-md-3 text-muted"><i class="fa fa-phone"> </i>:&nbsp; <%= ditem['teacher']['phone'] %></small>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up text-right"></i>  <%= ditem['teacher']['likes'] %></a>
+                    <a class="fav-item-del btn btn-xs btn-primary" data-id="<%= ditem['id'] %>" ><i class="fa fa-trash-o"></i> <%= locale.MyFavorites.Score %><%= locale.MyFavorites.delete %></a>
+                    <a class="fav-item-more btn btn-xs btn-outline btn-primary pull-right" data-id="<%= ditem['id'] %>" ><%= locale.MyFavorites.Score %><%= locale.MyFavorites.Nationality %>more<i class="fa fa-long-arrow-right"></i> </a>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>

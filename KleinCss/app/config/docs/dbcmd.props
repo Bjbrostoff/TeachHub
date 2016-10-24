@@ -1,0 +1,49 @@
+#说明
+# '#'号为描述
+# '$'号命令行
+
+$ npm install multiparty
+
+#启动数据库命令
+#郭慧程
+$ "C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe" --dbpath D:\WorkSpace\Database\mongodb\data\db
+$ mongod --dbpath /Users/xiaoguo/Documents/database/mongo/data/db
+#赖琦锟
+$ "C:\Program Files\MongoDB 2.6 Standard\bin\mongod.exe" --dbpath D:\web\workspace\database\mongodb\data\db
+
+#高志祥
+$ /Users/apple/mongodb/bin/mongod
+
+#肖毛毛
+$ D:\mongodb\install\bin\mongod.exe --dbpath D:\database\mongo\data\db
+
+#孙旋
+$ C:\Users\Administrator>"C:\Program Files\MongoDB 2.6 Standard Legacy\bin\mongod.exe" --dbpath D:\database\mongo\data\db
+
+#lcc
+$"E:\mongodb\mongodb-win32-x86_64-3.0.6\bin\mongod.exe"  --dbpath E:\mongodb\mongodb-win32-x86_64-3.0.6\data\db
+
+
+#切换数据库
+$ use [dbname]
+
+#显示collections(tables)
+$ show collections
+
+
+# collections (tables)
+
+# ----------------------创建student collection----------------
+$ db.createCollection("students");
+# 添加student测试数据
+$ var mystudents = [{"code":"0001", "name":"李同学", "sex":"男", "address":"某某小区", "email":"abc@163.com"},{"code":"0002", "name":"张同学", "sex":"女", "address":"某某小区", "email":"abc@163.com"}];
+$ db.students.insert(mystudents);
+
+# ----------------------创建teacher collection----------------
+$ db.createCollection("teachers");
+# 添加teacher测试数据
+$ var myteachers = [{"code" : "100001", "name" : "张老师","age" : "28","sex" : "男","address" : "XX小区", "email" : "xxx@example.com"},
+                    {"code" : "100002", "name" : "李老师","age" : "38","sex" : "男","address" : "XX小区", "email" : "xxx@example.com"}];
+$ db.teachers.insert(myteachers);
+
+app/config/dbcmd.props:31

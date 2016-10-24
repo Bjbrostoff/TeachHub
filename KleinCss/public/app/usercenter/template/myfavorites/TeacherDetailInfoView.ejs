@@ -1,0 +1,93 @@
+    <div class="ibox  white-bg animated fadeInRight"
+         style="position: absolute;top: 60px;right: 0px;width: 400px;min-height: 1200px;border-left: #e7eaec thick solid;">
+    <div>
+        <div class="ibox-title">
+            <h5><%= locale.MyFavorites.Details %></h5>
+            <div class="ibox-tools">
+                <a class="close-link teacher-detail-close">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="tab-content">
+                <div id="contact-1" class="tab-pane active">
+                    <div class="row m-b-lg">
+                        <div class="col-lg-4 text-center">
+                            <h2><%= teacher.userinfo.name %></h2>
+
+                            <div class="m-b-sm">
+                                <img alt="头像" class="img-circle" src="<%= teacher.userinfo.portrait %>"
+                                     style="width: 62px">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <strong>
+                                <%= locale.MyFavorites.Introduce %>
+                            </strong>
+
+                            <p>
+                                <%= teacher.optioninfo.info.value %>
+                            </p>
+                            <button id="profile-button" type="button" data-id="<%=teacher.userinfo.uuid%>" class="btn btn-primary btn-sm btn-block"><i
+                                        class="fa fa-home"></i> <%= locale.MyFavorites.TeacherHomePage %>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="teacher-detail-scroll">
+                        <div class="full-height-scroll">
+
+                            <strong><%= locale.MyFavorites.BasicInfo %></strong>
+
+                            <ul class="list-group clear-list">
+                                <li class="list-group-item fist-item">
+                                    <%= locale.MyFavorites.Sex %>&nbsp;&nbsp;:&nbsp;<%= teacher.userinfo.sex %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= locale.MyFavorites.Age %>&nbsp;&nbsp;:&nbsp;<%= teacher.userinfo.age %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= locale.MyFavorites.Nationality %>&nbsp;&nbsp;:&nbsp;<%= teacher.userinfo.nationality %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= locale.MyFavorites.City %>:&nbsp;<%= teacher.userinfo.city %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= locale.MyFavorites.SkilledLanguage %>:&nbsp;<%= teacher.optioninfo.language.value %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= locale.MyFavorites.SkilledCourse %>:&nbsp;<%= teacher.optioninfo.skilledcourse.value %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= locale.MyFavorites.StarLevel %>:&nbsp;<%= teacher.custominfo.starlevel %>
+                                </li>
+
+                            </ul>
+                            <strong><%= locale.MyFavorites.PersonalStatement %></strong>
+                            <p>
+                                <%= teacher.optioninfo.info.value %>
+                            </p>
+                            <hr/>
+                            <strong<%= locale.MyFavorites.Servexerti %>></strong>
+                            <div id="vertical-timeline" class="vertical-container dark-timeline">
+                                <% teacher.custominfo.servexerti.forEach(function(servexerti){ %>
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon gray-bg">
+                                        <i class="fa fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="vertical-timeline-content">
+                                        <p><%= servexerti.info %>
+                                        </p>
+                                        <span class="vertical-date small text-muted"><%= servexerti.time %></span>
+                                    </div>
+                                </div>
+
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

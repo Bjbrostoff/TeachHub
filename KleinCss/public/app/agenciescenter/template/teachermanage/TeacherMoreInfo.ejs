@@ -1,0 +1,77 @@
+<div class="ibox float-e-margins white-bg animated fadeInRight mt25"
+     style="position: absolute;top: 1px;right: -13px;width:400px;min-height: 700px;border-left: #e7eaec 1px solid; z-index:9;background-color: #ffffff">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h5 style="position: relative;left: -20px;top:5px;"><%= local.TeacherManage.teacherInfo %></h5>
+                </div>
+                <div class="col-sm-1">
+                    <a class="close-link" style="padding-top: 10px; position: relative;left: -20px;top:15px;">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-sm-11 col-sm-offset-1">
+                    <% if(data.state){ %>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <br>
+                            <br>
+                            <br>
+                            <img src=<%= data.data[0].portrait %>>
+                        </div>
+                        <div class="col-sm-6">
+                            <br>
+                            <br>
+                            <br>
+                            <div class="row"><%= local.TeacherManage.name %>：<%= data.data[0].name %></div>
+                            <br>
+                            <div class="row"><%= local.TeacherManage.email %>：<%= data.data[0].email %></div>
+                            <br>
+                            <div class="row"><%= local.TeacherManage.phone %>：<%= data.data[0].phone %></div>
+                            <br>
+                            <div class="row"><%= local.TeacherManage.nation %>：<%= data.data[0].nationality %></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11 sh-t-left">
+                            <div class="sh-left-title">
+                                <%= local.TeacherManage.exp %>
+                            </div>
+                           <%if(data.data[0].tcredinfo.servexerti.length>=4){%>
+                            <%for(var i=0;i<4;i++){%>
+                            <div class="honor-list">
+                                <p class="p-1"></p>
+                                <p class="p-2"><%=data.data[0].tcredinfo.servexerti[i].info%></p>
+                                <div class="dot-bor"></div>
+                            </div>
+                            <%}%>
+                            <%}else{%>
+                            <%for(var i=0;i<data.data[0].tcredinfo.servexerti.length;i++){%>
+                            <div class="honor-list">
+                                <p class="p-1"></p>
+                                <p class="p-2"><%=data.data[0].tcredinfo.servexerti[i].info%></p>
+                                <div class="dot-bor"></div>
+                            </div>
+                            <%}%>
+                            <%}%>
+
+                    </div>
+                    <% }else{ %>
+                    <div><%= local.TeacherManage.error %></div>
+                    <% } %>
+                </div>
+
+            </div>
+        </form>
+        <br/>
+
+    </div>
+</div>

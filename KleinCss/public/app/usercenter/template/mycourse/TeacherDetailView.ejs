@@ -1,0 +1,71 @@
+
+
+<div class="ibox float-e-margins white-bg">
+    <div class="ibox-content">
+        <div class="tab-content">
+            <div id="contact-1" class="tab-pane active">
+                <div class="row m-b-lg">
+                    <div class="col-lg-8 text-center">
+                        <div class="m-b-sm">
+                            <img alt=<%= locale.MyCourse.pic %> class="img-circle" src="<%= teacher.portrait==undefined?'/inspinia/img/a5.jpg':teacher.portrait %>"
+                                 style="width: 150px">
+                            <div class="m-t-xs font-bold"><p><%= teacher.name %></p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-profile-scroll">
+                    <div class="full-height-scroll">
+
+                        <strong><%= locale.MyCourse.Information %></strong>
+
+                        <ul class="list-group clear-list">
+                            <li class="list-group-item fist-item">
+                                <%= locale.MyCourse.Sex %>&nbsp;&nbsp;:&nbsp;<%= teacher.sex %>
+                            </li>
+                            <li class="list-group-item">
+                                <%= locale.MyCourse.Age %>&nbsp;&nbsp;:&nbsp;<%= teacher.age %>
+                            </li>
+                            <li class="list-group-item">
+                                <%= locale.MyCourse.Nationality %>&nbsp;&nbsp;:&nbsp;<%= teacher.nationality %>
+                            </li>
+                            <li class="list-group-item">
+                                <%= locale.MyCourse.City %>:&nbsp;<%= teacher.city %>
+                            </li>
+                            <li class="list-group-item">
+                                <%= locale.MyCourse.NativeLanguage %>:&nbsp;<%= teacher.optioninfo.language.value %>
+                            </li>
+                            <li class="list-group-item">
+                                <%= locale.MyCourse.SkilledCourse %>:&nbsp;<%= teacher.optioninfo.skilledcourse.value %>
+                            </li>
+                            <li class="list-group-item">
+                                <%= locale.MyCourse.StarLevel %>:&nbsp;<%= teacher.starlevel %>
+                            </li>
+
+                        </ul>
+                        <strong><%= locale.MyCourse.PersonalDeclaration %></strong>
+                        <p>
+                            <%= teacher.optioninfo.info.value %>
+                        </p>
+                        <hr/>
+                        <strong><%= locale.MyCourse.Qualification %></strong>
+                        <div id="vertical-timeline" class="vertical-container dark-timeline">
+                            <% teacher.servexerti.forEach(function(servexerti){ %>
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon gray-bg">
+                                    <i class="fa fa-graduation-cap"></i>
+                                </div>
+                                <div class="vertical-timeline-content">
+                                    <p><%= servexerti.info %>
+                                    </p>
+                                    <span class="vertical-date small text-muted"><%= servexerti.time %></span>
+                                </div>
+                            </div>
+
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

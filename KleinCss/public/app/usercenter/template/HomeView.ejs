@@ -1,0 +1,70 @@
+<div class="row leftmargin animated fadeInRight page-content-home">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading mt25" style="border: solid 1px #e7eaec;min-height: 703px">
+       <div class="col-sm-12 col-md-12">
+           <div class="row tab-content">
+               <ul class="sh-right-tab clearfix " style="padding-left: 0px;border-bottom: 1px solid #e7eaec;">
+                   <span class="pull-right small text-muted"></span>
+                   <li class="change-background on" style="list-style-type:none;"> <a data-toggle="tab" href="#home-manage-mycourse-calendar">
+                           <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                           <%= locale.Home.courseCalendar %></a>
+                       <div class="tb-selected-indicator"></div>
+                   </li>
+                   <li class="change-background" style="list-style-type:none;"><a data-toggle="tab" href="#home-manage-mycourse-today">
+                           <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                           <%=locale.Home.weekendInfo%></a>
+                       <div class="tb-selected-indicator"></div>
+                   </li>
+               </ul>
+
+           </div>
+       </div>
+        <div class="col-lg-8 col-md-8">
+
+            <div class="wrapper wrapper-content" style="padding-top: 0px;">
+
+                <div class="row tab-content" style="margin-top:10px">
+                    <div class="tab-pane active" id="home-manage-mycourse-calendar">
+                        <div class="panel-body">
+                            <div class="row" id="home-manage-act-calendar">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="home-manage-mycourse-today">
+                        <div class="panel-body">
+                            <div class="row" id="home-manage-act-today">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <div class="ibox">
+                <div class="ibox">
+                    <div class="row" id="home-manage-act-right">
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1">
+                                    <strong><p><%=locale.Home.courseArranged%>:</p></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="home-arrange-calendar" class="col-md-9 col-md-offset-1 col-sm-9 col-sm-offset-1">
+                            <!--可安排课程-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="detail-container" class="mt25">
+    </div>
+    <div id="homeview-course-define-dialog">
+
+    </div>
+</div>

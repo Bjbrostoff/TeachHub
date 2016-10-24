@@ -1,0 +1,59 @@
+<div id="sthomework-checkedfindbox-field" class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 25px;right: 0px;width:600px;min-height:20px;border: #e7eaec 2px solid; background-color: white">
+
+    <div class="row" style="height: 568px;">
+        <div class="col-lg-12">
+
+
+            <div class="ibox-title">
+
+                <div class="ibox-tools " style="position: absolute;top: 7px;right: 25px" >
+                    <a class="close-link sth-checked-findbox-close">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+
+                <form  id="sth-sthw-getscores" method="get"  class="col-sm-11 pull-left" style="position: absolute;top: 10px;">
+                    <div class="input-group form-group  ">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                <%= locale.StudentHomework.HomeworkTitle %>
+                            </button>
+                        </div>
+                        <input id="sth-homework-homeworktitle" type="text" class="form-control input-sm"value="<%= data.hwid.hwtitle %>" >
+                    </div>
+
+                </form>
+            </div>
+            <div  id="sth-homeworkcontent-get" class="ibox-content no-padding " style="position: absolute;top: 50px;right: 13px;width:600px;">
+                <div class="summernote " >
+                    <div class="full-height">
+                        <div class="full-height-scroll white-bg border-left">
+                            <div class="ibox-content no-padding ">
+                                <div id="sth-checkhw-homeworkcntent" class="summernote" STYLE="HEIGHT:400PX;">
+                                    <%= data.hwcontent %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+        </div>
+        <div class="col-sm-2">
+            <div class=" sth-checked-findbox-close btn btn-default"> <%= locale.StudentHomework.Close %></div>
+        </div>
+        <div class="col-sm-5">
+        </div>
+    </div>
+
+</div>
+
+

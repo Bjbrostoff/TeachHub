@@ -1,0 +1,83 @@
+<div class="row leftmargin animated fadeInRight">
+    <div class="row wrapper leftmargin border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2><%=local.auditCert.audit%></h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#home"><%=local.auditCert.home%></a>
+                        </li>
+                        <li class="active">
+                            <strong><%=local.auditCert.audit%></strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="project-list">
+                    <div class="row tab-content">
+                        <div class="toolbar">
+                            <ul class="nav nav-tabs">
+                                <span class="pull-right small text-muted"></span>
+                                <li class="audit-waitcert-nav-tab audit-cert-nav-tab active" data-bind="wait"><a data-toggle="tab" href="#audit-cert-wait"><i class="fa fa-user"></i> <%=local.auditCert.check1%></a></li>
+                                <li class="audit-actcert-nav-tab audit-cert-nav-tab" data-bind="act"><a data-toggle="tab" href="#audit-cert-act"><i class="fa fa-briefcase"></i> <%=local.auditCert.check2%></a></li>
+                                <li class="audit-donecert-nav-tab audit-cert-nav-tab" data-bind="done"><a data-toggle="tab" href="#audit-cert-done"><i class="fa fa-briefcase"></i> <%=local.auditCert.check3%></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row tab-content">
+                        <div class="tab-pane active" id="audit-cert-wait">
+                            <div class="panel-body">
+                                <div class="row" id="audit-cert-wait-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="audit-cert-act">
+                            <div class="panel-body">
+                                <div class="row" id="audit-cert-act-tab">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="audit-cert-done">
+                            <div class="panel-body">
+                                <div class="row" id="audit-cert-done-tab">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div id="cert-manage-chart">
+                        </div>
+
+                    </div>
+                    <div id="cert-manage-chart-legend">
+
+                        <div class="panel-group">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibox">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

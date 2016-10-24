@@ -1,0 +1,15 @@
+<div class="terms-list clearfix">
+    <span class="pull-left"><%= condition.describe %>：</span>
+    <ul class="category-terms">
+        <% condition.items.forEach(function(item){ %>
+        <% if(item.cvalue == "all"){ %>
+        <li id="search-t-condi-li" class="on" cate="<%= condition.cate  %>" cvalue="<%= item.cvalue %>">
+            <a><%= item.describe %></a>
+        </li>
+        <% }else{ %>
+        <li id="search-t-condi-li"  cate="<%= condition.cate  %>" cvalue="<%= item.cvalue %>">
+            <a><%= item.describe %></a>
+        </li>
+        <% }}) %>
+    </ul>
+</div>

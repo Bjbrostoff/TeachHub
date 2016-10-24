@@ -1,0 +1,58 @@
+
+<div class="ibox float-e-margins white-bg"
+		style="height:100%;overflow-y:auto;width:375px;position: fixed;top: 60px;right: 0px;; border-left: #e7eaec thick solid;border-bottom: #e7eaec thick solid;">
+    <div class="ibox-content">
+        <div class="tab-content">
+            <div id="contact-1" class="tab-pane active">
+                <div class="row m-b-lg">
+                    <div class="col-lg-8 text-center">
+                        <div class="m-b-sm">
+	                        <strong><%=local.auditCert.detail%>:</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-profile-scroll">
+                    <% _.each(info.content, function(item){ %>
+                    <div class="full-height-scroll">
+
+                        <strong><%=item.filedaliases%></strong>
+                        <%if(item.fieldtype == "1"){%>
+                           <input type="text" value="<%=item.value%>">
+                        <%}else if(item.fieldtype == "2" ){%>
+                                <img src="<%=item.value%>" style="width:300px;height: 300px;">
+                        <%}else if(item.fieldtype == "3"){
+                            var xx = item.value;
+                            xx = eval("(" + xx + ")");
+
+                        %>
+                      <table>
+                        <thead>
+                        <tr><td><%=local.auditCert.time%></td><td><%=local.auditCert.photo%></td></tr>
+                        </thead>
+                        <%   _.each(xx, function(x){%>
+
+                          <tr><td><%=x.time%></td><td><img title="<%=x.info%>" src="<%=x.image%>"  style="width:100px;height: 100px;"/></td></tr>
+                        <%})%>
+                          </table>
+                        <%}%>
+                    </div>
+
+                    <hr/>
+                    <%})%>
+
+
+						<div class="full-height-scroll" style="text-align: center">
+                            <%if(isdetail == '1'){%>
+							<button id="mycert_pass_sub_btn" class="btn btn-sm btn-primary pull-center m-t-n-xs" type="button"><strong><%=local.auditCert.pass%></strong></button>
+                            <button id="mycert_unpass_sub_btn" class="btn btn-sm btn-primary pull-center m-t-n-xs" type="button"><strong><%=local.auditCert.nopass%></strong></button>
+                            <%}%>
+                            <button id="mycert_cancel_btn" class="btn btn-sm btn-primary pull-center m-t-n-xs" type="button"><strong><%=local.auditCert.cancel%></strong></button>
+						</div>
+
+
+	                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

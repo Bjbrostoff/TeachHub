@@ -1,0 +1,122 @@
+<div class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 60px;right: 0px;width:600px;min-height: 1200px;border-left: #e7eaec thick solid;">
+    <div class="ibox-title">
+        <h5>课程详细</h5>
+        <div class="ibox-tools">
+            <a class="close-link course-manage-course-detail-close">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="ibox-content">
+        <form id="course-manage-generate-form" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">课程名称</label>
+                <div class="col-sm-9">
+                    <input class="form-control course-manage-generate-course" type="text" name="name" value="<%= name %>" required>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">课程简介</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="introduction" ><%= introduction %></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">详情</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="info" value="<%= info %>"><%= info %></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">大纲</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="catalog" value="<%= catalog %>"><%= catalog %></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">计费方式</label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" value="<%= billing.fvalue %>" name="billing">
+                        <option value="0" <%= (billing.fvalue == 0)?'selected':'' %>>按每节课收费</option>
+                        <option value="1" <%= (billing.fvalue == 1)?'selected':'' %>>按每小时收费</option>
+                        <option value="2" <%= (billing.fvalue == 2)?'selected':'' %>>按课程收费</option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">单价(RMB)</label>
+                <div class="col-sm-9">
+                    <input class="form-control course-manage-generate-course" name="price" value="<%= price %>">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">授课方式</label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" value="<%= method.type %>">
+                        <option value="0" <%= (method.type == 0)?'selected':'' %>>教室授课</option>
+                        <option value="1" <%= (method.type == 1)?'selected':'' %>>上门授课</option>
+                        <option value="2" <%= (method.type == 2)?'selected':'' %>>网上远程授课</option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">授课模式</label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" value="<%= mode.type %>">
+                        <option value="0" <%= (mode.type == 0)?'selected':'' %>>一对一授课</option>
+                        <option value="1" <%= (mode.type == 1)?'selected':'' %>>一对多授课</option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">面向年龄群体</label>
+                <div class="col-sm-5">
+                    <input class="course-manage-generate-course" name="range-min" value="<%= range.min %>">
+                </div>
+                至
+                <div class="col-sm-5">
+                    <input class="course-manage-generate-course" name="range-max" value="<%= range.max %>">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">课程缩略图</label>
+                <div class="col-sm-9">
+
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">课程图片</label>
+                <div class="col-sm-9">
+
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+
+        </form>
+
+
+    </div>
+</div>

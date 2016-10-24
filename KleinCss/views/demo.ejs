@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <% include includes/head/demohead1.ejs %>
+
+    <link rel="stylesheet" href="/stylesheets/demohome.css">
+
+    <style>
+        .btn-default {
+            background-color: #c2c2c2;
+            border-color: #c2c2c2;
+            color: #FFFFFF;
+        }
+
+        .btn-default:hover {
+            background-color: #bababa;
+            border-color: #bababa;
+            color: #FFFFFF;
+        }
+
+        .btn-primary {
+            background-color: #1ab394;
+            border-color: #1ab394;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background-color: #18a689;
+            border-color: #18a689;
+            color: #FFFFFF;
+        }
+
+        .section {
+            background-color: white;
+        }
+
+        .noborder {
+            background: #FFF;
+            margin: 20px 10px;
+            text-align: center;
+            padding: 30px 20px;
+            -webkit-border-radius: 5px;
+            -webkit-background-clip: padding-box;
+        }
+
+        .top-block__title {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #53555c;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2.5em;
+            border-bottom: 0px solid #53555c;
+            line-height: 1.5em;
+            margin: 30px 0;
+            padding-left: 10px;
+            text-align: center;
+        }
+
+        .teacher blockquote {
+            margin: 0;
+            padding: 0;
+            border-left: none;
+        }
+
+        .teacher blockquote p {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .teacher .teacher-bubble {
+            text-align: justify;
+            -webkit-border-radius: 4px;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 4px;
+            -moz-background-clip: padding;
+            border-radius: 4px;
+            background-clip: padding-box;
+            padding: 0 20px 20px 20px;
+            margin: 35px 10px 20px 10px;
+            background: #FFF;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-box-shadow: inset 0 0px #04FDD0, 0 0px 3px #08FF54;
+        }
+
+        .teacher .teacher-bubble::before {
+            background-color: #1CD26B;
+            content: "\00a0";
+            display: block;
+            height: 20px;
+            width: 20px;
+            top: -10px;
+            left: 45%;
+            position: relative;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .teacher .author-photo {
+            text-align: center;
+        }
+
+        .teacher .author-photo img {
+            margin: auto;
+            border: 5px solid #FFF;
+            -webkit-border-radius: 100px;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 100px;
+            -moz-background-clip: padding;
+            border-radius: 100px;
+            background-clip: padding-box;
+            -webkit-box-shadow: inset 0 1px #fff, 0 1px 2px #c8cfe6;
+            -moz-box-shadow: inset 0 1px #fff, 0 1px 2px #c8cfe6;
+            box-shadow: inset 0 1px #fff, 0 1px 2px #c8cfe6;
+            color: inset 0 1px #fff, 0 1px 2px #c8cfe6;
+        }
+
+        .teacher .author-info {
+            font-weight: 400;
+            font-size: 0.8em;
+        }
+
+        .family {
+            position: relative;
+            background: url(/images/family/family-bg2.png) repeat-x center center;
+        }
+
+        .family-item {
+            position: relative;
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+
+        .family-avator {
+            line-height: 0;
+        }
+
+        .family-sub-item {
+            position: relative;
+            float: left;
+            width: 100px;
+            height: 100px;
+        }
+
+        .family-info {
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background-color: #298975;
+            left: 100%;
+            z-index: 12;
+        }
+
+        .family-info-t {
+            width: 300px;
+        }
+
+        .family-info-s {
+            width: 200px;
+        }
+
+        .family-info-right {
+            right: 100%;
+            left: auto;
+        }
+
+        .family-avator {
+            position: relative;
+            display: block;
+        }
+
+        .family-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            background-color: #a8acaf;
+            transition: opacity .15s;
+            -moz-transition: opacity .15s;
+            -webkit-transition: opacity .15s;
+            -o-transition: opacity .15s;
+        }
+
+        .family-avator:hover .family-mask {
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .family-big-mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.60;
+            filter: alpha(opacity=60);
+            background-color: #edf1f4;
+            z-index: 10;
+        }
+
+        .family-text {
+            position: absolute;
+            width: 238px;
+            height: 46px;
+            top: 50%;
+            left: 50%;
+            /*background: url(/images/family/family-text.png) no-repeat;*/
+            margin: -23px 0 0 -119px;
+            z-index: 11;
+        }
+
+        .family-teacher-nick {
+            color: #fff;
+            font-size: 20px;
+            padding: 20px 20px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: 1em;
+        }
+
+        .family-student-nick {
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: 1em;
+        }
+
+        .family-info-job {
+            font-size: 12px;
+            color: #ec9ba4;
+            height: 28px;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .family-info-desc {
+            padding: 20px 20px 0;
+            line-height: 20px;
+            height: 100px;
+            color: #f2bcc2;
+            font-size: 12px;
+            overflow: hidden;
+        }
+
+        .family-info-foot {
+            padding: 7px 20px 0;
+            font-size: 12px;
+            color: #ec9ba4;
+            line-height: 1.3em;
+        }
+
+        .family-info-foot span {
+            display: inline-block;
+            width: 70px;
+        }
+
+        .family-info-foot span:first-child {
+            width: 85px;
+        }
+
+        .idx-minwidth {
+            min-width: 1200px;
+        }
+
+        .hide-text {
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .clearfix:after {
+            content: '\0020';
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .l {
+            float: left;
+        }
+
+        .r {
+            float: right;
+        }
+
+        ul {
+            display: block;
+            list-style-type: disc;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
+<![endif]-->
+
+<% include includes/header/nav/demonormal.ejs %>
+
+<div style="linear-gradient(270deg,#42b76c 10%,#207977 90%);
+    background-image: linear-gradient(270deg, rgb(66, 183, 108) 10%, rgb(32, 121, 119) 90%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: #3ba461;height: 640px;width: 100%;">
+
+    <!-- 巨幕 -->
+
+    <div class="container">
+        <div class="row">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 720 170">
+                <filter id="tooltip-filter" x="0" y="0" width="200%" height="200%">
+                    <feOffset result="offOut" in="SourceGraphic" dx="1" dy="1"></feOffset>
+                    <feGaussianBlur result="blurOut" in="offOut" stdDeviation="7"></feGaussianBlur>
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+                </filter>
+                <g class="progress-axis" transform="translate(60, 100)">
+                    <line class="progress-axis__line" x1="0" y1="0" x2="600" y2="0"></line>
+                    <circle class="progress-axis__point" cx="0" cy="0" r="4"></circle>
+                    <circle class="progress-axis__point progress-axis__point--target" cx="150" cy="0"
+                            r="6"></circle>
+                    <circle class="progress-axis__point" cx="300" cy="0" r="4"></circle>
+                    <circle class="progress-axis__point" cx="450" cy="0" r="4"></circle>
+                    <circle class="progress-axis__point" cx="600" cy="0" r="4"></circle>
+                </g>
+                <g class="progress-tooltip" transform="translate(5, 54)">
+                    <rect class="progress-tooltip__rect" x="0" y="0" width="110" height="22" rx="4" ry="4"></rect>
+                    <text class="progress-tooltip__text" x="55" y="16" text-anchor="middle">心动不如行动哦</text>
+                    <polygon class="progress-tooltip__arrow" points="50,22 60,22 55,29"></polygon>
+                    <circle class="progress-tooltip__point" cx="55" cy="46" r="6"></circle>
+                </g>
+                <g class="progress-legend" transform="translate(170, 106)">
+                    <polygon class="progress-legend__arrow" points="37,10 43,10 40,5"></polygon>
+                    <rect class="progress-legend__rect" x="0" y="10" width="80" height="40" rx="2" ry="2"></rect>
+                    <text class="progress-legend__duration" x="40" y="26" text-anchor="middle">快速注册</text>
+                    <text class="progress-legend__amount" x="40" y="44" text-anchor="middle"> 带你飞</text>
+                </g>
+                <g class="progress-legend" transform="translate(320, 106)">
+                    <polygon class="progress-legend__arrow" points="37,10 43,10 40,5"></polygon>
+                    <rect class="progress-legend__rect" x="0" y="10" width="80" height="40" rx="2" ry="2"></rect>
+                    <text class="progress-legend__duration" x="40" y="26" text-anchor="middle">认证保障</text>
+                    <text class="progress-legend__amount" x="40" y="44" text-anchor="middle">真真的</text>
+                </g>
+                <g class="progress-legend" transform="translate(470, 106)">
+                    <polygon class="progress-legend__arrow" points="37,10 43,10 40,5"></polygon>
+                    <rect class="progress-legend__rect" x="0" y="10" width="80" height="40" rx="2" ry="2"></rect>
+                    <text class="progress-legend__duration" x="40" y="26" text-anchor="middle">兴趣驱动</text>
+                    <text class="progress-legend__amount" x="40" y="44" text-anchor="middle">萌萌哒</text>
+                </g>
+                <g class="progress-legend" transform="translate(620, 106)">
+                    <polygon class="progress-legend__arrow" points="37,10 43,10 40,5"></polygon>
+                    <rect class="progress-legend__rect" x="0" y="10" width="80" height="40" rx="2" ry="2"></rect>
+                    <text class="progress-legend__duration" x="40" y="26" text-anchor="middle">资源富集</text>
+                    <text class="progress-legend__amount" x="40" y="44" text-anchor="middle">高大上</text>
+                </g>
+                <g class="progress-target" transform="translate(-15, -2)">
+                    <text class="progress-target__text" x="295" y="24" text-anchor="middle">高效~</text>
+                    <g class="progress-target__lineblock">
+                        <path class="progress-target__line" d="M 295 33 C 270 40 242 53 228 90"></path>
+                        <circle class="progress-target__point" cx="295" cy="33" r="1"></circle>
+                        <polygon class="progress-target__arrow" points="228.5, 84 228,90 231.5,85.5 "></polygon>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
+                <h1 class="top-block__title">还在因为学了一口"飘准"的<span class="top-block__accent"><nobr>Chinglish
+                        </nobr></span>而发愁吗?
+                </h1>
+                <h1 class="top-block__title">
+                    <span>来吧,少年!这里有最给力的外教资源!</span>
+                </h1>
+
+                <p class="top-block__summary">
+                    我们是最专业的,没有之一,给力必须的
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-block__buttons">
+                    <a href="/register"
+                       target="_blank" type="button" class="btn btn-lg btn-fund"
+                       rel="popover"
+                       data-content="Your donation will be returned to you by Indiegogo if campaign doesn&#39;t succeed."
+                       data-original-title="Worry-free donation">&nbsp;&nbsp;快速注册
+                        &nbsp;&nbsp;</a>
+                    <% if (typeof sessinfo !== "undefined"){ %>
+                    <% if (sessinfo.user) { %>
+                    <a href="/users/center"
+                       class="btn btn-lg btn-download" style="margin-left: 6px">&nbsp;&nbsp;用户中心&nbsp;&nbsp;</a>
+                    <% }else{ %>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal"
+                       class="btn btn-lg btn-download" style="margin-left: 6px">&nbsp;&nbsp;登陆&nbsp;&nbsp;</a>
+                    <% } %>
+
+                    <% }else{ %>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal"
+                       class="btn btn-lg btn-download" style="margin-left: 6px">&nbsp;&nbsp;登陆&nbsp;&nbsp;</a>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+
+</div>
+
+<!-- 网站介绍 -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="noborder">
+                    <img src="/mPurpose-master/img/service-icon/diamond.png" alt="特点一">
+
+                    <h3>全新C2C模式</h3>
+
+                    <p>为机构、教师和学生提供诚信、专业、便捷、有保障的优质外教资源交易平台</p>
+                    </br>
+                    </br>
+                    <a href="#" class="btn">了解更多</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="noborder">
+                    <img src="/mPurpose-master/img/service-icon/box.png" alt="特点二">
+
+                    <h3>学生放心</h3>
+                    <p>全部外教都需要经过认证，开设课程也需要经过审核；外教和课程都会有评分和反馈供参考，更有金牌老师和优质课程排行；学生和外教可以线下讨论确定费用、内容、地点</p>
+                    <a href="#" class="btn">了解更多</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="noborder">
+                    <img src="/mPurpose-master/img/service-icon/ruler.png" alt="特点三">
+
+                    <h3>老师省心</h3>
+
+                    <p>不用再为寻找教学对象而担心，也不用再为线下中介机构的高额回扣而烦恼，开设的课程可以被所有有需要的学生查看；可以快速管理自己的课程和学生</p>
+                    <a href="#" class="btn">了解更多</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h2>用户增长线</h2>
+        <div class="row">
+            <div class="downloads-block__chart">
+                <svg class="downloads-chart" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1200" height="430"
+                     viewbox="0 0 1200 430">
+                    <defs>
+                        <marker markerWidth="15" markerHeight="8" refX="2" refY="4" orient="auto"
+                                markerUnits="strokeWidth"
+                                id="informer__arrowhead">
+                            <path d="M 0, 0 L 15, 4 L 0, 8 L 2, 4 Z" class="informer__arrowhead"></path>
+                        </marker>
+                    </defs>
+                    <g transform="translate(42, 90)">
+                        <linearGradient id="downloads-gradient">
+                            <stop offset="0%" stop-color="#36c9c6"></stop>
+                            <stop offset="50%" stop-color="#edeab5"></stop>
+                            <stop offset="100%" stop-color="#ed995a"></stop>
+                        </linearGradient>
+                        <path class="downloads-chart__area"
+                              d="M0,310C5.954121809333547,309.5208013203608,23.529828108705928,308.68717129717044,35.956131605184446,307.10618436406065S62.745747900524144,300.8701765006241,75.76470588235294,300.18043657682784S101.23621357672822,302.6171991162317,114.28913260219342,302.80075134473634S141.21526287317906,302.7057947416021,154.0977068793619,301.21268178842814S180.41428847910433,297.03617293461616,192.6221335992024,293.819335742949S222.87323778229,286.43588015868255,232.4307078763709,280.4795514699604S264.1145669423261,250.53037833142315,272.23928215353936,244.200984716965S300.4009617794473,224.56839178775923,310.76370887337987,219.28593790021912S337.5403960345884,205.00103766236023,350.57228315054834,204.44631015738395S376.0418897815408,215.62173127965423,389.09670987038885,215.5275066169565S416.4677470468424,206.71910270966063,428.9052841475573,203.50229103224518S458.5590024309242,199.9464108170745,468.7138584247258,194.9355380368273S494.0774058471895,171.8311160279465,504.66999002991025,167.18843384466518S531.6124336213173,162.7146835202554,544.4785643070787,161.15376953069415S570.1193083567331,158.63613654504786,583.0029910269192,157.1483052053391S610.7046597190887,155.48183596592614,622.8115653040877,152.09295045109144S648.3982646816903,136.65260768445853,661.3359920239283,135.41822010985572S687.9844973038657,146.2526943111802,701.1445663010967,145.0525087514586S730.5313976515847,133.39632961587367,740.9531405782652,128.1572131940689S767.0396964693578,108.5458960742837,779.4775672981057,105.77425505876997S806.4088767121624,107.60303752931895,819.2861415752742,109.11802373566324S845.4257591411641,118.87291501420468,857.8105682951146,115.99083587101916S884.4766392611846,91.65320256753922,897.6191425722832,90.3611577539346S925.554926662309,89.76367012817629,937.4277168494516,86.7703560349489S965.2783404468541,28.384165277841852,973.3838484546361,22.330022483422045S1000.527213435621,30.288001017294917,1013.1924227318045,32.511312861086594S1038.8268883886262,38.0304635336804,1051.7168494516452,36.569712838318594S1080.734501630229,28.296812917466458,1091.5254237288136,23.35344508637618S1117.1333165550786,2.186732561907057,1130.049850448654,0.8469704300310177S1156.5968560682566,15.520581505341614,1169.8584247258225,15.845405128497013S1196.6153521931644,15.67264795881128,1209.6669990029911,15.44838773941999S1235.6285532776374,8.407704153716816,1248.1914257228314,5.919970401571008S1281.508790351424,0.9653138723936087,1288,0L1288,310C1281.3652376204718,310,1261.2469258889996,310,1248.1914257228314,310S1222.7224991691592,310,1209.6669990029911,310S1183.1279494848786,310,1169.8584247258225,310S1143.1053506148223,310,1130.049850448654,310S1104.5809238949819,310,1091.5254237288136,310S1064.7723496178135,310,1051.7168494516452,310S1026.2479228979728,310,1013.1924227318045,310S986.0112994350283,310,973.3838484546361,310S950.0551678298438,310,937.4277168494516,310S910.8886673313393,310,897.6191425722832,310S870.8660684612828,310,857.8105682951146,310S832.3416417414423,310,819.2861415752742,310S792.5330674642738,310,779.4775672981057,310S754.0086407444334,310,740.9531405782652,310S714.4140910601528,310,701.1445663010967,310S674.3914921900964,310,661.3359920239283,310S635.8670654702559,310,622.8115653040877,310S596.0584911930873,310,583.0029910269192,310S557.5340644732469,310,544.4785643070787,310S517.2974410103025,310,504.66999002991025,310S481.34130940511795,310,468.7138584247258,310S442.17480890661346,310,428.9052841475573,310S402.152210036557,310,389.09670987038885,310S363.6277833167165,310,350.57228315054834,310S323.819209039548,310,310.76370887337987,310S285.2947823197075,310,272.23928215353936,310S245.70023263542706,310,232.4307078763709,310S205.6776337653706,310,192.6221335992024,310S167.15320704553008,310,154.0977068793619,310S127.34463276836158,310,114.28913260219342,310S88.8202060485211,310,75.76470588235294,310S48.5835825855766,310,35.956131605184446,310S5.992688600864074,310,0,310Z"
+                              fill="url(#downloads-gradient)"></path>
+                        <g transform="translate(0, 320)" class="downloads-chart__axis downloads-chart__axis--x">
+                            <g class="tick" transform="translate(75.76470588235294,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Apr 2013</text>
+                            </g>
+                            <g class="tick" transform="translate(192.6221335992024,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Jul 2013</text>
+                            </g>
+                            <g class="tick" transform="translate(310.76370887337987,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Oct 2013</text>
+                            </g>
+                            <g class="tick" transform="translate(428.9052841475573,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Jan 2014</text>
+                            </g>
+                            <g class="tick" transform="translate(544.4785643070787,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Apr 2014</text>
+                            </g>
+                            <g class="tick" transform="translate(661.3359920239283,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Jul 2014</text>
+                            </g>
+                            <g class="tick" transform="translate(779.4775672981057,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Oct 2014</text>
+                            </g>
+                            <g class="tick" transform="translate(897.6191425722832,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Jan 2015</text>
+                            </g>
+                            <g class="tick" transform="translate(1013.1924227318045,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Apr 2015</text>
+                            </g>
+                            <g class="tick" transform="translate(1130.049850448654,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Jul 2015</text>
+                            </g>
+                            <g class="tick" transform="translate(1248.1914257228314,0)" style="opacity: 1;">
+                                <line y2="-310" x2="0"></line>
+                                <text dy=".71em" y="3" x="0" style="text-anchor: middle;">Oct 2015</text>
+                            </g>
+                            <path class="domain" d="M0,-310V0H1288V-310"></path>
+                        </g>
+                        <g transform="translate(1303, 0)" class="downloads-chart__axis downloads-chart__axis--y">
+                            <g class="tick" transform="translate(0,310)" style="opacity: 1;">
+                                <line x2="6" y2="0"></line>
+                                <text dy=".32em" x="9" y="0" style="text-anchor: start;">0</text>
+                            </g>
+                            <g class="tick" transform="translate(0,265.88695676921765)" style="opacity: 1;">
+                                <line x2="6" y2="0"></line>
+                                <text dy=".32em" x="9" y="0" style="text-anchor: start;">5,000</text>
+                            </g>
+                            <g class="tick" transform="translate(0,221.77391353843527)" style="opacity: 1;">
+                                <line x2="6" y2="0"></line>
+                                <text dy=".32em" x="9" y="0" style="text-anchor: start;">10,000</text>
+                            </g>
+                            <g class="tick" transform="translate(0,177.6608703076529)" style="opacity: 1;">
+                                <line x2="6" y2="0"></line>
+                                <text dy=".32em" x="9" y="0" style="text-anchor: start;">15,000</text>
+                            </g>
+                            <g class="tick" transform="translate(0,133.54782707687053)" style="opacity: 1;">
+                                <line x2="6" y2="0"></line>
+                                <text dy=".32em" x="9" y="0" style="text-anchor: start;">20,000</text>
+                            </g>
+                            <g class="tick" transform="translate(0,89.43478384608817)" style="opacity: 1;">
+                                <line x2="6" y2="0"></line>
+                                <text dy=".32em" x="9" y="0" style="text-anchor: start;">25,000</text>
+                            </g>
+                            <g class="tick" transform="translate(0,45.321740615305806)" style="opacity: 1;">
+                                <line x2="6" y2="0"></line>
+                                <text dy=".32em" x="9" y="0" style="text-anchor: start;">30,000</text>
+                            </g>
+                            <g class="tick" transform="translate(0,1.2086973845234372)" style="opacity: 1;">
+                                <line x2="6" y2="0"></line>
+                                <text dy=".32em" x="9" y="0" style="text-anchor: start;">35,000</text>
+                            </g>
+                            <path class="domain" d="M6,0H0V310H6"></path>
+                        </g>
+                        <path class="downloads-chart__line" opacity="1"
+                              d="M0,310C5.954121809333547,309.5208013203608,23.529828108705928,308.68717129717044,35.956131605184446,307.10618436406065S62.745747900524144,300.8701765006241,75.76470588235294,300.18043657682784S101.23621357672822,302.6171991162317,114.28913260219342,302.80075134473634S141.21526287317906,302.7057947416021,154.0977068793619,301.21268178842814S180.41428847910433,297.03617293461616,192.6221335992024,293.819335742949S222.87323778229,286.43588015868255,232.4307078763709,280.4795514699604S264.1145669423261,250.53037833142315,272.23928215353936,244.200984716965S300.4009617794473,224.56839178775923,310.76370887337987,219.28593790021912S337.5403960345884,205.00103766236023,350.57228315054834,204.44631015738395S376.0418897815408,215.62173127965423,389.09670987038885,215.5275066169565S416.4677470468424,206.71910270966063,428.9052841475573,203.50229103224518S458.5590024309242,199.9464108170745,468.7138584247258,194.9355380368273S494.0774058471895,171.8311160279465,504.66999002991025,167.18843384466518S531.6124336213173,162.7146835202554,544.4785643070787,161.15376953069415S570.1193083567331,158.63613654504786,583.0029910269192,157.1483052053391S610.7046597190887,155.48183596592614,622.8115653040877,152.09295045109144S648.3982646816903,136.65260768445853,661.3359920239283,135.41822010985572S687.9844973038657,146.2526943111802,701.1445663010967,145.0525087514586S730.5313976515847,133.39632961587367,740.9531405782652,128.1572131940689S767.0396964693578,108.5458960742837,779.4775672981057,105.77425505876997S806.4088767121624,107.60303752931895,819.2861415752742,109.11802373566324S845.4257591411641,118.87291501420468,857.8105682951146,115.99083587101916S884.4766392611846,91.65320256753922,897.6191425722832,90.3611577539346S925.554926662309,89.76367012817629,937.4277168494516,86.7703560349489S965.2783404468541,28.384165277841852,973.3838484546361,22.330022483422045S1000.527213435621,30.288001017294917,1013.1924227318045,32.511312861086594S1038.8268883886262,38.0304635336804,1051.7168494516452,36.569712838318594S1080.734501630229,28.296812917466458,1091.5254237288136,23.35344508637618S1117.1333165550786,2.186732561907057,1130.049850448654,0.8469704300310177S1156.5968560682566,15.520581505341614,1169.8584247258225,15.845405128497013S1196.6153521931644,15.67264795881128,1209.6669990029911,15.44838773941999S1235.6285532776374,8.407704153716816,1248.1914257228314,5.919970401571008S1281.508790351424,0.9653138723936087,1288,0"></path>
+                        <path class="downloads-chart__initial-line" opacity="0"
+                              d="M0,310C5.954121809333547,309.5208013203608,23.529828108705928,308.68717129717044,35.956131605184446,307.10618436406065S62.745747900524144,300.8701765006241,75.76470588235294,300.18043657682784S101.23621357672822,302.6171991162317,114.28913260219342,302.80075134473634S141.21526287317906,302.7057947416021,154.0977068793619,301.21268178842814S180.41428847910433,297.03617293461616,192.6221335992024,293.819335742949S222.87323778229,286.43588015868255,232.4307078763709,280.4795514699604S264.1145669423261,250.53037833142315,272.23928215353936,244.200984716965S300.4009617794473,224.56839178775923,310.76370887337987,219.28593790021912S337.5403960345884,205.00103766236023,350.57228315054834,204.44631015738395S376.0418897815408,215.62173127965423,389.09670987038885,215.5275066169565S416.4677470468424,206.71910270966063,428.9052841475573,203.50229103224518S458.5590024309242,199.9464108170745,468.7138584247258,194.9355380368273S494.0774058471895,171.8311160279465,504.66999002991025,167.18843384466518S531.6124336213173,162.7146835202554,544.4785643070787,161.15376953069415S570.1193083567331,158.63613654504786,583.0029910269192,157.1483052053391S610.7046597190887,155.48183596592614,622.8115653040877,152.09295045109144S648.3982646816903,136.65260768445853,661.3359920239283,135.41822010985572S687.9844973038657,146.2526943111802,701.1445663010967,145.0525087514586S730.5313976515847,133.39632961587367,740.9531405782652,128.1572131940689S767.0396964693578,108.5458960742837,779.4775672981057,105.77425505876997S806.4088767121624,107.60303752931895,819.2861415752742,109.11802373566324S845.4257591411641,118.87291501420468,857.8105682951146,115.99083587101916S884.4766392611846,91.65320256753922,897.6191425722832,90.3611577539346S925.554926662309,89.76367012817629,937.4277168494516,86.7703560349489S965.2783404468541,28.384165277841852,973.3838484546361,22.330022483422045S1000.527213435621,30.288001017294917,1013.1924227318045,32.511312861086594S1038.8268883886262,38.0304635336804,1051.7168494516452,36.569712838318594S1080.734501630229,28.296812917466458,1091.5254237288136,23.35344508637618S1117.1333165550786,2.186732561907057,1130.049850448654,0.8469704300310177S1156.5968560682566,15.520581505341614,1169.8584247258225,15.845405128497013S1196.6153521931644,15.67264795881128,1209.6669990029911,15.44838773941999S1235.6285532776374,8.407704153716816,1248.1914257228314,5.919970401571008S1281.508790351424,0.9653138723936087,1288,0"
+                              display="none"></path>
+                        <g transform="translate(-5,20)" opacity="0" class="informer" style="opacity: 1;">
+                            <path d="M 145.95613160518445, 152.10618436406065 Q 70.48764263260819, 190.88244355358046, 45.956131605184446, 272.10618436406065"
+                                  class="informer__line" marker-end="url(#informer__arrowhead)"></path>
+                            <text class="informer__date" text-anchor="start" x="105.95613160518445"
+                                  y="125.10618436406065">March
+                                2013
+                            </text>
+                            <text class="informer__text" text-anchor="start" x="105.95613160518445"
+                                  y="143.10618436406065">First
+                                lession
+                            </text>
+                            <circle class="informer__point" cx="145.95613160518445" cy="152.10618436406065"
+                                    r="1"></circle>
+                        </g>
+                        <g transform="translate(20,5)" opacity="0" class="informer" style="opacity: 1;">
+                            <path d="M 823.3838484546361, -1.669977516577955 Q 886.270599800591, -31.310993668035735, 943.3838484546361, 8.330022483422045"
+                                  class="informer__line" marker-end="url(#informer__arrowhead)"></path>
+                            <text class="informer__date" text-anchor="start" x="773.3838484546361"
+                                  y="18.330022483422045">March
+                                2015
+                            </text>
+                            <text class="informer__text" text-anchor="start" x="773.3838484546361"
+                                  y="36.33002248342204">online
+                            </text>
+                            <circle class="informer__point" cx="823.3838484546361" cy="-1.669977516577955"
+                                    r="1"></circle>
+                        </g>
+                        <g class="downloads-chart__focus" transform="translate(1288,0)" style="">
+                            <circle r="7"></circle>
+                            <rect x="-42" y="-88" rx="5" ry="5" width="84" height="70"></rect>
+                            <line class="x" y1="0" y2="310" style="opacity: 0.3;"></line>
+                            <line class="y" x1="0" x2="0" style="opacity: 0.3;"></line>
+                            <polygon points="-5,-19 5,-19 0,-12 "></polygon>
+                            <text class="text-date" x="0" y="-74" text-anchor="middle" dy=".35em">Nov 2015</text>
+                            <text class="text-count" x="0" y="-53" text-anchor="middle" dy=".35em">35,137</text>
+                            <text class="text-download" x="0" y="-34" text-anchor="middle" dy=".35em">downloads</text>
+                        </g>
+                        <rect class="overlay" width="1288" y="-90" height="400"></rect>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- 精品课程 -->
+<div class="section">
+    <div class="container">
+        <h2>精品课程</h2>
+
+        <div class="row">
+            <% courses.forEach(function(course){ %>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <a href="#"><img src="<%= course.image %>" alt="Project Name"></a>
+                    </div>
+                    <div class="portfolio-info-fade">
+                        <ul>
+                            <li class="portfolio-project-name"><%= course.name %></li>
+                            <li><%= course.summary %></li>
+                            <li>授课老师：<%= course.teacher %></li>
+                            <li>评分：<%= course.teacher %></li>
+                            <li class="read-more"><a href="#" class="btn">更多</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<!--金牌老师 -->
+<div class="section">
+    <div class="container">
+        <h2>金牌老师</h2>
+
+        <div class="row">
+            <% teachers.forEach(function(teacher){ %>
+            <div class="teacher col-md-4 col-sm-6">
+                <!-- Author Photo -->
+                <div class="author-photo">
+                    <img src="/mPurpose-master/img/user1.jpg" alt="class 1">
+                </div>
+                <div class="teacher-bubble">
+                    <p>姓名：<%= teacher.name %></p>
+
+                    <p>来自：<%= teacher.nationality %></p>
+
+                    <p>学位：<%= teacher.degree %></p>
+
+                    <p>点赞：<%= teacher.like %></p>
+                    <!--				<ul>
+						<li>姓名：<%= teacher.name %></li>
+						<li>来自：<%= teacher.nationality %></li>
+						<li>学位：<%= teacher.degree %></li>
+						<li>点赞：<%= teacher.like %></li>
+					</ul>-->
+                    <div class="sprite arrow-speech-bubble"></div>
+                </div>
+            </div>
+
+            <% }) %>
+        </div>
+    </div>
+</div>
+<!-- End Testimonials -->
+
+
+<!-- 资深机构 -->
+<div class="section">
+    <div class="container">
+        <h2>资深机构</h2>
+
+        <div class="row">
+            <!-- Pricing Plans Wrapper -->
+            <div class="pricing-wrapper col-md-12">
+                <!-- Pricing Plan -->
+                <% agency.forEach(function(agency){ %>
+                <div class="pricing-plan demo-price">
+                    <!-- Pricing Plan Ribbon -->
+                    <div class="ribbon-wrapper">
+                        <div class="price-ribbon ribbon-red">金牌机构</div>
+                    </div>
+                    <h2 class="pricing-plan-title"><%= agency.name %></h2>
+
+                    <p class="pricing-plan-price">FREE</p>
+                    <!-- Pricing Plan Features -->
+                    <ul class="pricing-plan-features">
+                        <li><strong><%= agency.courses %></strong> 门课程</li>
+                        <li><strong><%= agency.teachers %></strong> 位授课教师</li>
+                        <li><strong><%= agency.students %></strong> 名学员</li>
+                        <li><strong>地址：</strong> <%= agency.address %></li>
+                    </ul>
+                    <a href="#" class="btn">查看详情</a>
+                </div>
+                <% }) %>
+                <!-- End Pricing Plan -->
+                <!-- End Pricing Plans Wrapper -->
+            </div>
+        </div>
+    </div>
+    <!-- End Pricing Table -->
+
+    <!--XX大家庭 -->
+    <div class="section">
+        <div class="1container">
+            <h2>XX大家庭</h2>
+            <div class="row">
+                <div id="js-family" class="family idx-minwidth">
+                    <div class="idx-width">
+                        <ul class="clearfix">
+                            <li class="js-family-item family-item family-teacher l">
+                                <a href="/space/teacher/id/1033307" class="family-avator">
+                                    <div class="family-mask"></div>
+                                    <img src="http://img.mukewang.com/5469ba4e0001b81502200220-200-200.jpg" width="200"
+                                         height="200">
+                                </a>
+                                <div class="js-family-info family-info family-info-t ">
+                                    <h3 class="family-teacher-nick">Rango</h3>
+                                    <p class="family-info-job">PHP开发工程师</p>
+                                    <p class="family-info-desc">
+                                        多玩技术部基础平台组技术经理，PHP官方PECL开发组成员，Swoole开源项目创始人，前腾讯朋友网、易迅网、淘宝网搜索的后台团队核心技术骨干。</p>
+                                </div>
+                            </li>
+
+                            <li class="family-item family-student l">
+                                <ul class="clearfix">
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/110691" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/54c8580c0001e49f14400900-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">leejersey</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>1833小时55分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>215门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/130804" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/55d1deb00001af9e05330300-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">学习人生</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>1595小时48分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>150门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/220512" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/53b7be310001796301800180-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">Raymond小文</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>1333小时39分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>108门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/165429" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/533e4c700001c60f02200220-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">名小鹅</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>1062小时55分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>111门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="js-family-item family-item family-teacher l">
+                                <a href="/space/teacher/id/139096" class="family-avator">
+                                    <div class="family-mask"></div>
+                                    <img src="http://img.mukewang.com/5382a89c000102cd00800064-200-200.jpg" width="200"
+                                         height="200">
+                                </a>
+                                <div class="js-family-info family-info family-info-t ">
+                                    <h3 class="family-teacher-nick">Pangee</h3>
+                                    <p class="family-info-job"></p>
+                                    <p class="family-info-desc">
+                                        高级研发工程师，就职于全球颇有影响力的搜索引擎公司，曾供职于新浪。负责移动客户端相关的服务端研发工作，对大流量业务、高并发业务有较多的经验与解决方案。技术极客，喜欢一切新特奇技术，希望把技术做到极致。...</p>
+                                </div>
+                            </li>
+
+                            <li class="family-item family-student l">
+                                <ul class="clearfix">
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/134758" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/53d9bc1b0001c90002000200-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">RainbowPeter</h3>
+                                            <p class="family-info-job">JAVA开发工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>1027小时27分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>280门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/1128997" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/55c0bcce0001e21107400738-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">smile_again</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>669小时57分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>94门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/1117550" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/55ab8dff0001246c02790279-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">Linda_liu</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>613小时16分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>107门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/285324" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/54af858d000194ea01800180-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">加加摩尔</h3>
+                                            <p class="family-info-job">PHP开发工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>602小时29分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>93门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="js-family-item family-item family-teacher l">
+                                <a href="/space/teacher/id/108955" class="family-avator">
+                                    <div class="family-mask"></div>
+                                    <img src="http://img.mukewang.com/5347593e00010cfb01400140-200-200.jpg" width="200"
+                                         height="200">
+                                </a>
+                                <div class="js-family-info family-info family-info-t family-info-right">
+                                    <h3 class="family-teacher-nick">liuyubobobo</h3>
+                                    <p class="family-info-job">其它</p>
+                                    <p class="family-info-desc">
+                                        创业者，全栈工程师，持续学习者。对技术开发，产品设计、前后端，ios，html5，智能算法等领域均有接触；拥有多款独立App作品；对一切可编程的东西有浓厚兴趣，对游戏编程格外感兴趣。相信编程改变一切。</p>
+                                </div>
+                            </li>
+
+                            <li class="family-item family-student l">
+                                <ul class="clearfix">
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/205587" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/54c98d9b0001203205880576-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s family-info-right">
+                                            <h3 class="family-student-nick">酸奶沙冰</h3>
+                                            <p class="family-info-job">交互设计师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>574小时26分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>184门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/125844" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/5379bf290001590c01800180-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s family-info-right">
+                                            <h3 class="family-student-nick">O_Duok</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>552小时59分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>16门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/168449" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/545850e10001f06002200220-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s family-info-right">
+                                            <h3 class="family-student-nick">w7851435</h3>
+                                            <p class="family-info-job">PHP开发工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>497小时43分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>103门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/437419" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/5458502c00012d4a02200220-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s family-info-right">
+                                            <h3 class="family-student-nick">化龙贝</h3>
+                                            <p class="family-info-job">学生</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>476小时 8分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>235门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="family-item family-student l">
+                                <ul class="clearfix">
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/103118" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/53dc49530001ab8005110800-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">MistyMoon</h3>
+                                            <p class="family-info-job">其它</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>440小时26分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>147门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/111574" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/535d9b1f0001169404800640-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">Cynthia</h3>
+                                            <p class="family-info-job">UI设计师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>421小时55分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>67门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/217463" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/53b528fd0001fdee01000100-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">沧海一声笑_0001</h3>
+                                            <p class="family-info-job"></p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>417小时 2分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>39门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/175534" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/5391fa45000138ad01800180-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">JoeMartini</h3>
+                                            <p class="family-info-job">产品经理</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>396小时53分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>15门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="js-family-item family-item family-teacher l">
+                                <a href="/space/teacher/id/101686" class="family-avator">
+                                    <div class="family-mask"></div>
+                                    <img src="http://img.mukewang.com/536b4d120001005f02720306-200-200.jpg" width="200"
+                                         height="200">
+                                </a>
+                                <div class="js-family-info family-info family-info-t ">
+                                    <h3 class="family-teacher-nick">远人</h3>
+                                    <p class="family-info-job">其它</p>
+                                    <p class="family-info-desc">
+                                        资深前端攻城师，先后就职于腾讯、人人网，具有丰富的海量服务前端开发经验。也曾担任多个创业团队技术顾问。现就职于某知名互联网公司，是最资深的云前端工程师，首席前端架构师，实践经验丰富。</p>
+                                </div>
+                            </li>
+
+                            <li class="family-item family-student l">
+                                <ul class="clearfix">
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/158150" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/54b67d0a0001074001000100-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">K_Biao</h3>
+                                            <p class="family-info-job">学生</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>392小时 3分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>146门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/239230" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/5454fb0b00016d1401800180-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">MicLee</h3>
+                                            <p class="family-info-job">JAVA开发工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>371小时37分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>15门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/104514" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/55e00e6a0001f4ee23642364-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">Jaywin丶</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>369小时29分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>134门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/337815" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/545865c30001a2d802200220-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">伪文艺文委</h3>
+                                            <p class="family-info-job">其它</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>313小时46分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>110门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="js-family-item family-item family-teacher l">
+                                <a href="/space/teacher/id/197450" class="family-avator">
+                                    <div class="family-mask"></div>
+                                    <img src="http://img.mukewang.com/549beab90001be9037445616-200-200.jpg" width="200"
+                                         height="200">
+                                </a>
+                                <div class="js-family-info family-info family-info-t ">
+                                    <h3 class="family-teacher-nick">张鑫旭</h3>
+                                    <p class="family-info-job">页面重构设计</p>
+                                    <p class="family-info-desc">web前端，就职于腾讯ISUX上海设计中心，喜欢卖萌打杂，同事都叫我张老师，(*^__^*) 嘻嘻……
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="family-item family-student l">
+                                <ul class="clearfix">
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/235374" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/53c7d2a00001e09801000100-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">宝贝我一直在</h3>
+                                            <p class="family-info-job">Linux系统工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>294小时26分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>65门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/1378011" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/5647305a000185ee09940619-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">luona</h3>
+                                            <p class="family-info-job">学生</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>254小时11分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>24门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/215920" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/55a3180d0001a3d906400658-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">路飞弟弟</h3>
+                                            <p class="family-info-job">Web前端工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>232小时49分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>87门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="js-family-item family-sub-item">
+                                        <a href="/space/u/uid/113818" class="family-avator">
+                                            <div class="family-mask"></div>
+                                            <img src="http://img.mukewang.com/user/5365e348000133ca01000100-160-160.jpg"
+                                                 width="100" height="100" title="100" alt="100">
+                                        </a>
+                                        <div class="js-family-info family-info family-info-s ">
+                                            <h3 class="family-student-nick">鱼与熊掌势必要兼得</h3>
+                                            <p class="family-info-job">软件测试工程师</p>
+                                            <div class="family-info-foot">
+                      <span>
+                        学习
+                        <em>170小时15分</em>
+                      </span>
+                      <span>
+                        报名
+                        <em>35门课程</em>
+                      </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="js-family-item family-item family-teacher l">
+                                <a href="/space/teacher/id/225594" class="family-avator">
+                                    <div class="family-mask"></div>
+                                    <img src="http://img.mukewang.com/53bce3ba00014c3932644928-200-200.jpg" width="200"
+                                         height="200">
+                                </a>
+                                <div class="js-family-info family-info family-info-t family-info-right">
+                                    <h3 class="family-teacher-nick">林永坚Jake</h3>
+                                    <p class="family-info-job">其它</p>
+                                    <p class="family-info-desc">全栈工程师，独立开发者，咨询公司高级顾问。所开发的iOS APP多次登上苹果App
+                                        Store分类榜榜首。做为一个持续学习者，不间断地折腾各种新技术和方法，并乐于推广，让大家一起感受技术的力量！</p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div id="js-family-mask" class="family-big-mask" style="opacity: 0.6; display: block;"></div>
+                    <div id="js-family-text" class="family-text hide-text" style="opacity: 1; display: block;">慕课大家庭
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ENDXX大家庭 -->
+
+    <!-- Our Clients -->
+    <div class="section">
+        <div class="container">
+            <h2>Our Clients</h2>
+
+            <div class="clients-logo-wrapper text-center row">
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/canon.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/cisco.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/dell.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/ea.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/ebay.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/facebook.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/google.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/hp.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/microsoft.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/mysql.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/sony.png" alt="Client Name"></a></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img
+                                src="/mPurpose-master/img/logos/yahoo.png" alt="Client Name"></a></div>
+            </div>
+        </div>
+    </div>
+    <!-- End Our Clients -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-footer col-md-3 col-xs-6">
+                    <h3>Our Latest Work</h3>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <a href="/mPurpose-master/page-portfolio-item.html"><img
+                                        src="/mPurpose-master/img/portfolio6.jpg" alt="Project Name"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-footer col-md-3 col-xs-6">
+                    <h3>Navigate</h3>
+                    <ul class="no-list-style footer-navigate-section">
+                        <li><a href="/mPurpose-master/page-blog-posts.html">Blog</a></li>
+                        <li><a href="/mPurpose-master/page-portfolio-3-columns-2.html">Portfolio</a></li>
+                        <li><a href="/mPurpose-master/page-products-3-columns.html">eShop</a></li>
+                        <li><a href="/mPurpose-master/page-services-3-columns.html">Services</a></li>
+                        <li><a href="/mPurpose-master/page-pricing.html">Pricing</a></li>
+                        <li><a href="/mPurpose-master/page-faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-footer col-md-4 col-xs-6">
+                    <h3>Contacts</h3>
+
+                    <p class="contact-us-details">
+                        <b>Address:</b> 123 Fake Street, LN1 2ST, London, United Kingdom<br/>
+                        <b>Phone:</b> +44 123 654321<br/>
+                        <b>Fax:</b> +44 123 654321<br/>
+                        <b>Email:</b> <a href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
+                    </p>
+                </div>
+                <div class="col-footer col-md-2 col-xs-6">
+                    <h3>Stay Connected</h3>
+                    <ul class="footer-stay-connected no-list-style">
+                        <li><a href="#" class="facebook"></a></li>
+                        <li><a href="#" class="twitter"></a></li>
+                        <li><a href="#" class="googleplus"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascripts -->
+    <% include includes/head/demohead2.ejs %>
+
+    <script>
+        $(function () {
+            $('.demo-price').hover(function () {
+                $('.demo-price').removeClass('pricing-plan-promote');
+
+                $(this).addClass('pricing-plan-promote');
+            });
+
+            $('.progress-axis__point').mouseover(function () {
+                $('.progress-axis__point').removeClass('progress-axis__point--target');
+                $(this).addClass('progress-axis__point--target');
+                var idx = parseInt($(this).attr('cx'));
+                var x = -15 + idx - 150;
+                $('.progress-target').attr('transform', 'translate(' + x + ', -2)');
+                $('.progress-target__lineblock').attr('transform', '');
+                switch (idx) {
+                    case 150:
+                        $('.progress-target__text').text('高效~');
+                        break;
+                    case 300:
+                        $('.progress-target__text').text('专业~');
+                        break;
+                    case 450:
+
+                        $('.progress-target__text').text('愉快~');
+                        break;
+                    case 600:
+                        $('.progress-target').attr('transform', 'translate(290, -2)');
+                        $('.progress-target__lineblock').attr('transform', 'translate(593,0) scale(-1,1)');
+                        $('.progress-target__text').text('成长~');
+                        break;
+                }
+            });
+
+            var itemOverTimer
+            $("#js-family").on({
+                mouseleave: function () {
+                    $("#js-family-mask").show().stop().animate({opacity: 0.6}, 200);
+                    $("#js-family-text").show().stop().animate({opacity: 1}, 200);
+                },
+                mouseenter: function () {
+                    $("#js-family-mask").stop().animate({opacity: 0}, 200, function () {
+                        $("#js-family-mask").hide();
+                    });
+                    $("#js-family-text").stop().animate({opacity: 0}, 200, function () {
+                        $("#js-family-text").hide();
+                    });
+                }
+            }).on("mouseenter", ".js-family-item", function () {
+                var _this = this;
+                clearTimeout(itemOverTimer)
+                itemOverTimer = setTimeout(function () {
+                    showItemInfo(_this);
+                }, 800);
+            }).on("mouseleave", ".js-family-item", function () {
+                clearTimeout(itemOverTimer)
+                $(this).find(".js-family-info").fadeOut("fast");
+            });
+
+            function showItemInfo(el) {
+                $(el).find(".js-family-info").fadeIn("fast");
+            };
+        });
+    </script>
+
+</body>
+</html>

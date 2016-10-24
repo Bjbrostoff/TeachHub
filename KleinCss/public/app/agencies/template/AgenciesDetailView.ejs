@@ -1,0 +1,85 @@
+<div class="ibox col-sm-3 float-e-margins white-bg animated fadeInRight"
+     style="position: fixed;top: 60px;right: 0px; height: 740px; border-left: #e7eaec thick solid;border-bottom: #e7eaec thick solid;">
+    <div>
+        <div class="ibox-title">
+            <h5><%= agencydetail.title %></h5>
+            <div class="ibox-tools">
+                <a class="close-link agency-detail-close">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="tab-content">
+                <div id="contact-1" class="tab-pane active">
+                    <div class="row m-b-lg">
+                        <div class="col-lg-4 text-center">
+                            <h4><%= agency.name %></h4>
+
+                            <div class="m-b-sm">
+                                <img alt="头像" class="img-rect" src="<%= agency.image %>"
+                                     style="width: 62px">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <strong>
+                                <%= agencydetail.introduction %>
+                            </strong>
+                            <p>
+                                <%= agency.introduction%>
+                            </p>
+                            <button id="profile-button" type="button" class="btn btn-primary btn-sm btn-block"><i
+                                        class="fa fa-home"></i> <%= agencydetail.homepage %>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="teacher-detail-scroll">
+                        <div class="full-height-scroll">
+
+                            <strong><%= agencydetail.profiledetail %></strong>
+
+                            <ul class="list-group clear-list">
+
+                                <li class="list-group-item">
+                                    <%= agencydetail.profilecity %>:&nbsp;<%= agency.city %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= agencydetail.profilephone %>:&nbsp;<%= agency.phone %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= agencydetail.profilelegalperson %>:&nbsp;<%= agency.legalname %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= agencydetail.profileteachercount %>:&nbsp;<%= agency.teachercount %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= agencydetail.profilecoursescount %>:&nbsp;<%= agency.coursecount %>
+                                </li>
+                                <li class="list-group-item">
+                                    <%= agencydetail.profilestarlevel %>:&nbsp;<%= agency.starlevel %>
+                                </li>
+
+                            </ul>
+                            <hr/>
+                            <strong><%= agencydetail.qualificationhonor %></strong>
+                            <div id="vertical-timeline" class="vertical-container dark-timeline">
+                                <% agency.servexerti.forEach(function(servexerti){ %>
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon gray-bg">
+                                        <i class="fa fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="vertical-timeline-content">
+                                        <p><%= servexerti.info %></p>
+                                        <span class="vertical-date small text-muted"><%= servexerti.time %></span><br/>
+                                    </div>
+                                </div>
+
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<!-- Navigation & Logo-->
+<link rel="stylesheet" href="/stylesheets/mainmenu/mainmenu.css">
+
+<div class="mainmenubanner container">
+
+    <!--<div class="row" style="height: 20px;">-->
+
+    <!--</div>-->
+
+    <nav id="mainmenubanner" class="nav nav-bar">
+        <div class="mainmenubanner">
+            <ul class="navbar-right">
+                <li class="logo-wrapper"><a href="#"><span>B&C Platform</span></a></li>
+                <% if (page == "index") { %>
+                <li class="active">
+                    <% } else { %>
+                <li>
+                    <% } %>
+                    <a href="/">主页</a>
+                </li>
+
+                <% if (page == "cources") { %>
+                <li class="active">
+                    <% } else { %>
+                <li>
+                    <% } %>
+
+                    <a href="/cources">精品课程</a>
+                </li>
+
+                <% if (page == "teachers") { %>
+                <li class="active">
+                    <% } else { %>
+                <li>
+                    <% } %>
+                    <a href="/teachers">金牌老师</a>
+                </li>
+                <% if (page == "agencies") { %>
+                <li class="active">
+                    <% } else { %>
+                <li>
+                    <% } %>
+                    <a href="/agencies">资深机构</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-right">
+                <% if (typeof sessinfo == "undefined") { %>
+                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">登陆</a></li>
+                <% }else{ %>
+                <% if (!sessinfo.user){ %>
+                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">登陆</a></li>
+                <% }else{ %>
+                <li>
+                    <a><%= sessinfo.user.username %></a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button id="usercenter-menu" class="btn btn-primary dropdown-toggle" aria-haspopup="true"
+                                data-toggle="dropdown" type="button">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="usercenter-menu">
+                            <li>
+                                <a href="/users/center">用户中心</a>
+                                <a href="#">关于</a>
+                                <a href="/">登出</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </li>
+                <% } %>
+                <% } %>
+
+
+            </ul>
+
+        </div>
+    </nav>
+</div>
+<% if (typeof login == 'undefined') { %>
+
+<% }else { %>
+<% if (login == 'login'){ %>
+<% include ../../dialog/login.ejs %>
+<% }else { %>
+
+<% } %>
+<% } %>

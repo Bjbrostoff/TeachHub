@@ -1,0 +1,124 @@
+<div class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 26px;right: -10px;width:600px;min-height: 800px;border-left: #e7eaec 2px solid;background-color: #ffffff">
+    <div class="ibox-title">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h4><%=local.CourseManage.courseDetail.coursedetail%></h4>
+            </div>
+         <div class="col-sm-1">
+        <div class="ibox-tools">
+            <a class="close-link course-manage-course-detail-close">
+                <span class="glyphicon glyphicon-remove" style="margin-top: 10px" aria-hidden="true"></span>
+            </a>
+        </div>
+            </div>
+            </div>
+    </div>
+
+    <div class="ibox-content">
+        <form id="course-manage-generate-form" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.coursename%></label>
+                <div class="col-sm-9">
+                    <input class="form-control course-manage-generate-course" type="text" name="name" value="<%= data.name %>" required>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.coursedesc%></label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="introduction" ><%= data.introduction %></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.moreInfo%></label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="info" value="<%= data.info %>"><%= data.info %></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.catalog%></label>
+                <div class="col-sm-9">
+                    <textarea class="form-control course-manage-generate-course" type="text" name="catalog" value="<%= data.catalog %>"><%= data.catalog %></textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.pay%></label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" value="<%= data.billing.fvalue %>" name="billing">
+                        <option value="0" <%= (data.billing.fvalue == 0)?'selected':'' %>><%=local.CourseManage.courseDetail.perclass%></option>
+                        <option value="1" <%= (data.billing.fvalue == 1)?'selected':'' %>><%=local.CourseManage.courseDetail.perhour%></option>
+                        <option value="2" <%= (data.billing.fvalue == 2)?'selected':'' %>><%=local.CourseManage.courseDetail.perlesson%></option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.price%></label>
+                <div class="col-sm-9">
+                    <input class="form-control course-manage-generate-course" name="price" value="<%= data.price %>">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.method%></label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" value="<%= data.method.type %>">
+                        <option value="0" <%= (data.method.type == 0)?'selected':'' %>><%=local.CourseManage.courseDetail.methodclass%></option>
+                        <option value="1" <%= (data.method.type == 1)?'selected':'' %>><%=local.CourseManage.courseDetail.methodhome%></option>
+                        <option value="2" <%= (data.method.type == 2)?'selected':'' %>><%=local.CourseManage.courseDetail.methoddis%></option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.mode%></label>
+                <div class="col-sm-9">
+                    <select class="form-control course-manage-generate-course" value="<%= data.mode.type %>">
+                        <option value="0" <%= (data.mode.type == 0)?'selected':'' %>><%=local.CourseManage.courseDetail.modea2a%></option>
+                        <option value="1" <%= (data.mode.type == 1)?'selected':'' %>><%=local.CourseManage.courseDetail.modea2m%></option>
+                    </select>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.faceAge%></label>
+                <div class="col-sm-5">
+                    <input class="course-manage-generate-course" name="range-min" value="<%= data.range.min %>">
+                </div>
+                <%=local.CourseManage.courseDetail.too%>
+                <div class="col-sm-5">
+                    <input class="course-manage-generate-course" name="range-max" value="<%= data.range.max %>">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><%=local.CourseManage.courseDetail.photo%></label>
+                <div class="col-sm-9">
+                    <img style="width:200px;height: 200px;" src="<%=data.image == undefined?'/images/course1.jpg':data.image%>"  id="showImg5">
+
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+
+        </form>
+
+
+    </div>
+</div>

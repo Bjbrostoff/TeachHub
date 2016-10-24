@@ -1,0 +1,18 @@
+#首页
+# '/'
+
+#课程
+#页面头部跳转 总览性质
+# '/cources' -- by gao
+
+#老师
+#页面头部跳转 总览性质
+# '/teachers' -- by gao
+
+#机构
+#页面头部跳转 总览性质
+# '/agencies' -- by gao
+
+# 地图小样
+#AMD+MVC DEMO
+# '/amap/index' -- by gao

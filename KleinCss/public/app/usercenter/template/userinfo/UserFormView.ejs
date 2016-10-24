@@ -1,0 +1,257 @@
+<div class="row  " xmlns="http://www.w3.org/1999/html">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+        <form  id="baseinfo-userform-field" role="form" method="get" class="form-horizontal">
+
+            <p class="mark-title">基本信息</p>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Nickname %></label>
+                <div class="col-sm-7">
+                    <input  id="baseinfo-userform-name" type="text" class="form-control" value="<%= data.userinfo.name %>" name="name">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed leftmargin animated fadeInRight"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Sex %></label>
+                <div class="col-sm-7"><select id="baseinfo-userform-sex" class="form-control m-b" name="account" value="<%= data.userinfo.sex %>">
+                        <option value="male"
+                                <% if (data.userinfo.sex == "male"){ %>
+                                selected
+                                <% } %>
+                        >male
+                        </option>
+                        <option value="female"
+                                <% if (data.userinfo.sex == "female") { %>
+                                selected
+                                <% } %>
+                        >female
+                        </option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed " ></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Age %></label>
+                <div class="col-sm-7" >
+                    <input id="baseinfo-userform-age" type="number" minlength="1" maxlength="3" class="form-control" value="<%= data.userinfo.age %>"
+                           name="age">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div id="baseinfo-birthdate-field" class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Birthday %></label>
+
+                <div  class="col-sm-7" >
+                    <div class="input-group date  " data-provide="datepicker" data-date-format="yyyy/mm/dd">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                        <input id="baseinfo-userform-birth" type="text" class="form-control"  value="<%= data.userinfo.birth %>" name="birth">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Nationality %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-userform-nationality" type="text" class="form-control" value="<%= data.userinfo.nationality %>" name="nationality">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed " ></div>
+
+            <p class="mark-title mt25">联系信息</p>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Email %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-userform-email" type="email" class="form-control" value="<%= data.userinfo.email %>" name="email">
+
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed " ></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Phone %></label>
+                <div class="col-sm-7" >
+                    <input id="baseinfo-userform-phone" type="number" minlength="11" maxlength="11" class="form-control" value="<%= data.userinfo.phone %>"
+                           name="phone">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.City %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-userform-city" type="text" class="form-control" value="<%= data.userinfo.city %>" name="city">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <p class="mark-title mt25">其他信息</p>
+            <% if(data.teacherinfo){%>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Nativelanguage %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-userform-nativelanguage" type="text" class="form-control" value="<%= data.teacherinfo.mothertongue.value %>" name="mothertongue">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Goodcurriculum %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-userform-goodcurriculum" type="text" class="form-control" value="<%= data.teacherinfo.skilledcourse.value %>" name="skilledcourse">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.AlmaMater %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-userform-almamater" type="text" class="form-control" value="<%= data.teacherinfo.almaMater.value %>" name="skilledcourse">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.CurrentAgency %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-userform-currentagency" type="text" class="form-control" value="<%= data.teacherinfo.currentAgency.value %>" name="skilledcourse">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Language %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-userform-language" type="text" class="form-control" value="<%= data.teacherinfo.language.value %>" name="language">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.WorkHistory %></label>
+                <div class="col-sm-7">
+                    <div id="xxx">
+                        <table class="table" >
+                            <thead>
+                            <tr>
+                                <td width="20%"><%= locale.BaseInfo.Location %></td>
+                                <td width="20%"><%= locale.BaseInfo.Organization %></td>
+                                <td width="25%"><%= locale.BaseInfo.Dates %></td>
+                                <td width="20%"><%= locale.BaseInfo.Job %></td>
+
+                                <td ><%= locale.BaseInfo.Operate %>   <a href="javaScript:;" class="glyphicon glyphicon-plus" id="userFormView_newWorkExp_Add"></a></td>
+                            </tr>
+                            </thead>
+                            <tbody id="work_exp_tbody">
+                            <%console.log(data.userinfo.workhistory)%>
+                            <% _.each( data.userinfo.workhistory, function(item){ %>
+                            <tr id="<%=item.id%>">
+                                <td><%=item.location%></td>
+                                <td><%=item.organization%></td>
+                                <td><%=item.dates%></td>
+                                <td><%=item.jobs%></td>
+
+                                <td><a class="fa fa-minus-square"
+                                       href="javaScript:;" attr-id="<%=item.id%>" id="userFormView_newWorkExp_remove"></a></td>
+
+                            </tr>
+                            <%})%>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.BaseInfo.Briefintroduction %></label>
+                <div class="col-sm-7">
+                  <textarea class="form-control diff-textarea" id="baseinfo-userform-personalinfo" rows="6" >
+<%= data.teacherinfo.info.value %>
+                  </textarea>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <% }%>
+        </form>
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-2">
+                <button id="baseinfo-save-btn" class="btn btn-sm btn-primary  m-t-n-xs" type="submit">
+                    <strong><%= locale.BaseInfo.Saveinformation %></strong>
+                </button>
+            </div>
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-2">
+                <button id="baseinfo-modifycode-btn" type="button" data-toggle="modal"
+                        data-target="#my-modify-modal" class="btn btn-sm btn-primary m-t-n-xs">
+                    <strong><%= locale.BaseInfo.Modifypassword %></strong>
+                </button>
+            </div>
+            <div class="col-lg-3">
+            </div>
+        </div>
+        <div class="row" style="height: 20px;">
+
+        </div>
+
+        <div id="baseinfo-form-map-container" class="row" style="margin-top: 4px;margin-bottom: 4px;">
+            <div class="col-lg-1">
+            </div>
+            <div id="baseinfo-form-map" class="col-lg-10" style="height: 400px;">
+
+            </div>
+            <div class="col-lg-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-2">
+                <div class="btn btn-primary userinfo-pin-locate">
+                    <img src="/images/map/Thumbtack_pin_24.png">
+                    <%= locale.BaseInfo.Locator %>
+                </div>
+            </div>
+            <div class="col-sm-5">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1">
+    </div>
+</div>
+

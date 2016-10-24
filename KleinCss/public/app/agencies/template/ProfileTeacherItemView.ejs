@@ -1,0 +1,24 @@
+<li data-id="9">
+    <div class="box-left l">
+        <a title="<%= teacher.name %>" target="_blank">
+            <div class="course-list-img teacher-img" teacherid="<%= teacher.uuid %>">
+                <img src="<%= teacher.portrait %>" width="200" height="123" alt="<%= teacher.name %>">
+            </div>
+        </a>
+    </div>
+    <div class="box-right">
+        <h3 class="box-hd">
+            <span><%= teacher.name %></span>
+        </h3>
+        <div class="study-points">
+            <span class="span-left span-common"><%= profileteacheritem.mothertongue %>:<%= teacher.mothertongue %></span>
+            <span class="span-right span-common"><%= profileteacheritem.almamater %>:<%= teacher.almaMater %></span>
+            <span class="span-mid span-common"><%= profileteacheritem.collegedegree %>:<%= teacher.collegeDegree %></span>
+            <span class="span-right span-common"><%= profileteacheritem.workexp %>:<%= teacher.workexp %></span>
+        </div>
+        <div class="study-points">
+            <span class="span-left span-common "><%= profileteacheritem.info %>:<%= teacher.introduction %></span>
+        </div>
+
+    </div>
+</li>

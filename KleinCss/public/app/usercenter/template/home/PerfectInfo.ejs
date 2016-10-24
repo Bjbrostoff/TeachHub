@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" id="homeview-complate-formgroup">
+            <div id="formGroup" class="form-group">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        <strong><%=local.coursePlace%></strong>
+                        <input id="homeview-complate-location"
+                               name="location"
+                               check-type="required"
+                               required-message="请输入上课地点！！">
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        <div class="bootstrap-timepicker">
+                            <strong><%=local.courseTime%></strong>
+
+                            <input id="homeview-complate-timepicker" name="time" type="text"
+                                                         class="input-small">
+
+                            <i class="icon-time"></i>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        <div>
+                                <strong><%=local.student%></strong>
+                        </div>
+                        <div class="row col-sm-offset-2">
+                            <% for(var i = 0;i < model.data.length;i++){ %>
+                            <div class="col-sm-8">
+                                <input type="checkbox" checked name="id" value=<%= model.data[i]._id %>>
+                                <label>
+                                    <%= model.data[i].name == undefined ?model.data[i].email:model.data[i].name %>
+                                </label>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

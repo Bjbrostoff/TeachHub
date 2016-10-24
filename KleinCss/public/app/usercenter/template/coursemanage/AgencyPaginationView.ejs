@@ -1,0 +1,49 @@
+<nav>
+    <ul class="pagination">
+        <% if(page==0){%>
+        <li class="disabled">
+            <% }else{%>
+        <li class="agency-page" page-num=<%= 0 %>>
+            <%}%>
+            <a aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <% if(totalPage < 5){ %>
+        <% for (var i = 0;i < totalPage;i++){ %>
+        <% if(i == page){ %>
+        <li class="active agency-page" page-num=<%= i %>><a><%= i + 1 %></a></li>
+        <% }else{ %>
+        <li class=" agency-page" page-num=<%= i %>><a><%= i + 1 %></a></li>
+        <% }}} else{ %>
+        <% if(page < 3){ %>
+        <% for (var i = 0;i < 5;i++){ %>
+        <% if(i == page){ %>
+        <li class="active agency-page" page-num=<%= i %>><a><%= i + 1 %></a></li>
+        <% }else{ %>
+        <li class=" agency-page" page-num=<%= i %>><a><%= i + 1 %></a></li>
+        <% }}} else{ %>
+
+        <% var start = page - 2; %>
+        <% if (totalPage - start < 5) start = totalPage - 5; %>
+        <% for (var i = start;i < page + 3;i++){ %>
+        <% if(i < totalPage){ %>
+        <% if(i == page){ %>
+        <li class="active agency-page" page-num=<%= i %>><a><%= i + 1 %></a></li>
+        <% }else{ %>
+        <li class="agency-page" page-num=<%= i %>><a><%= i + 1 %></a></li>
+        <% }}} %>
+        <% } %>
+        <% } %>
+
+        <% if(page == totalPage - 1){ %>
+        <li class="disabled">
+            <% }else{ %>
+        <li class="agency-page" page-num=<%= totalPage - 1 %>>
+            <% } %>
+            <a aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

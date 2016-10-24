@@ -1,0 +1,13 @@
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div id='external-events'>
+            <p><%=local%></p>
+            <%for(var i=0;i<calendarData.length;i++){%>
+            <li role="presentation" style="list-style:none" class="on">
+                    <div class='draggable external-event' style="margin:3px 1px 1px 1px;padding:1px 1px 1px 10px; border-left: solid 3px #178fe6;background-color: #cfedff;" _id="<%=calendarData[i]._id %>"><%=calendarData[i].name%></div>
+                    <div class="line"></div>
+            </li>
+            <%}%>
+        </div>
+    </div>
+</div>

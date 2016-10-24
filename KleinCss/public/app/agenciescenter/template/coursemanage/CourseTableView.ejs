@@ -1,0 +1,25 @@
+<div class="full-height-scroll">
+    <div class="table-reposive">
+        <table class="table table-striped table-hover">
+            <thead>
+
+
+                <% for (var i=0; i < fields.length; i++){ %>
+                    <th><%=fields[i].falias %></th>
+                <% } %>
+            </thead>
+            <tbody>
+                <% console.log(fields) %>
+                <% _.each(datas, function(ditem){ %>
+                    <tr class="course-item" identy="">
+                        <% for (var i=0; i < fields.length; i++){ %>
+                            <td>
+                                <%=ditem[fields[i].fname] %>
+                            </td>
+                        <% } %>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

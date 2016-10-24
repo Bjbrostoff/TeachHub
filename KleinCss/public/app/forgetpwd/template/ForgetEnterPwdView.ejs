@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="row" style="height: 60px;">
+
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+
+        </div>
+        <div class="col-lg-8">
+            <svg height="80px" width="750px" viewBox="0 0 750 80">
+                <g>
+                    <line class="axis-line" x1="20" y1="35" x2="680" y2="35"
+                          stroke="#ff0000">
+
+                    </line>
+                    <rect x="20" y="30" height="10" width="660" fill="orange">
+
+                    </rect>
+                </g>
+                <g transform="translate(20,0)">
+                    <circle r="30" cx="30" cy="35" fill="#1ab394">
+
+                    </circle>
+                    <text x="18" y="40" fill="white">
+                        开始
+                    </text>
+
+                    <path d="M 160 15 L 180 35 L 160 55 L 280 55 L 300 35 L 280 15 Z" fill="#1ab394">
+
+                    </path>
+                    <text x="190" y="40" fill="white" >
+                        1.发送验证码
+                    </text>
+
+                    <path d="M 400 15 L 420 35 L 400 55 L 520 55 L 540 35 L 520 15 Z" fill="#1ab394">
+
+                    </path>
+                    <text x="430" y="40"  fill="yellow">
+                        2.新密码录入
+                    </text>
+
+
+                    <circle r="30" cx="680" cy="35" fill="#1ab394">
+
+                    </circle>
+                    <text x="665" y="40" fill="white">
+                        完成
+                    </text>
+                </g>
+            </svg>
+        </div>
+
+        <div class="col-lg-2">
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-6">
+            <div class="form-horizontal">
+					<input type="hidden" value="<%=forget_enter_pwd_mail%>" id="forget_pwd_email" />
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">新密码：</label>
+					<div class="col-sm-10">
+                      <input class="form-control" type="password" id="forget_pwd" name="email" value=""/>
+
+					</div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">确认密码：</label>
+	                <div class="col-sm-10">
+
+	                        <input class="form-control" type="password" id="forget_pwd1" name="forget_code" value=""/>
+
+		                <div id="forget_epwd1" style="display: none;">
+
+		                </div>
+	                </div>
+
+                </div>
+
+                <div class="form-group text-center">
+                    <button class="btn btn-primary"  id="forget_pwdsub" type="button" name="submit" value="">确认</button>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-3">
+
+        </div>
+
+    </div>
+
+</div>

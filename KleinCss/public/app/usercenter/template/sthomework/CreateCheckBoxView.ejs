@@ -1,0 +1,60 @@
+<div id="sthomework-checkbox-field" class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 25px;right: 0px;width:600px;min-height:20px;border: #e7eaec 2px solid; background-color: white">
+
+    <div class="row" style="height: 568px;">
+        <div class="col-lg-12">
+
+            <div class="ibox-title">
+                <div class="ibox-tools pull-right" style="position: absolute;top: 7px;right: 25px">
+                    <a class="close-link sth-check-box-close">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+                <form  id="sth-sthw-getscores" method="get"  class="col-sm-11 pull-left">
+                    <div class="input-group form-group  ">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                <%= locale.StudentHomework.Score %>
+                            </button>
+                        </div>
+                        <input id="sth-homework-homeworkscores" type="text" class="form-control input-sm" value="<%= data.hwscores %>" placeholder="<%= locale.StudentHomework.Enterscores %>">
+                    </div>
+
+                </form>
+            </div>
+            <div class="ibox-title" style="position: absolute;top: 35px;right: 10px;width:600px;">
+                <div class="" style="height: 165px;">
+                    <%= data.hwcontent %>
+                </div>
+            </div>
+            <div class="ibox-content no-padding " style="position: absolute;top: 200px;right: 13px;width:600px;min-height:20px;">
+
+                <div id="sth-checkhwbox-homeworkcontent" class="summernote" STYLE="HEIGHT:800PX;">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <div id="sthomework-editview-submit" class="btn btn-primary "><%= locale.StudentHomework.Submit %></div>
+        </div>
+        <div class="col-sm-3">
+            <div class=" sth-check-box-close btn btn-default"><%= locale.StudentHomework.Close %></div>
+        </div>
+        <div class="col-sm-3">
+        </div>
+    </div>
+
+</div>
+
+
+
+
+

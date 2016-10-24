@@ -1,0 +1,42 @@
+<style>
+    .agency-info-item a:link,
+    a:visited {
+        color: #14191e;
+    }
+
+    a:hover {
+        color: #349D71;
+    }
+
+    a:active {
+        color: #349D71;
+    }
+</style>
+<div class="ibox float-e-margins white-bg animated fadeInRight"
+     style="position: absolute;top: 60px;right: 0px;width:600px;min-height: 1200px;border-left: #e7eaec thick solid;">
+    <div class="ibox-title">
+        <h5><%=local.CourseManage.chooseAgency%></h5>
+        <div class="ibox-tools">
+            <a class="close-link course-manage-agency-choose-close">
+                <i class="fa fa-times"></i>
+            </a>
+
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-lg-6">
+                <div id="agency-pagination">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="btn btn-outline btn-primary course-manage-agency-choose-confirm"><%=local.CourseManage.confirm%></div>
+                <div class="btn btn-default course-manage-agency-choose-cancel"><%=local.CourseManage.cancel%></div>
+            </div>
+        </div>
+    </div>
+    <div id="agency-list">
+
+    </div>
+
+</div>

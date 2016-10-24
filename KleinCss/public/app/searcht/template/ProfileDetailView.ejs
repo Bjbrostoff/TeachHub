@@ -1,0 +1,28 @@
+<div class="details-teacher-box">
+    <div class="container">
+        <div class="col-lg-2">
+            <img class="img-circle mt30 img-responsive" src="<%= teacher.portrait %>" />
+        </div>
+        <div class="col-lg-10">
+            <div class="s-details-top">
+                <div class="clearfix">
+                    <h3 class="pull-left"><%= teacher.name %></h3>
+                    <div class="starshow details-mt pull-left">
+                        <span class="small-icos stargood"></span>
+                        <span class="small-icos stargood"></span>
+                        <span class="small-icos stargood"></span>
+                        <span class="small-icos stargood"></span>
+                        <span class="small-icos starcom"></span>
+                    </div>
+                    <div class="details-mt pull-left"><i class="small-icos identity-ico"></i>身份认证</div>
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left"><%= (teacher.optioninfo.collegeDegree)?teacher.optioninfo.collegeDegree.value:"" %></p>
+                    <p class="line-details pull-left">|</p>
+                    <p class="pull-left"><i class="small-icos area-ico"></i><%= teacher.city %></p>
+                </div>
+                <p><%= teacher.optioninfo.info.value %></p>
+            </div>
+        </div>
+    </div>
+</div>

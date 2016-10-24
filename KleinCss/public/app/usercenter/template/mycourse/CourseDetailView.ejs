@@ -1,0 +1,106 @@
+<style type="text/css">
+
+	*{margin:0;padding:0;list-style-type:none;}
+	body{color:#666;font:12px/1.5 Arial;}
+	/* star */
+
+	.star{position:relative;width:600px;margin:20px auto;height:24px;}
+	.star ul,#star span{float:left;display:inline;height:19px;line-height:19px;}
+	.star ul{margin:0 10px;}
+	.star li{float:left;width:24px;cursor:pointer;text-indent:-9999px;background:url(/images/star.png) no-repeat;}
+	.star strong{color:#f60;padding-left:10px;}
+	.star li.on{background-position:0 -28px;}
+	.star p{position:absolute;top:20px;width:159px;height:60px;display:none;background:url(/images/icon.gif) no-repeat;padding:7px 10px 0;}
+	.star p em{color:#f60;display:block;font-style:normal;}
+
+
+</style>
+
+<div class="ibox float-e-margins white-bg"
+	 style="position: absolute;top: -60px;right: -85px;width:600px;min-height:20px;border: #e7eaec 2px solid; background-color: white">
+    <div class="ibox-content">
+        <div class="tab-content">
+            <div id="contact-1" class="tab-pane active">
+                <div class="row m-b-lg">
+                    <div class="col-lg-8 text-center">
+                        <div class="m-b-sm">
+	                        <img alt="image" class="img-circle m-t-xs img-responsive" src="<%= (info.teacherid.portrait ==''||info.teacherid.portrait ==undefined)?'/inspinia/img/a5.jpg':info.teacherid.portrait%>">
+	                        <strong><%= locale.MyCourse.TeacherName %>:</strong>
+                            <div class="m-t-xs font-bold"><p><%= info.teacherid.name %></p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-profile-scroll">
+                    <div class="full-height-scroll">
+
+                        <strong><%= locale.MyCourse.CourseInformation %></strong>
+
+                        <ul class="list-group clear-list">
+                            <li class="list-group-item fist-item">
+								<%= locale.MyCourse.CourseName %>&nbsp;&nbsp;:&nbsp;<%= info.courceid.name %>cccccccccccccccccccccccccccccc
+                            </li>
+
+
+                        </ul>
+                        <strong><%= locale.MyCourse.CourseDescription %></strong>
+                        <p>
+                            <%= info.courceid.introduction %>ccccccccccccccc
+                        </p>
+                        <hr/>
+
+                    </div>
+	                <div class="full-height-scroll">
+
+		                <strong><%= locale.MyCourse.Satisfaction %></strong>
+
+		                <div id="coursestar" class="star">
+
+			                <ul>
+				                <li title=<%= locale.MyCourse.VeryPoor %> ><a href="javascript:;">1</a></li>
+				                <li title=<%= locale.MyCourse.Poor %> ><a href="javascript:;">2</a></li>
+				                <li title=<%= locale.MyCourse.Fair %> ><a href="javascript:;">3</a></li>
+				                <li title=<%= locale.MyCourse.Good %> ><a href="javascript:;">4</a></li>
+				                <li title=<%= locale.MyCourse.Excellent %> class=""><a href="javascript:;">5</a></li>
+			                </ul>
+		                </div>
+		                <hr/>
+
+		                <strong><%= locale.MyCourse.Complexity %></strong>
+		                <div id="easystar" class="star">
+			                <ul>
+				                <li title=<%= locale.MyCourse.VeryDifficult %> ><a href="javascript:;">1</a></li>
+				                <li title=<%= locale.MyCourse.Difficult %> ><a href="javascript:;">2</a></li>
+				                <li title=<%= locale.MyCourse.Fair %> ><a href="javascript:;">3</a></li>
+				                <li title=<%= locale.MyCourse.Easy %> ><a href="javascript:;">4</a></li>
+				                <li title=<%= locale.MyCourse.VeryEasy %> class=""><a href="javascript:;">5</a></li>
+			                </ul>
+		                </div>
+
+		                <hr/>
+
+		                <strong><%= locale.MyCourse.TeacherEvaluation %></strong>
+		                <div id="teastar" class="star">
+			                <ul>
+				                <li title=<%= locale.MyCourse.VeryPoor %> ><a href="javascript:;">1</a></li>
+				                <li title=<%= locale.MyCourse.Poor %> ><a href="javascript:;">2</a></li>
+				                <li title=<%= locale.MyCourse.Fair %> ><a href="javascript:;">3</a></li>
+				                <li title=<%= locale.MyCourse.Good %>><a href="javascript:;">4</a></li>
+				                <li title=<%= locale.MyCourse.Excellent %> class=""><a href="javascript:;">5</a></li>
+			                </ul>
+		                </div>
+	                </div>
+		                <hr/>
+
+						<div class="full-height-scroll" style="text-align: center">
+							<button id="mycourse_sub_btn" class="btn btn-sm btn-primary pull-center m-t-n-xs" type="button"><strong><%= locale.MyCourse.Confirm %></strong></button>
+
+							<button id="mycourse_cancel_btn" class="btn btn-sm btn-primary pull-center m-t-n-xs" type="button"><strong><%= locale.MyCourse.Cancel %></strong></button>
+						</div>
+
+
+	                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

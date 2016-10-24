@@ -1,0 +1,203 @@
+<!--<div class="row  ">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8">
+        <form  id="baseinfo-agenciesform-field" role="form" method="get" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.AgencyName %></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="<%= data.name %>" name="name">
+                </div>
+            </div>
+
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.Email %></label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" value="<%= data.email %>" name="email">
+
+                </div>
+            </div>
+            <div class="hr-line-dashed " ></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.Phone %></label>
+                <div class="col-sm-10" >
+                    <input type="number" minlength="11" maxlength="11" class="form-control" value="<%= data.phone %>" name="phone">
+                </div>
+            </div>
+
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.City %></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="<%= data.city %>" name="city">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.Briefintroduction %></label>
+                <div class="col-sm-10">
+                  <textarea class="form-control diff-textarea" id="baseinfo-agenciesform-agenciesinfo" rows="6" >
+<%= data.agenciesinfo %>
+                  </textarea>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+        </form>
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-2">
+                <button id="agencies-save-btn" class="btn btn-sm btn-primary  m-t-n-xs" type="submit">
+                    <strong><%= locale.AgencyInfo.Saveinformation %></strong>
+                </button>
+            </div>
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-2">
+                <button id="agencies-modifycode-btn" type="button" data-toggle="modal"
+                        data-target="#my-modify-modal" class="btn btn-sm btn-primary m-t-n-xs">
+                    <strong><%= locale.AgencyInfo.Modifypassword %></strong>
+                </button>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+        <div class="row" style="height: 20px;">
+
+        </div>
+
+        <div id="agencies-form-map-container" class="row" style="margin-top: 4px;margin-bottom: 4px;">
+            <div id="agencies-form-map" class="col-lg-12" style="height: 400px;">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5">
+            </div>
+            <div class="col-lg-1">
+                <div class="btn btn-primary agenciesinfo-pin-locate">
+                    <img src="/images/map/Thumbtack_pin_24.png">
+                    <%= locale.AgencyInfo.Locator %>
+                </div>
+            </div>
+            <div class="col-lg-5">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>-->
+
+
+<div class="row  " xmlns="http://www.w3.org/1999/html">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+        <form id="baseinfo-agenciesform-field" role="form" method="get" class="form-horizontal">
+            <p class="mark-title">基本信息</p>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.AgencyName %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-agenciesform-name" type="text" class="form-control" value="<%= data.name %>" name="name">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.Email %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-agenciesform-email" type="email" class="form-control" value="<%= data.email %>" name="email">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed "></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.Phone %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-agenciesform-phone" type="number" minlength="11" maxlength="11" class="form-control"
+                           value="<%= data.phone %>" name="phone">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.City %></label>
+                <div class="col-sm-7">
+                    <input id="baseinfo-agenciesform-city" type="text" class="form-control" value="<%= data.city %>" name="city">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><%= locale.AgencyInfo.Briefintroduction %></label>
+                <div class="col-sm-7">
+                  <textarea class="form-control diff-textarea" id="baseinfo-agenciesform-agenciesinfo" rows="6">
+<%= data.agenciesinfo %>
+                  </textarea>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+        </form>
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-2">
+                <button id="agencies-save-btn" class="btn btn-sm btn-primary  m-t-n-xs" type="submit">
+                    <strong><%= locale.AgencyInfo.Saveinformation %></strong>
+                </button>
+            </div>
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-2">
+                <button id="agencies-modifycode-btn" type="button" data-toggle="modal"
+                        data-target="#my-modify-modal" class="btn btn-sm btn-primary m-t-n-xs">
+                    <strong><%= locale.AgencyInfo.Modifypassword %></strong>
+                </button>
+            </div>
+            <div class="col-lg-3">
+            </div>
+        </div>
+        <div class="row" style="height: 20px;">
+
+        </div>
+
+        <div id="agencies-form-map-container" class="row" style="margin-top: 4px;margin-bottom: 4px;">
+            <div class="col-lg-1">
+            </div>
+            <div id="agencies-form-map" class="col-lg-10" style="height: 400px;">
+
+            </div>
+            <div class="col-lg-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-2">
+                <div class="btn btn-primary agenciesinfo-pin-locate">
+                    <img src="/images/map/Thumbtack_pin_24.png">
+                    <%= locale.AgencyInfo.Locator %>
+                </div>
+            </div>
+            <div class="col-md-5">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+

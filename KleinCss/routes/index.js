@@ -72,7 +72,7 @@ router.get('/loginOut',function(req,res){
 
 //中英文切换
 router.get('/switchLang',function(req,res){
-    var lang = i18n.getLocale() == 'en'?'cn':'en';
+    var lang = i18n.getLocale() === 'en'?'cn':'en';
     i18n.setLocale(lang);
     req.session.locale = lang;
     if (req.headers.referer) res.redirect(req.headers.referer);

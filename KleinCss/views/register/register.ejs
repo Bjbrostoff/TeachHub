@@ -111,6 +111,7 @@
                     <label class="col-sm-3 control-label"><%=__("registerinfo.email")%>：</label>
 					<div class="col-sm-9">
                       <input class="form-control" type="text" name="email" value=""/>
+					  
 						<div id="emsg" style="display: none;">
 
 						</div>
@@ -122,11 +123,11 @@
                     <label class="col-sm-3 control-label"><%=__("registerinfo.code")%>：</label>
 	                <div class="col-sm-9">
 		                <div class="input-group">
-
-	                        <input class="form-control" type="text" name="vcCode" value=""/>
-			                   <span class="input-group-btn">
-				                <button id="hsbtn" class="btn btn-primary" type="button" value="获取验证码"><%=__("registerinfo.ver")%></button> </span>
-						</div>
+							<span class="input-group-btn">
+								<button id="hsbtn" class="btn btn-primary" type="button" value="获取验证码"><%=__("registerinfo.ver")%></button> </span>
+							
+							<input class="form-control" type="text" name="vcCode" value=""/>
+			            </div>
 		                <div id="vmsg" style="display: none;">
 
 		                </div>
@@ -148,7 +149,18 @@
 
 		                </div>
 					</div>
-
+				<div class = "form group">
+					<label class="col-sm-3 control-label" ><%=__("registerinfo.userType")%>：</label>
+					<div class="col-sm-9">
+					  <fieldset class = "registerFields">
+						<label for="radio-1"><%=__("registerinfo.student")%></label>
+						<input type="radio" name="radio-1" id="radio-1">
+						<label for="radio-2"><%=__("registerinfo.teacher")%></label>
+						<input type="radio" name="radio-1" id="radio-2">
+						<label for="radio-3"><%=__("registerinfo.agencies")%></label>
+						<input type="radio" name="radio-1" id="radio-3">
+					  </fieldset>
+					</div>
                 </div>
                 <div class="form-group text-center">
                     <button class="btn btn-primary" type="button" name="submit" value="注册"><%=__("registerinfo.title")%></button>
@@ -169,15 +181,19 @@
 
 </body>
 <script src="/jquery/dist/jquery.min.js"></script>
+<script src="/jquery-ui/jquery-ui.min.js"></script>
 <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/bootbox/bootbox.js" ></script>
 <script src="/javascripts/verify.js"></script>
 <script>
     function verifyForm() {
+		//$( "input[type=radio]" ).checkboxradio();
         var email = $('[name=email]').val();
         var password = $('[name=password1]').val();
         var password2 = $('[name=password2]').val();
         var vcCode = $('[name=vcCode]').val();
+		var userType = $("input[type=radio]:checked").attr('id');
+		
         if (!email) {
             $("#emsg").html('<%=__("registerinfo.emailerror")%>');
             $("#emsg").css({
@@ -262,7 +278,19 @@
                 display: 'none'
             });
         }
-
+		if (!userType) {
+            $("#emsg").html('<%=__("registerinfo.userTypeError")%>');
+            $("#emsg").css({
+                color: 'red',
+                display: 'block'
+            });
+            return false;
+        } else {
+            $("#emsg").html('');
+            $("#emsg").css({
+                display: 'none'
+            });
+        }
 
         return true;
     }
@@ -271,49 +299,52 @@
             var email = $('[name=email]').val();
             var password = $('[name=password1]').val();
             var vcCode = $('[name=vcCode]').val();
-
+			var userName = $("input[type=radio]:checked").attr('id');
+			var userType = ((userName === "radio-1") ? 1 : (userName === "radio-2") ? 2 : 3);
+			console.log("userType: " + userType);
+			
             if (!verifyForm()) return;
+			console.log("you're here, Ben!");
             $.ajax({
                 type: 'post',
                 url: '/users/register',
                 data: {email: email, password: password, vcCode: vcCode},
                 success: function (data) {
-                    console.log(data);
 	                if(data.success == true){
+						if(userType!=1){
+							bootbox.confirm({
+								buttons: {
+									confirm: {
+										label: '<%=__('button.confirm')%>',
+										className: 'btn-myStyle'
+									},
+									cancel: {
+										label:  '<%=__('button.cancel')%>',
+										className: 'btn-default'
+									}
+								},
+								message: '<%=__('registerinfo.message')%>',
+								callback: function(result) {
+									console.log(result);
+									if(result){
+										$.ajax({
+											type: 'post',
+											url: '/users/regToSession',
+											data: {userId: data.uid,username:email},
+											success:function(data){
+												console.log(data);
+												window.location.href='users/toBasicAuth'; //why is this used to callback up to controller? Post doesn't seem to enable switching views
+											},error:function(data){
 
-		                bootbox.confirm({
-			                buttons: {
-				                confirm: {
-					                label: '<%=__('button.confirm')%>',
-					                className: 'btn-myStyle'
-				                },
-				                cancel: {
-					                label:  '<%=__('button.cancel')%>',
-					                className: 'btn-default'
-				                }
-			                },
-			                message: '<%=__('registerinfo.message')%>',
-			                callback: function(result) {
-				                console.log(result);
-				                if(result){
-					                $.ajax({
-						                type: 'post',
-						                url: '/users/regToSession',
-						                data: {userId: data.uid,username:email},
-						                success:function(data){
-							                console.log(data);
-							                window.location.href='users/toBasicAuth';
-						                },error:function(data){
+											}
 
-						                }
-
-					                })
-				                }else{
-					                window.location.href= '/';
-				                }
-			                }
-		                });
-
+										})
+									}else{
+										window.location.href= '/';
+									}
+								}
+							});
+						}
 
 
 	                }else{

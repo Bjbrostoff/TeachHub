@@ -17,6 +17,7 @@ var agencyredMod = new agencySchemaDBmodel.Schema("agencyred").model;
 var uuid = require('node-uuid');
 var async = require('async');
 var i18n = require('i18n');
+//0 is a student, 1 is a teacher, 2 is an agency, 3 is audit, 4 is admin
 exports.center = function(req, res){
     var usertype = req.session.user.usertype;
     var lang = i18n.getLocale() == 'en'?'en':'cn';

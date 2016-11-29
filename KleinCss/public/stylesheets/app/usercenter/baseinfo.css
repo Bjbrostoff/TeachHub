@@ -676,6 +676,14 @@ select[multiple].input-lg {
         font-size: 12px;
     }
 }
+.registerFields{
+	margin-top:7px;
+	margin-bottom: 7px;
+}
+#radio-1, #radio-2, #radio-3{
+	margin-left: 5px;
+	margin-right: 5px;
+}
 .btn {
     display: inline-block;
     padding: 6px 12px;

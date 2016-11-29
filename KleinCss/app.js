@@ -67,7 +67,7 @@ app.on('close', function(error) {
 
   })
 });
-i18n.configure({
+i18n.configure({ //sets up global variables using i18n package
   // setup some locales - other locales default to en silently
   locales: ['en', 'cn'],
   // you may alter a site wide default locale

@@ -11,16 +11,15 @@ var courseMod = new courseSchemaDBModel.Schema('course').model;
 var indexUtil = require("../util/index");
 var i18n =  require("i18n");
 var config=require('../config/config');
+var json = indexUtil.indexjson();
+var recomteachersArr = indexUtil.recomTeachers();
+var recomcoursesArr = indexUtil.recomCourses();
+var recomagenciesArr = indexUtil.recomAgencies();
 
 exports.index = function(req, res, next){
-    var lang = i18n.getLocale() == 'en'?'en':'cn';
+    var lang = i18n.getLocale() === 'en'?'en':'cn';
     i18n.setLocale(lang);
     req.session.locale = lang;
-
-    var json = indexUtil.indexjson();
-    var recomteachersArr = indexUtil.recomTeachers();
-    var recomcoursesArr = indexUtil.recomCourses();
-    var recomagenciesArr = indexUtil.recomAgencies();
 
     if (recomteachersArr.length < 1||recomcoursesArr.length < 1){
         var sorttagt = {'likes':-1};
@@ -157,43 +156,29 @@ exports.index = function(req, res, next){
                                     recomagenciesArr.push(model);
                                 }
                             })
-                        var sinfo = {};
-                        if (req.session){
-                            sinfo = {
-                                user:req.session.user
-                            }
-                        }
-                        res.render("index", {
-                            title:"Teach Hub",
-                            page:"index",
-                            login:"login",
-                            language:req.session.language,
-                            sessinfo:sinfo,
-                            courses:recomcoursesArr,
-                            users:json.users,
-                            teachers:recomteachersArr,
-                            agencies:recomagenciesArr
-                        });
+                        indexRender(req,res);
                     })
             })
     }else{
-        var sinfo = {};
-        if (req.session){
-            sinfo = {
-                user:req.session.user
-            }
-        }
-        res.render("index", {
-            title:"Teach Hub",
-            page:"index",
-            login:"login",
-            sessinfo:sinfo,
-            language:req.session.language,
-            courses:recomcoursesArr,
-            users:json.users,
-            teachers:recomteachersArr,
-            agencies:recomagenciesArr
-        });
+        indexRender(req,res);
     }
-
+	function indexRender(req, res){
+		var sinfo = {};
+		if (req.session){
+			sinfo = {
+				user:req.session.user
+			}
+		}
+		res.render("index", {
+			title:"Teach Hub",
+			page:"index",
+			login:"login",
+			language:req.session.language,
+			sessinfo:sinfo,
+			courses:recomcoursesArr,
+			users:json.users,
+			teachers:recomteachersArr,
+			agencies:recomagenciesArr
+		});
+	}
 }

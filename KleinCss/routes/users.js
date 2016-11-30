@@ -46,7 +46,7 @@ router.get('/info', userCenterCtrl.info);
 router.get('/leftMenu', userCenterCtrl.leftMenu);
 
 //跳转到基础认证信息 lcc
-router.get('/toBasicAuth',userCtlr.toBasicAuth);
+router.get('/toBasicAuth/:userType',userCtlr.toBasicAuth);
 
 //文件上传 lcc
 router.post('/fileUpload',userCtlr.fileUpload);

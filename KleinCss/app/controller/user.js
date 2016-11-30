@@ -156,15 +156,16 @@ exports.fileUpload = function(req,res,next) {
 }
 
 exports.toBasicAuth = function(req,res,next) {
-	var userId = req.body.userId;
+/* 	var userId = req.body.userId;
 	console.log("this is the user id before it becomes 1" + userId); //always returns 1
 	userId = 1; //why bother registering userID? This doesn't seem like it can affect the request?
-	console.log("after setting to one: " + req.body.userId);
+	console.log("after setting to one: " + req.body.userId); */
+	console.log("userType:" + req.params);
 	res.render("register/basicAuth", {
 		title:"认证",
 		page:"index",
 		login:"login",
-		userType: req.body.ut,
+		userType: req.params.userType,
 		sessinfo:{}
 
 	});

@@ -108,7 +108,7 @@
 	            <div class="form-group">
 		            <div class="col-sm-3" style="text-align: right"><%=__("registerinfo.chooseType")%></div>
 		            <div class="col-sm-8 col-sm-offset-1">
-			            <input  style="    margin: 0 10px 0 51px;"  checked="true" type="radio" name="usertype" value="1"/>
+			            <input  style="    margin: 0 10px 0 51px;"  type="radio" name="usertype" value="1"/>
 			            <span> <%=__("registerinfo.teacher")%> </span>
 			            <input style="    margin: 0 10px 0 51px;"  type="radio" name="usertype" value="2"/>
 			            <span> <%=__("registerinfo.agencies")%> </span>
@@ -460,7 +460,8 @@
 <script src="/javascripts/verify.js"></script>
 <script src="/bootbox/bootbox.js" ></script>
 <script>
-	console.log("WOOOO: " + <%- JSON.stringify(userType) %>);
+	var pUserT = <%- JSON.stringify(userType) %>;
+	$("input[type='radio'][value=" + (pUserT-1) + "]").prop({checked: true});
 	var imageArr = new Array();
 	var imageArrxx = new Array();
     function uploadFile(i,tid){

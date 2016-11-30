@@ -333,9 +333,8 @@
 											data: {userId: data.uid,username:email},
 											success:function(data){
 												console.log(data);
-												window.location.href='users/toBasicAuth'; //why is this used to callback up to controller? Post doesn't seem to enable switching views
+												window.location.href='users/toBasicAuth/' + userType; //why is this used to callback up to controller? Post doesn't seem to enable switching views
 											},error:function(data){
-
 											}
 
 										})

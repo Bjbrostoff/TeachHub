@@ -20,7 +20,7 @@ exports.index = function(req, res, next){
     var lang = i18n.getLocale() === 'en'?'en':'cn';
     i18n.setLocale(lang);
     req.session.locale = lang;
-
+	console.log("step1");
     if (recomteachersArr.length < 1||recomcoursesArr.length < 1){
         var sorttagt = {'likes':-1};
         var sorttagc = {'comment':-1};
@@ -156,15 +156,19 @@ exports.index = function(req, res, next){
                                     recomagenciesArr.push(model);
                                 }
                             })
+							console.log("stp2");
                         indexRender(req,res);
                     })
-            })
+            });
     }else{
+		console.log("step3");
         indexRender(req,res);
     }
 	function indexRender(req, res){
+		console.log("step4");
 		var sinfo = {};
 		if (req.session){
+			console.log("step5");
 			sinfo = {
 				user:req.session.user
 			}

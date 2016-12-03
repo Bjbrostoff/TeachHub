@@ -323,7 +323,7 @@
 										className: 'btn-default'
 									}
 								},
-								message: '<%=__('registerinfo.message')%>',
+								message: '<%=__('registerinfo.TAmessage')%>',
 								callback: function(result) {
 									console.log(result);
 									if(result){
@@ -343,9 +343,39 @@
 									}
 								}
 							});
+						}else{
+							bootbox.confirm({
+								buttons: {
+									confirm: {
+										label: '<%=__('button.confirm')%>',
+										className: 'btn-myStyle'
+									},
+									cancel: {
+										label:  '<%=__('button.cancel')%>',
+										className: 'btn-default'
+									}
+								},
+								message: '<%=__('registerinfo.Smessage')%>',
+								callback: function(result) {
+									console.log(result);
+									if(result){
+										$.ajax({
+											type: 'post',
+											url: '/users/regToSession',
+											data: {userId: data.uid,username:email},
+											success:function(data){
+												console.log(data);
+												window.location.href='/'; //why is this used to callback up to controller? Post doesn't seem to enable switching views
+											},error:function(data){
+											}
+
+										})
+									}else{
+										window.location.href= '/';
+									}
+								}
+							});
 						}
-
-
 	                }else{
                         bootbox.alert(data.message);
 	                }

@@ -126,7 +126,9 @@ exports.fileUpload = function(req,res,next) {
 	if(!fs.existsSync( './public/files/')){
 		fs.mkdirSync( './public/files/');
 	}
-	form.parse(req).then(function(fields, files) { //dunno if this is good. 
+	console.log("step 1");
+/* 	form.parse(req).then(function(fields, files) { //dunno if this is good. 
+		console.log("i'm in then");
 		var filesTmp = JSON.stringify(files,null,2);
 		
 		var inputFile = files.file[0];
@@ -134,6 +136,7 @@ exports.fileUpload = function(req,res,next) {
 		var picUUID = uuid.v4();
 		var originalFileName =  inputFile.originalFilename.toLowerCase();
 		var arr = originalFileName.split(".");
+		console.log("step 2");
 		if(arr.length !== 2|| !isImage(arr[1]) ){
 			return res.json({code: 500, msg: "请上传正确格式的图片"});
 		}
@@ -141,6 +144,7 @@ exports.fileUpload = function(req,res,next) {
 		var dstPath = './public/files/' +  picUUID+"."+arr[1];
 		var fileName = 'files/' + picUUID+"."+arr[1];
 		//重命名为真实文件名 
+		console.log("step 3");
 		fs.rename(uploadedPath, dstPath).then(function(err) {
 			console.log('rename ok');
 			return res.json({code: 200, msg: {url: 'http://' + req.headers.host + '/' + fileName}});
@@ -152,7 +156,44 @@ exports.fileUpload = function(req,res,next) {
 	}).catch(function (err) {
       	console.log('parse error: ' + err);
 		return res.json({code: 500, msg: "parse fail"}); //no idea what the codes here do
-    });
+    }); */
+		form.parse(req, function(err, fields, files) {
+		var filesTmp = JSON.stringify(files,null,2);
+		console.log("I'm in parse callback");
+		
+		if(err){
+			console.log('parse error: ' + err);
+		} else {
+
+			var inputFile = files.file[0];
+			var uploadedPath = inputFile.path;
+			var picUUID = uuid.v4();
+			var originalFileName =  inputFile.originalFilename.toLowerCase();
+			var arr = originalFileName.split(".");
+			if(arr.length != 2|| !isImage(arr[1]) ){
+				res.json({code: 500, msg: "请上传正确格式的图片"});
+				return;
+			}
+
+			var dstPath = './public/files/' +  picUUID+"."+arr[1];
+			var fileName = 'files/' + picUUID+"."+arr[1];
+			//重命名为真实文件名
+			fs.rename(uploadedPath, dstPath, function(err) {
+				if(err){
+					console.log('rename error: ' + err);
+					res.json({code: 500, msg: "图片上传失败"});
+					return;
+				} else {
+					console.log('rename ok');
+					res.json({code: 200, msg: {url: 'http://' + req.headers.host + '/' + fileName}});
+				}
+			});
+
+		}
+
+
+
+	});
 }
 
 exports.toBasicAuth = function(req,res,next) {
@@ -238,7 +279,7 @@ exports.authenticate = function(req,res,next){
 
 	});
 
-	cremsgsMod.find({"userid":userid,"status":'1'}).then(function(collection) { //should be no return because we don't want someone proceeding without having full authentication, right?
+/* 	cremsgsMod.find({"userid":userid,"status":'1'}).then(function(collection) { //should be no return because we don't want someone proceeding without having full authentication, right?
 		console.log(collection);
 		if(collection.length === 0){
 			return entity.save().then(function (user) {
@@ -251,6 +292,26 @@ exports.authenticate = function(req,res,next){
 		}
 	}).catch(function (err){
 		return res.json({"code":202,"msg":"系统错误"});
+	}); */
+	cremsgsMod.find({"userid":userid,"status":'1'},function(err,collection) {
+		if(err){
+			res.json({"code":202,"msg":"系统错误"});
+		}else{
+			console.log(collection);
+			console.log("I'm in authenticate and just printed collection");
+			if(collection.length == 0){
+				entity.save(function (err, user) {
+					if(err){
+						res.json({'code':500,success:false});
+					}else{
+						res.json({'code':200,success:true});
+
+					}
+				});
+			}else{
+				res.json({"code":202,"msg":"您还有一条身份验证未被认证，请等待。"});
+			}
+		}
 	});
 }
 
